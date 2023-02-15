@@ -2,13 +2,9 @@ module Api
   module V1
     class CharitiesController < ApplicationController
       def index
-        @charities = Charity.filter_by(filtering_params)
-      end
+        @charities = Charity.filter(params.slice(:name, :sector, :city, :rating))
 
-      private
-
-      def filtering_params
-        params.slice(*Charity.filter_scopes)
+        render json: CharitySerializer.new(@charities).serialized_json
       end
     end
   end
