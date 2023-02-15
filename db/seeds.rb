@@ -40,4 +40,5 @@ sectors.each do |sector|
   end
 end
 
+Charity.create!(@charities)
 puts "Saved #{@charities.count} charities to database."
