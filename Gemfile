@@ -14,6 +14,8 @@ gem "puma", "~> 5.0"
 
 gem "fast_jsonapi"
 
+gem 'will_paginate'
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
