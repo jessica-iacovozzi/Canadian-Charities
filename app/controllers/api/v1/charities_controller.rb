@@ -6,7 +6,7 @@ module Api
 
         if params['sort'] == '-rating'
           attr = 'rating'
-          @charities = @charities.sort_by { |h| -h[attr.to_sym] unless h.includes('NR') }.reverse
+          @charities = @charities.sort_by { |h| -h[attr.to_sym] }.reverse.excluding(@charities.where(rating: 'NR'))
         elsif params['sort']&.include?('-')
           attr = params['sort'].sub('-', '')
           @charities = @charities.sort_by { |h| -h[attr.to_sym] }.reverse
