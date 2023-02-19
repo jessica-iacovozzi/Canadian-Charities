@@ -4,7 +4,10 @@ module Api
       def index
         @charities = Charity.filter(params.slice(:name, :sector, :city, :rating, :slogan))
 
-        if params['sort']&.include?('-')
+        if params['sort'] == '-rating'
+          attr = 'rating'
+          @charities = @charities.sort_by { |h| -h[attr.to_sym] unless h.includes('NR') }.reverse
+        elsif params['sort']&.include?('-')
           attr = params['sort'].sub('-', '')
           @charities = @charities.sort_by { |h| -h[attr.to_sym] }.reverse
         elsif params['sort']
