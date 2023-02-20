@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  root 'pages#index'
+  root 'api/v1/charities#index'
 
   namespace :api do
     namespace :v1 do
-      resources :charities, only: [:index, :show]
+      resources :charities, only: %i[index show]
     end
   end
 end
