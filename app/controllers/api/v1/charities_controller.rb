@@ -1,37 +1,9 @@
 module Api
   module V1
     class CharitiesController < ApplicationController
-      include Orderable
-
-      has_scope :order_by_name
       def index
-        @charities = apply_scopes(Charity).order(ordering_params(params))
-        @charities = Charity.filter(params.slice(:name, :sector, :city, :slogan, :website, :rating,
-                                                 :grade, :demonstrated_impact, :cents_to_cause_ratio))
-        # grade_order = { '+' => 0, nil => 1, '-' => 2 }
-        # sort = params['sort']
-
-        # if sort == '-rating'
-        #   @charities = @charities.sort_by { |c| -c['rating'.to_sym] }.reverse.excluding(@charities.where(rating: 'NR'))
-        # elsif sort == 'grade'
-        #   @charities = @charities.sort_by { |c| [c['grade'.to_sym][0], grade_order[c['grade'.to_sym][1]]] }
-        # elsif sort == '-grade'
-        #   @charities = @charities.sort_by { |c| [c['grade'.to_sym][0], grade_order[c['grade'.to_sym][1]]] }.reverse.excluding(@charities.where(grade: 'NR'))
-        # elsif sort == 'cents_to_cause_ratio'
-        #   @charities = @charities.sort_by { |c| c['cents_to_cause_ratio'.to_sym].scan(/[\d-]+/).map(&:to_i) }
-        # elsif sort == '-cents_to_cause_ratio'
-        #   @charities = @charities.sort_by { |c| c['cents_to_cause_ratio'.to_sym].scan(/[\d-]+/).map(&:to_i) }.reverse
-        # elsif sort == 'demonstrated_impact'
-        #   @charities = @charities.in_order_of(:demonstrated_impact, %w[High Good Average Fair Low])
-        # elsif sort == '-demonstrated_impact'
-        #   @charities = @charities.in_order_of(:demonstrated_impact, %w[High Good Average Fair Low]).reverse
-        # elsif sort&.include?('-')
-        #   attr = sort.sub('-', '')
-        #   @charities = @charities.sort_by { |c| -c[attr.to_sym] }.reverse
-        # elsif sort
-        #   @charities = @charities.sort_by { |c| c[params['sort'].to_sym] }
-        # end
-
+        @charities = filter(Charity.all)
+        @charities = sort(@charities) if params['sort']
         page_num = params['page'] ? params['page'].to_i : 1
         @charities = @charities.paginate(page: page_num, per_page: 20)
 
@@ -39,6 +11,50 @@ module Api
       end
 
       private
+
+      def filter(scope)
+        params.slice(:name, :sector, :city, :slogan, :website, :rating, :grade, :demonstrated_impact, :cents_to_cause_ratio).each do |key, value|
+          scope = scope.where("#{key} LIKE ?", "%#{value}%") if value.present?
+        end
+        scope
+      end
+
+      def sort(scope)
+        grade_order = { '+' => 0, nil => 1, '-' => 2 }
+
+        sort_functions = {
+          '-name' => -> { scope.order(name: :desc) },
+          '-city' => -> { scope.order(city: :desc) },
+          '-sector' => -> { scope.order(sector: :desc) },
+          '-rating' => -> { scope.order(rating: :desc).where.not(rating: 'NR') },
+          '-website' => -> { scope.order(website: :desc) },
+          '-slogan' => -> { scope.order(slogan: :desc) },
+          'grade' => lambda {
+            scope.sort_by { |c| [c['grade'.to_sym][0], grade_order[c['grade'.to_sym][1]]] }
+          },
+          '-grade' => lambda {
+            scope.sort_by { |c| [c['grade'.to_sym][0], grade_order[c['grade'.to_sym][1]]] }
+                 .reverse.excluding(@charities.where(grade: 'NR'))
+          },
+          'cents_to_cause_ratio' => lambda {
+            scope.sort_by { |c| c['cents_to_cause_ratio'.to_sym].scan(/[\d-]+/).map(&:to_i) }
+          },
+          '-cents_to_cause_ratio' => lambda {
+            scope.sort_by { |c| c['cents_to_cause_ratio'.to_sym].scan(/[\d-]+/).map(&:to_i) }.reverse
+          },
+          'demonstrated_impact' => lambda {
+            scope.in_order_of(:demonstrated_impact, %w[High Good Average Fair Low])
+          },
+          '-demonstrated_impact' => lambda {
+            scope.in_order_of(:demonstrated_impact, %w[High Good Average Fair Low]).reverse
+          }
+        }
+
+        sort_function = sort_functions[params[:sort]]
+        sort_function = -> { scope.order(params[:sort]) } if sort_function.nil? && params[:sort]
+
+        sort_function.call || scope
+      end
 
       def meta_data(object)
         {
