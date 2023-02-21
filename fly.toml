@@ -3,7 +3,7 @@
 app = "canadian-charities"
 kill_signal = "SIGINT"
 kill_timeout = 5
-processes = []
+# processes = []
 
 [env]
 
@@ -13,7 +13,7 @@ processes = []
 [[services]]
   http_checks = []
   internal_port = 3000
-  processes = ["app"]
+# processes = ["app"]
   protocol = "tcp"
   script_checks = []
   [services.concurrency]
