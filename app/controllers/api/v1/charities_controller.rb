@@ -2,6 +2,7 @@ module Api
   module V1
     class CharitiesController < ApplicationController
       rescue_from ActiveRecord::UnknownAttributeReference, with: :show_errors
+      rescue_from ActiveRecord::StatementInvalid, with: :show_errors
 
       def index
         @charities = filter(Charity.all)
