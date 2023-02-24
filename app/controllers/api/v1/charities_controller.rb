@@ -1,6 +1,8 @@
 module Api
   module V1
     class CharitiesController < ApplicationController
+      rescue_from ActiveRecord::UnknownAttributeReference, with: :show_errors
+
       def index
         @charities = filter(Charity.all)
         @charities = sort(@charities) if params['sort']
@@ -13,8 +15,9 @@ module Api
       private
 
       def filter(scope)
-        params.slice(:name, :sector, :city, :slogan, :website, :rating, :grade, :demonstrated_impact, :cents_to_cause_ratio).each do |key, value|
-          scope = scope.where("#{key} LIKE ?", "%#{value}%") if value.present?
+        params.slice(:name, :sector, :city, :slogan, :website, :rating, :grade, :demonstrated_impact,
+                     :cents_to_cause_ratio).each do |key, value|
+          scope = scope.where("#{key} LIKE ?", "%#{value.capitalize}%") if value.present?
         end
         scope
       end
@@ -63,6 +66,10 @@ module Api
           total_pages: object.total_pages,
           total_count: object.total_entries
         }
+      end
+
+      def show_errors
+        render json: { status: 400 }
       end
     end
   end
