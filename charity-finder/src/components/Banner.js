@@ -26,12 +26,12 @@ function Banner() {
         </div>
       </nav>
 
-      <header class="masthead">
+      <header class="masthead shadow">
         <div class="container h-100">
           <div class="row h-100 align-items-center">
             <div class="col-12 text-center">
               <h1 class="fw-light">Not all charities are built the same</h1>
-              <p class="lead">Find a trustworthy charity in less than a minute!</p>
+              <p class="lead">Find a charity you can trust!</p>
             </div>
           </div>
         </div>

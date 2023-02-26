@@ -39,7 +39,7 @@
 
 .masthead {
   height: 100vh;
-  max-height: 500px;
+  max-height: 450px;
   background-image: url('https://images.unsplash.com/photo-1521193089946-7aa29d1fe776?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bGlnaHQlMjBiYWNrZ3JvdW5kfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=800&q=60');
   background-size: cover;
   background-position: center;

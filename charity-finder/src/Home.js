@@ -7,7 +7,10 @@ const API_URL = 'https://canadian-charities.fly.dev/api/v1/charities'
 
 function Home() {
   const [charities, setCharities] = useState([]);
-  const [pageCount, setpageCount] = useState(0);
+  // const [filteredCharities, setFilteredCharities] = useState(charities);
+  const [pageCount, setPageCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [sortingMethod, setSortingMethod] = useState();
 
   useEffect(() => {
     const getCharities = async () => {
@@ -17,41 +20,74 @@ function Home() {
       const data = await res.json();
       const pages = data.meta.total_pages;
       setCharities(data.data.data);
-      setpageCount(pages)
+      // setFilteredCharities(data.data.data);
+      setPageCount(pages);
     };
     getCharities();
   }, []);
 
-  const fetchCharities = async (currentPage) => {
+  const fetchCharities = async (currentPage, sort='name') => {
     const res = await fetch(
-      `${API_URL}?page=${currentPage}`
+      `${API_URL}?page=${currentPage + 1}&sort=${sort}`
     );
+    console.log(`${API_URL}?page=${currentPage + 1}&sort=${sort}`)
     const data = await res.json();
     return data.data.data;
   };
 
   const handlePageClick = async (data) => {
-    let currentPage = data.selected + 1
-    const charitiesFormServer = await fetchCharities(currentPage);
-    setCharities(charitiesFormServer)
+    let currentPage = data.selected;
+    const charitiesFormServer = await fetchCharities(currentPage, sortingMethod);
+    setCharities(charitiesFormServer);
+    setCurrentPage(currentPage);
     window.scrollTo(0,0);
+  };
+
+  const handleCharitySorting = async (data) => {
+    setCurrentPage(0);
+    let currentPage = 0;
+    let sortingMethod = data;
+    setSortingMethod(sortingMethod);
+    const charitiesFormServer = await fetchCharities(currentPage, sortingMethod);
+    setCharities(charitiesFormServer);
+    window.scrollTo({
+      top: 400,
+      left: 0,
+      behavior: 'smooth'
+    });
   };
 
   return (
     <div>
       <Banner />
+      <div className='row justify-content-center mt-4'>
+      <div className='col-2'>
+        <h3 className='text-center'>Filter charities by:</h3>
+        <select className='form-select mt-4' onChange={(e) => handleCharitySorting(e.target.value)}>
+          <option value="name">Name</option>
+          <option value="city">City</option>
+          <option value="sector">Sector</option>
+          <option value="rating">Rating</option>
+          <option value="grade">Grade</option>
+          <option value="demonstrated_impact">Impact</option>
+          <option value="cents_to_cause_ratio">Cents to cause</option>
+        </select>
+      </div>
+      </div>
 
       <div className="container">
         <div className='row m-3'>
           {charities.map((charity) => {
             return (
               <div key={charity.id} className='col-sm-6 v my-3'>
-                <div className='card shadow-sm w-100' style={{ minHeight: 345 }}>
-                  <div className='card-body'>
-                    <a href={`//${charity.attributes.website}`} target="_blank" className='text-decoration-none text-info'>
+                <div className='card shadow w-100' style={{ minHeight: 400 }}>
+                  <div className='card-body p-4'>
+                    <a href={`//${charity.attributes.website}`} rel="noreferrer" target="_blank" className='text-decoration-none text-info'>
                       <h5 className='card-title text-center h3'>{charity.attributes.name}</h5>
                     </a>
                       <h6 className='card-subtile text-center text-muted mb-2'>{charity.attributes.slogan}</h6>
+                      <p className='card-text'>City: {charity.attributes.city}</p>
+                      <p className='card-text'>Sector: {charity.attributes.sector}</p>
                       <p className='card-text'>Rating: {charity.attributes.rating}</p>
                       <p className='card-text'>Grade: {charity.attributes.grade}</p>
                       <p className='card-text'>Impact per dollar: {charity.attributes.demonstrated_impact}</p>
@@ -67,6 +103,7 @@ function Home() {
             nextLabel={'Next'}
             pageCount={pageCount}
             onPageChange={handlePageClick}
+            forcePage = {currentPage}
             containerClassName={'pagination justify-content-center mt-3'}
             pageClassName={'page-item'}
             pageLinkClassName={'page-link'}
