@@ -32,6 +32,8 @@ function Home() {
     );
     console.log(`${API_URL}?page=${currentPage + 1}&sort=${sort}`)
     const data = await res.json();
+    const pages = data.meta.total_pages;
+    setPageCount(pages);
     return data.data.data;
   };
 
