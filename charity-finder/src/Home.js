@@ -64,7 +64,7 @@ function Home() {
       <Banner />
       <div className='row justify-content-center mt-4'>
       <div className='col-2'>
-        <h3 className='text-center'>Filter charities by:</h3>
+        <h3 className='text-center order-title'>Order charities by</h3>
         <select className='form-select mt-4' onChange={(e) => handleCharitySorting(e.target.value)}>
           <option value="name">Name</option>
           <option value="city">City</option>
