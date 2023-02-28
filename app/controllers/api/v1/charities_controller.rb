@@ -18,7 +18,7 @@ module Api
       def filter(scope)
         params.slice(:name, :sector, :city, :slogan, :website, :rating, :grade, :demonstrated_impact,
                      :cents_to_cause_ratio).each do |key, value|
-          scope = scope.where("#{key} LIKE ?", "%#{value.capitalize}%") if value.present?
+          scope = scope.where("#{key} ILIKE ?", "%#{value}%") if value.present?
         end
         scope
       end

@@ -13,6 +13,7 @@ function Home() {
   const [currentPage, setCurrentPage] = useState(0);
   const [sortingMethod, setSortingMethod] = useState();
   const [attributes, setAttributes] = useState([]);
+  const [city, setCity] = useState();
   // const [filteredCharities, setFilteredCharities] = useState(charities);
 
   useEffect(() => {
@@ -46,11 +47,11 @@ function Home() {
     getCharities();
   }, []);
 
-  const fetchCharities = async (currentPage, sort='name') => {
+  const fetchCharities = async (currentPage, sort='name', city=null) => {
     const res = await fetch(
-      `${API_URL}?page=${currentPage + 1}&sort=${sort}`
+      `${API_URL}?page=${currentPage + 1}&sort=${sort}&city=${city}`
     );
-    console.log(`${API_URL}?page=${currentPage + 1}&sort=${sort}`)
+    console.log(`${API_URL}?page=${currentPage + 1}&sort=${sort}&city=${city}`)
     const data = await res.json();
     const pages = data.meta.total_pages;
     setPageCount(pages);
@@ -59,10 +60,14 @@ function Home() {
 
   const handlePageClick = async (data) => {
     let currentPage = data.selected;
-    const charitiesFormServer = await fetchCharities(currentPage, sortingMethod);
+    const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city);
     setCharities(charitiesFormServer);
     setCurrentPage(currentPage);
-    window.scrollTo(0,0);
+    window.scrollTo({
+      top: 400,
+      left: 0,
+      behavior: 'smooth'
+    });
   };
 
   const handleCharitySorting = async (data) => {
@@ -70,7 +75,7 @@ function Home() {
     let currentPage = 0;
     let sortingMethod = data;
     setSortingMethod(sortingMethod);
-    const charitiesFormServer = await fetchCharities(currentPage, sortingMethod);
+    const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city);
     setCharities(charitiesFormServer);
     window.scrollTo({
       top: 400,
@@ -79,7 +84,22 @@ function Home() {
     });
   };
 
-  const cities = [...new Set(attributes.map((charity) => charity.attributes.city.split(',')[0].trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '')))].sort();
+    const handleCityFilter = async (data) => {
+      setCurrentPage(0);
+      let currentPage = 0;
+      let city = data;
+      setCity(city);
+      console.log(city);
+      const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city);
+      setCharities(charitiesFormServer);
+      window.scrollTo({
+        top: 400,
+        left: 0,
+        behavior: 'smooth'
+      });
+  };
+
+  const cities = [...new Set(attributes.map((charity) => charity.attributes.city.split(',')[0].trim()))].sort();
 
   return (
     <div>
@@ -102,7 +122,7 @@ function Home() {
       <div className='row justify-content-center mt-4'>
         <div className='col-2'>
           <h3 className='text-center order-title'>Filter charities by</h3>
-          <select className='form-select mt-4'>
+          <select className='form-select mt-4' onChange={(e) => handleCityFilter(e.target.value)}>
             <option id='city' defaultValue='city'>City</option>
             {cities.map((city) => {
               return (
