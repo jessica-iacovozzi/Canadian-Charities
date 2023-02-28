@@ -61,3 +61,16 @@
 #   charity.save!
 #   puts "Charity #{index + 1} updated"
 # end
+
+DIACRITICS = [*0x1DC0..0x1DFF, *0x0300..0x036F, *0xFE20..0xFE2F].pack('U*')
+def removeaccents(str)
+  str
+    .unicode_normalize(:nfd)
+    .tr(DIACRITICS, '')
+    .unicode_normalize(:nfc)
+end
+
+Charity.all.each do |c|
+  c.city = removeaccents(c.city)
+  c.save!
+end

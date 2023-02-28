@@ -30,7 +30,8 @@ module Api
           '-name' => -> { scope.order(name: :desc) },
           '-city' => -> { scope.order(city: :desc) },
           '-sector' => -> { scope.order(sector: :desc) },
-          '-rating' => -> { scope.order(rating: :desc).where.not(rating: 'NR') },
+          '-rating' => -> { scope.order(rating: :asc).where.not(rating: 'NR') },
+          'rating' => -> { scope.order(rating: :desc).where.not(rating: 'NR') },
           '-website' => -> { scope.order(website: :desc) },
           '-slogan' => -> { scope.order(slogan: :desc) },
           'grade' => lambda {
@@ -40,10 +41,10 @@ module Api
             scope.sort_by { |c| [c['grade'.to_sym][0], grade_order[c['grade'.to_sym][1]]] }
                  .reverse.excluding(@charities.where(grade: 'NR'))
           },
-          'cents_to_cause_ratio' => lambda {
+          '-cents_to_cause_ratio' => lambda {
             scope.sort_by { |c| c['cents_to_cause_ratio'.to_sym].scan(/[\d-]+/).map(&:to_i) }
           },
-          '-cents_to_cause_ratio' => lambda {
+          'cents_to_cause_ratio' => lambda {
             scope.sort_by { |c| c['cents_to_cause_ratio'.to_sym].scan(/[\d-]+/).map(&:to_i) }.reverse
           },
           'demonstrated_impact' => lambda {
