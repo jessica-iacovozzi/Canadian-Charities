@@ -1,18 +1,38 @@
 import './App.css';
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import Banner from './components/Banner';
+import Footer from './components/Footer';
 
 const API_URL = 'https://canadian-charities.fly.dev/api/v1/charities'
 
 function Home() {
   const [charities, setCharities] = useState([]);
-  // const [filteredCharities, setFilteredCharities] = useState(charities);
   const [pageCount, setPageCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
   const [sortingMethod, setSortingMethod] = useState();
+  const [attributes, setAttributes] = useState([]);
+  // const [filteredCharities, setFilteredCharities] = useState(charities);
 
   useEffect(() => {
+    const getAttributes = async () => {
+      let results = [];
+
+      for (let page = 1; ; page++) {
+        const repo = await axios.get(`${API_URL}?page=${page}`);
+
+        results = results.concat(repo.data.data.data);
+
+        if (page > repo.data.meta.total_pages) {
+          break;
+        }
+      }
+
+      setAttributes(results);
+    };
+    getAttributes();
+
     const getCharities = async () => {
       const res = await fetch(
         `${API_URL}?sort=name`
@@ -59,22 +79,38 @@ function Home() {
     });
   };
 
+  const cities = [...new Set(attributes.map((charity) => charity.attributes.city.split(',')[0].trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '')))].sort();
+
   return (
     <div>
       <Banner />
       <div className='row justify-content-center mt-4'>
-      <div className='col-2'>
-        <h3 className='text-center order-title'>Order charities by</h3>
-        <select className='form-select mt-4' onChange={(e) => handleCharitySorting(e.target.value)}>
-          <option value="name">Name</option>
-          <option value="city">City</option>
-          <option value="sector">Sector</option>
-          <option value="rating">Rating</option>
-          <option value="grade">Grade</option>
-          <option value="demonstrated_impact">Impact</option>
-          <option value="cents_to_cause_ratio">Cents to cause</option>
-        </select>
+        <div className='col-2'>
+          <h3 className='text-center order-title'>Order charities by</h3>
+          <select className='form-select mt-4' onChange={(e) => handleCharitySorting(e.target.value)}>
+            <option value="name">Name</option>
+            <option value="city">City</option>
+            <option value="sector">Sector</option>
+            <option value="rating">Rating</option>
+            <option value="grade">Grade</option>
+            <option value="demonstrated_impact">Impact</option>
+            <option value="cents_to_cause_ratio">Cents to cause</option>
+          </select>
+        </div>
       </div>
+
+      <div className='row justify-content-center mt-4'>
+        <div className='col-2'>
+          <h3 className='text-center order-title'>Filter charities by</h3>
+          <select className='form-select mt-4'>
+            <option id='city' defaultValue='city'>City</option>
+            {cities.map((city) => {
+              return (
+                <option value={city}>{city}</option>
+              )
+            })}
+          </select>
+        </div>
       </div>
 
       <div className="container">
@@ -119,6 +155,7 @@ function Home() {
           />
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
