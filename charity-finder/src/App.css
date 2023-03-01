@@ -37,26 +37,27 @@
   }
 }
 
-.masthead {
-  height: 100vh;
-  max-height: 450px;
-  background-image: url('https://images.unsplash.com/photo-1521193089946-7aa29d1fe776?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bGlnaHQlMjBiYWNrZ3JvdW5kfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=800&q=60');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+.text-red {
+  color: #BD1E2C;
+  font-weight: bold;
 }
 
-.fw-light {
-  font-weight: 500!important;
-  margin-top: 40px;
-  font-size: xxx-large;
+.red-bg {
+  background-color: #BD1E2C;
+  color: white;
+  font-size: 18px;
 }
 
-.lead {
-  font-size: 1.5rem;
-  font-weight: 400;
+.col-2 {
+  flex: 0 0 auto;
+  width: auto;
 }
 
-.order-title {
-  font-size: 1.6rem;
+.muli {
+  font-family: Muli;
+}
+
+.pagination {
+  margin-top: 54px;
+  justify-content: center;
 }
