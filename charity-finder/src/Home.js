@@ -16,6 +16,7 @@ function Home() {
   const [attributes, setAttributes] = useState([]);
   const [city, setCity] = useState();
   const [sector, setSector] = useState();
+  // const [searchInput, setSearchInput] = useState("");
 
   useEffect(() => {
     const getAttributes = async () => {
@@ -64,7 +65,7 @@ function Home() {
     setCharities(charitiesFormServer);
     setCurrentPage(currentPage);
     window.scrollTo({
-      top: 855,
+      top: 800,
       left: 0,
       behavior: 'smooth'
     });
@@ -78,7 +79,7 @@ function Home() {
     const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city, sector);
     setCharities(charitiesFormServer);
     window.scrollTo({
-      top: 660,
+      top: 600,
       left: 0,
       behavior: 'smooth'
     });
@@ -93,7 +94,7 @@ function Home() {
     const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city, sector);
     setCharities(charitiesFormServer);
     window.scrollTo({
-      top: 660,
+      top: 600,
       left: 0,
       behavior: 'smooth'
     });
@@ -108,11 +109,23 @@ function Home() {
     const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city, sector);
     setCharities(charitiesFormServer);
     window.scrollTo({
-      top: 660,
+      top: 600,
       left: 0,
       behavior: 'smooth'
     });
   };
+
+  // const handleSearch = (e) => {
+  //   e.preventDefault();
+  //   setSearchInput(e.target.value);
+  //   if (searchInput.length > 0) {
+  //       let filteredCharities = attributes.filter((charity) => {
+  //       return charity.attributes.name.match(searchInput);
+  //     });
+  //     setCharities(filteredCharities);
+  //   }
+  // };
+
 
   const cities = [...new Set(attributes.map((charity) => charity.attributes.city.split(',')[0].trim()))].sort();
   const sectors = [...new Set(attributes.map((charity) => charity.attributes.sector.split('-')[0].trim()))].sort();
@@ -124,7 +137,7 @@ function Home() {
         <div className='row justify-content-center my-4'>
           <div className='col-2'>
             <h4 className='text-center order-title muli'>Filter by city</h4>
-            <select className='form-select mt-4 mb-2 muli' onChange={(e) => handleCityFilter(e.target.value)}>
+            <select style={{width: '215px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleCityFilter(e.target.value)}>
               <option value=''>City</option>
               {cities.map((city) => {
                 return (
@@ -138,7 +151,7 @@ function Home() {
         <div className='row justify-content-center my-4'>
           <div className='col-2'>
             <h4 className='text-center order-title muli'>Filter by sector</h4>
-            <select className='form-select mt-4 mb-2 muli' onChange={(e) => handleSectorFilter(e.target.value)}>
+            <select style={{width: '215px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleSectorFilter(e.target.value)}>
               <option value=''>Sector</option>
               {sectors.map((sector) => {
                 return (
@@ -152,7 +165,7 @@ function Home() {
         <div className='row justify-content-center my-4'>
           <div className='col-2'>
             <h4 className='text-center order-title muli'>Order by</h4>
-            <select className='form-select mt-4 mb-2 muli' onChange={(e) => handleCharitySorting(e.target.value)}>
+            <select style={{width: '215px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleCharitySorting(e.target.value)}>
               <option value="name">Name</option>
               <option value="city">City</option>
               <option value="sector">Sector</option>
@@ -163,6 +176,12 @@ function Home() {
             </select>
           </div>
         </div>
+
+        {/* <input
+          type="search"
+          placeholder="Search here"
+          onChange={handleSearch}
+          value={searchInput} /> */}
       </div>
 
       <div className="container-xxl">

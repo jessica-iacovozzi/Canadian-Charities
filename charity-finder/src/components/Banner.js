@@ -35,7 +35,7 @@ function Banner() {
             <h1 class="display-5 fw-bold lh-1 mb-3">Not all charities are built the same</h1>
             <p class="lead">Find one you can trust.</p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-              <button onClick={() => {window.scrollTo({ top: 660, left: 0, behavior: 'smooth' })}} type="button" class="btn btn-lg px-4 me-md-2 red-bg">Get started</button>
+              <button onClick={() => {window.scrollTo({ top: 600, left: 0, behavior: 'smooth' })}} type="button" class="btn btn-lg px-4 me-md-2 red-bg">Get started</button>
             </div>
           </div>
         </div>
