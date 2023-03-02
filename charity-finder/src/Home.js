@@ -110,7 +110,7 @@ export function Home() {
         <div className='row justify-content-center my-4'>
           <div className='col-2'>
             <h4 className='text-center order-title muli'>Filter by city</h4>
-            <select style={{width: '215px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleCityFilter(e.target.value)}>
+            <select style={{width: '240px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleCityFilter(e.target.value)}>
               <option value=''>All cities</option>
               {cities.map((city) => {
                 return (
@@ -124,7 +124,7 @@ export function Home() {
         <div className='row justify-content-center my-4'>
           <div className='col-2'>
             <h4 className='text-center order-title muli'>Filter by sector</h4>
-            <select style={{width: '215px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleSectorFilter(e.target.value)}>
+            <select style={{width: '240px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleSectorFilter(e.target.value)}>
               <option value=''>All sectors</option>
               {sectors.map((sector) => {
                 return (
@@ -138,7 +138,7 @@ export function Home() {
         <div className='row justify-content-center my-4'>
           <div className='col-2'>
             <h4 className='text-center order-title muli'>Sort by</h4>
-            <select style={{width: '215px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleCharitySorting(e.target.value)}>
+            <select style={{width: '240px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleCharitySorting(e.target.value)}>
               <option value="name">Name</option>
               <option value="city">City</option>
               <option value="sector">Sector</option>
