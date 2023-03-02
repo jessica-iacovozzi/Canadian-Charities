@@ -5,10 +5,13 @@ import ReactPaginate from 'react-paginate';
 import Banner from './components/Banner';
 import Footer from './components/Footer';
 import { MDBTooltip } from 'mdb-react-ui-kit';
+import { BsInfoCircle } from 'react-icons/bs';
+import { RxPinTop } from 'react-icons/rx';
+import SearchBar from './components/SearchBar';
 
-const API_URL = 'https://canadian-charities.fly.dev/api/v1/charities'
+export const API_URL = 'https://canadian-charities.fly.dev/api/v1/charities'
 
-function Home() {
+export function Home() {
   const [charities, setCharities] = useState([]);
   const [pageCount, setPageCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
@@ -16,7 +19,6 @@ function Home() {
   const [attributes, setAttributes] = useState([]);
   const [city, setCity] = useState();
   const [sector, setSector] = useState();
-  // const [searchInput, setSearchInput] = useState("");
 
   useEffect(() => {
     const getAttributes = async () => {
@@ -64,11 +66,7 @@ function Home() {
     const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city, sector);
     setCharities(charitiesFormServer);
     setCurrentPage(currentPage);
-    window.scrollTo({
-      top: 800,
-      left: 0,
-      behavior: 'smooth'
-    });
+    scrollToTop(600)
   };
 
   const handleCharitySorting = async (data) => {
@@ -78,11 +76,7 @@ function Home() {
     setSortingMethod(sortingMethod);
     const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city, sector);
     setCharities(charitiesFormServer);
-    window.scrollTo({
-      top: 600,
-      left: 0,
-      behavior: 'smooth'
-    });
+    scrollToTop(600)
   };
 
   const handleCityFilter = async (data) => {
@@ -90,14 +84,9 @@ function Home() {
     let currentPage = 0;
     let city = data;
     setCity(city);
-    console.log(city);
     const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city, sector);
     setCharities(charitiesFormServer);
-    window.scrollTo({
-      top: 600,
-      left: 0,
-      behavior: 'smooth'
-    });
+    scrollToTop(600)
   };
 
   const handleSectorFilter = async (data) => {
@@ -105,27 +94,10 @@ function Home() {
     let currentPage = 0;
     let sector = data;
     setSector(sector);
-    console.log(sector);
     const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city, sector);
     setCharities(charitiesFormServer);
-    window.scrollTo({
-      top: 600,
-      left: 0,
-      behavior: 'smooth'
-    });
+    scrollToTop(600)
   };
-
-  // const handleSearch = (e) => {
-  //   e.preventDefault();
-  //   setSearchInput(e.target.value);
-  //   if (searchInput.length > 0) {
-  //       let filteredCharities = attributes.filter((charity) => {
-  //       return charity.attributes.name.match(searchInput);
-  //     });
-  //     setCharities(filteredCharities);
-  //   }
-  // };
-
 
   const cities = [...new Set(attributes.map((charity) => charity.attributes.city.split(',')[0].trim()))].sort();
   const sectors = [...new Set(attributes.map((charity) => charity.attributes.sector.split('-')[0].trim()))].sort();
@@ -133,12 +105,13 @@ function Home() {
   return (
     <div>
       <Banner />
-      <div className='red-bg py-3 d-flex justify-content-evenly'>
+      <div style={{marginBottom: "100px"}} className='red-bg py-3 d-flex justify-content-evenly position-relative'>
+      <SearchBar placeholder="Type a charity name" data={attributes} setCharities={setCharities}/>
         <div className='row justify-content-center my-4'>
           <div className='col-2'>
             <h4 className='text-center order-title muli'>Filter by city</h4>
             <select style={{width: '215px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleCityFilter(e.target.value)}>
-              <option value=''>City</option>
+              <option value=''>All cities</option>
               {cities.map((city) => {
                 return (
                   <option value={city}>{city}</option>
@@ -152,7 +125,7 @@ function Home() {
           <div className='col-2'>
             <h4 className='text-center order-title muli'>Filter by sector</h4>
             <select style={{width: '215px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleSectorFilter(e.target.value)}>
-              <option value=''>Sector</option>
+              <option value=''>All sectors</option>
               {sectors.map((sector) => {
                 return (
                   <option value={sector}>{sector}</option>
@@ -164,7 +137,7 @@ function Home() {
 
         <div className='row justify-content-center my-4'>
           <div className='col-2'>
-            <h4 className='text-center order-title muli'>Order by</h4>
+            <h4 className='text-center order-title muli'>Sort by</h4>
             <select style={{width: '215px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleCharitySorting(e.target.value)}>
               <option value="name">Name</option>
               <option value="city">City</option>
@@ -176,20 +149,13 @@ function Home() {
             </select>
           </div>
         </div>
-
-        {/* <input
-          type="search"
-          placeholder="Search here"
-          onChange={handleSearch}
-          value={searchInput} /> */}
       </div>
-
       <div className="container-xxl">
-        <div className='row m-3 d-flex justify-content-evenly'>
+        <div className='row mx-5 d-flex justify-content-evenly'>
           {charities.map((charity) => {
             return (
               <div key={charity.id} className='col-6 v my-3'>
-                <div className='card shadow w-100 h-100 red-bg mt-5'>
+                <div className='card shadow w-100 h-100 red-bg'>
                   <div className='card-body p-5 muli d-flex flex-column'>
                     <div>
                       <a href={`//${charity.attributes.website}`} rel="noreferrer" target="_blank" className='text-decoration-none text-info'>
@@ -201,15 +167,15 @@ function Home() {
                       <p className='card-text'>City: {charity.attributes.city}</p>
                       <p className='card-text'>Sector: {charity.attributes.sector}</p>
                       <MDBTooltip tag='p' placement="left" title="Rating is based on financial transparency, need for funding, grade, impact per dollar and cents to cause ratio.">
-                        Rating: {charity.attributes.rating}<br></br>
+                        <BsInfoCircle /> Rating: {charity.attributes.rating}<br></br>
                       </MDBTooltip>
                       <MDBTooltip tag='p' placement="left" title="Grade is based on the charity's public reporting of the work it does and the results it achieves.">
-                        Grade: {charity.attributes.grade}<br></br>
+                        <BsInfoCircle /> Grade: {charity.attributes.grade}<br></br>
                       </MDBTooltip>
                       <MDBTooltip tag='p' placement="left" title="Impact per dollar is calculated from available program information.">
-                        Impact per dollar: {charity.attributes.demonstrated_impact}
+                        <BsInfoCircle /> Impact per dollar: {charity.attributes.demonstrated_impact}
                       </MDBTooltip>
-                      <p className='card-text'>{charity.attributes.cents_to_cause_ratio} of every dollar donated available for programs, after overhead costs of fundraising and admin/management (excluding surplus).</p>
+                      <p className='card-text'>{charity.attributes.cents_to_cause_ratio} of every dollar donated is available for programs, after overhead costs of fundraising and admin/management (excluding surplus).</p>
                     </div>
                   </div>
                 </div>
@@ -238,9 +204,16 @@ function Home() {
           activeClassName={'active'}
         />
       </div>
+        <RxPinTop onClick={() => {scrollToTop(600)}} style={{fontSize: '30px', color: 'grey', marginLeft: '90%'}}/>
       <Footer />
     </div>
   );
 }
 
-export default Home;
+export const scrollToTop = (value) => {
+  window.scrollTo({
+    top: value,
+    left: 0,
+    behavior: 'smooth'
+  })
+};

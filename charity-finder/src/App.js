@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import Home from './Home'
+import { Home } from './Home'
 import NotFound from './components/NotFound'
 
 class App extends Component {

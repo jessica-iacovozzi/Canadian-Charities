@@ -60,4 +60,17 @@
 .pagination {
   margin-top: 54px;
   justify-content: center;
+  align-items: center;
+  --bs-pagination-color: #BD1E2C;
+  --bs-pagination-hover-color: #BD1E2C;
+  --bs-pagination-focus-color: #BD1E2C;
+  --bs-pagination-active-bg: #BD1E2C;
+  --bs-pagination-active-border-color: #BD1E2C;
+  --bs-pagination-hover-border-color: #b1b1b1;
+  --bs-pagination-focus-bg: #b1b1b1;
+}
+
+.centered {
+  display: flex;
+  align-items: center;
 }
