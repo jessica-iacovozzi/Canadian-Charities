@@ -99,6 +99,16 @@ export function Home() {
     scrollToTop(600)
   };
 
+  const resetCharities = async () => {
+    document.getElementById('sorting').selectedIndex = 0;
+    document.getElementById('city').selectedIndex = 0;
+    document.getElementById('sector').selectedIndex = 0;
+    const charitiesFormServer = await fetchCharities(0, 'name', '', '');
+    setCharities(charitiesFormServer);
+    setPageCount(41);
+    scrollToTop(600)
+  };
+
   const cities = [...new Set(attributes.map((charity) => charity.attributes.city.split(',')[0].trim()))].sort();
   const sectors = [...new Set(attributes.map((charity) => charity.attributes.sector.split('-')[0].trim()))].sort();
 
@@ -110,7 +120,7 @@ export function Home() {
         <div className='row justify-content-center my-4'>
           <div className='col-2'>
             <h4 className='text-center order-title muli'>Filter by city</h4>
-            <select style={{width: '240px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleCityFilter(e.target.value)}>
+            <select id='city' style={{width: '240px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleCityFilter(e.target.value)}>
               <option value=''>All cities</option>
               {cities.map((city) => {
                 return (
@@ -124,7 +134,7 @@ export function Home() {
         <div className='row justify-content-center my-4'>
           <div className='col-2'>
             <h4 className='text-center order-title muli'>Filter by sector</h4>
-            <select style={{width: '240px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleSectorFilter(e.target.value)}>
+            <select id='sector' style={{width: '240px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleSectorFilter(e.target.value)}>
               <option value=''>All sectors</option>
               {sectors.map((sector) => {
                 return (
@@ -138,15 +148,20 @@ export function Home() {
         <div className='row justify-content-center my-4'>
           <div className='col-2'>
             <h4 className='text-center order-title muli'>Sort by</h4>
-            <select style={{width: '240px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleCharitySorting(e.target.value)}>
+            <select id='sorting' style={{width: '240px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleCharitySorting(e.target.value)}>
               <option value="name">Name</option>
               <option value="city">City</option>
               <option value="sector">Sector</option>
               <option value="rating">Rating</option>
               <option value="grade">Grade</option>
-              <option value="demonstrated_impact">Impact</option>
+              {/* <option value="demonstrated_impact">Impact</option> */}
               <option value="cents_to_cause_ratio">Cents to cause</option>
             </select>
+          </div>
+        </div>
+        <div className='row justify-content-center my-4'>
+          <div className='col-2'>
+          <button onClick={() => {resetCharities()}} type="button" class="btn btn-lg mt-4 mb-2 muli bg-light reset-btn">RESET</button>
           </div>
         </div>
       </div>

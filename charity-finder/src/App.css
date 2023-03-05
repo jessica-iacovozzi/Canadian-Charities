@@ -81,3 +81,25 @@
   position: relative;
   bottom: 2px;
 }
+
+.banner-btn:hover {
+  box-shadow: 4px 4px 4px 3px rgba(0, 0, 0, 0.3);
+  background-color: #BD1E2C;
+  color: white;
+  transition: 0.2s ease-in;
+}
+
+.reset-btn {
+  color:#BD1E2C;
+  width:120px;
+  font-weight: bold;
+  font-style: italic;
+
+}
+
+.reset-btn:hover {
+  box-shadow: 4px 4px 4px 3px rgba(0, 0, 0, 0.3);
+  background-color: white;
+  color: #BD1E2C;
+  transition: 0.2s ease-in;
+}
