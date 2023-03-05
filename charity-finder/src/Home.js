@@ -66,7 +66,7 @@ export function Home() {
     const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city, sector);
     setCharities(charitiesFormServer);
     setCurrentPage(currentPage);
-    scrollToTop(600)
+    scrollToTop(820)
   };
 
   const handleCharitySorting = async (data) => {
@@ -106,7 +106,7 @@ export function Home() {
     <div>
       <Banner />
       <div style={{marginBottom: "100px"}} className='red-bg py-3 d-flex justify-content-evenly position-relative'>
-      <SearchBar placeholder="Type a charity name" data={attributes} setCharities={setCharities}/>
+      <SearchBar placeholder="Type a charity name" data={attributes} setCharities={setCharities} setPageCount={setPageCount} />
         <div className='row justify-content-center my-4'>
           <div className='col-2'>
             <h4 className='text-center order-title muli'>Filter by city</h4>
@@ -166,15 +166,21 @@ export function Home() {
                     <div>
                       <p className='card-text'>City: {charity.attributes.city}</p>
                       <p className='card-text'>Sector: {charity.attributes.sector}</p>
-                      <MDBTooltip tag='p' placement="left" title="Rating is based on financial transparency, need for funding, grade, impact per dollar and cents to cause ratio.">
-                        <BsInfoCircle /> Rating: {charity.attributes.rating}<br></br>
-                      </MDBTooltip>
-                      <MDBTooltip tag='p' placement="left" title="Grade is based on the charity's public reporting of the work it does and the results it achieves.">
-                        <BsInfoCircle /> Grade: {charity.attributes.grade}<br></br>
-                      </MDBTooltip>
-                      <MDBTooltip tag='p' placement="left" title="Impact per dollar is calculated from available program information.">
-                        <BsInfoCircle /> Impact per dollar: {charity.attributes.demonstrated_impact}
-                      </MDBTooltip>
+                      <div className='d-flex align-items-center'>
+                        <MDBTooltip tag='p' placement="bottom" title="Rating is based on financial transparency, need for funding, grade, impact per dollar and cents to cause ratio.">
+                          <BsInfoCircle className='svg' />Rating: {charity.attributes.rating}
+                        </MDBTooltip>
+                      </div>
+                      <div className='d-flex align-items-center'>
+                        <MDBTooltip tag='p' placement="bottom" title="Grade is based on the charity's public reporting of the work it does and the results it achieves.">
+                          <BsInfoCircle className='svg' />Grade: {charity.attributes.grade}
+                        </MDBTooltip>
+                      </div>
+                      <div className='d-flex align-items-center'>
+                        <MDBTooltip tag='p' placement="bottom" title="Impact per dollar is calculated from available program information.">
+                          <BsInfoCircle className='svg' />Impact per dollar: {charity.attributes.demonstrated_impact}
+                        </MDBTooltip>
+                      </div>
                       <p className='card-text'>{charity.attributes.cents_to_cause_ratio} of every dollar donated is available for programs, after overhead costs of fundraising and admin/management (excluding surplus).</p>
                     </div>
                   </div>

@@ -74,3 +74,10 @@
   display: flex;
   align-items: center;
 }
+
+.svg {
+  margin-right: 5px;
+  font-size: 16px;
+  position: relative;
+  bottom: 2px;
+}
