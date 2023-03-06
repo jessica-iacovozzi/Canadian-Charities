@@ -103,6 +103,9 @@ export function Home() {
     document.getElementById('sorting').selectedIndex = 0;
     document.getElementById('city').selectedIndex = 0;
     document.getElementById('sector').selectedIndex = 0;
+    setSector('');
+    setCity('');
+    setSortingMethod('name');
     const charitiesFormServer = await fetchCharities(0, 'name', '', '');
     setCharities(charitiesFormServer);
     setPageCount(41);
