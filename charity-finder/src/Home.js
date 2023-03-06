@@ -8,6 +8,7 @@ import { MDBTooltip } from 'mdb-react-ui-kit';
 import { BsInfoCircle } from 'react-icons/bs';
 import { RxPinTop } from 'react-icons/rx';
 import SearchBar from './components/SearchBar';
+import { useAutoAnimate } from '@formkit/auto-animate/react'
 
 export const API_URL = 'https://canadian-charities.fly.dev/api/v1/charities'
 
@@ -115,6 +116,8 @@ export function Home() {
   const cities = [...new Set(attributes.map((charity) => charity.attributes.city.split(',')[0].trim()))].sort();
   const sectors = [...new Set(attributes.map((charity) => charity.attributes.sector.split('-')[0].trim()))].sort();
 
+  const [listRef] = useAutoAnimate();
+
   return (
     <div>
       <Banner />
@@ -169,7 +172,7 @@ export function Home() {
         </div>
       </div>
       <div className="container">
-        <div id='charities' className='row d-flex justify-content-evenly'>
+        <div ref={listRef} id='charities' className='row d-flex justify-content-evenly'>
           {charities.map((charity) => {
             return (
               <div key={charity.id} className='col-12 col-lg-6 v my-3'>

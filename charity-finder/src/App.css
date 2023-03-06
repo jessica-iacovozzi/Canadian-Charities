@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,6 +35,11 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+html,body{
+  overflow-x: hidden;
+  background-color: rgb(255, 254, 251);
 }
 
 @media screen and (min-width:1200px) {
