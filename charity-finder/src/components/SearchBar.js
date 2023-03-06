@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./SearchBar.css";
-import { API_URL, scrollToTop } from "../Home";
+import { API_URL, scrollTo } from "../Home";
 
 export default function SearchBar({ placeholder, data, setCharities, setPageCount }) {
   // eslint-disable-next-line no-unused-vars
@@ -32,7 +32,7 @@ export default function SearchBar({ placeholder, data, setCharities, setPageCoun
     setCharities([charity.data.data[0]]);
     setPageCount(1);
     setFilteredData([]);
-    scrollToTop(820);
+    scrollTo("charities");
     setInputValue('');
   };
 

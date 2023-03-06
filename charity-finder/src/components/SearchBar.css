@@ -34,10 +34,6 @@ input:focus {
   top: 75%;
 }
 
-/* .dataResults::-webkit-scrollbar {
-  display: none;
-} */
-
 .dataResults .dataItem {
   width: 100%;
   height: 50px;
@@ -59,4 +55,23 @@ input:focus {
 
 #clearBtn {
   cursor: pointer;
+}
+
+@media screen and (max-width:1200px) {
+  .searchInputs {
+    width: 240px;
+  }
+  .dataResults {
+    margin-top: 5px;
+    width: 240px;
+    max-height: 135px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    overflow: hidden;
+    overflow-y: auto;
+    border-radius: 10px;
+    color: #212529;
+    position: absolute;
+    top: 20%;
+  }
 }

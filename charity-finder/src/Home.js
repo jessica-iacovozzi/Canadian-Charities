@@ -66,7 +66,7 @@ export function Home() {
     const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city, sector);
     setCharities(charitiesFormServer);
     setCurrentPage(currentPage);
-    scrollToTop(820)
+    scrollTo("charities")
   };
 
   const handleCharitySorting = async (data) => {
@@ -76,7 +76,7 @@ export function Home() {
     setSortingMethod(sortingMethod);
     const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city, sector);
     setCharities(charitiesFormServer);
-    scrollToTop(600)
+    scrollTo("filter-bar")
   };
 
   const handleCityFilter = async (data) => {
@@ -86,7 +86,7 @@ export function Home() {
     setCity(city);
     const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city, sector);
     setCharities(charitiesFormServer);
-    scrollToTop(600)
+    scrollTo("filter-bar")
   };
 
   const handleSectorFilter = async (data) => {
@@ -96,7 +96,7 @@ export function Home() {
     setSector(sector);
     const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city, sector);
     setCharities(charitiesFormServer);
-    scrollToTop(600)
+    scrollTo("filter-bar")
   };
 
   const resetCharities = async () => {
@@ -106,7 +106,7 @@ export function Home() {
     const charitiesFormServer = await fetchCharities(0, 'name', '', '');
     setCharities(charitiesFormServer);
     setPageCount(41);
-    scrollToTop(600)
+    scrollTo("filter-bar")
   };
 
   const cities = [...new Set(attributes.map((charity) => charity.attributes.city.split(',')[0].trim()))].sort();
@@ -115,9 +115,9 @@ export function Home() {
   return (
     <div>
       <Banner />
-      <div style={{marginBottom: "100px"}} className='red-bg py-3 d-flex justify-content-evenly position-relative'>
+      <div id='filter-bar' className='red-bg py-3 position-relative'>
       <SearchBar placeholder="Type a charity name" data={attributes} setCharities={setCharities} setPageCount={setPageCount} />
-        <div className='row justify-content-center my-4'>
+        <div id='city-bar' className='row justify-content-center my-4'>
           <div className='col-2'>
             <h4 className='text-center order-title muli'>Filter by city</h4>
             <select id='city' style={{width: '240px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleCityFilter(e.target.value)}>
@@ -165,11 +165,11 @@ export function Home() {
           </div>
         </div>
       </div>
-      <div className="container-xxl">
-        <div className='row mx-5 d-flex justify-content-evenly'>
+      <div className="container">
+        <div id='charities' className='row d-flex justify-content-evenly'>
           {charities.map((charity) => {
             return (
-              <div key={charity.id} className='col-6 v my-3'>
+              <div key={charity.id} className='col-12 col-lg-6 v my-3'>
                 <div className='card shadow w-100 h-100 red-bg'>
                   <div className='card-body p-5 muli d-flex flex-column'>
                     <div>
@@ -215,6 +215,7 @@ export function Home() {
           forcePage = {currentPage}
           containerClassName={'pagination justify-content-center mt-3'}
           pageClassName={'page-item'}
+          marginPagesDisplayed={2}
           pageLinkClassName={'page-link'}
           previousClassName={'page-item'}
           previousLinkClassName={'page-link'}
@@ -225,16 +226,13 @@ export function Home() {
           activeClassName={'active'}
         />
       </div>
-        <RxPinTop onClick={() => {scrollToTop(600)}} style={{fontSize: '30px', color: 'grey', marginLeft: '90%'}}/>
+        <RxPinTop onClick={() => {scrollTo("charities")}} style={{fontSize: '30px', color: 'grey', marginLeft: '90%'}}/>
       <Footer />
     </div>
   );
 }
 
-export const scrollToTop = (value) => {
-  window.scrollTo({
-    top: value,
-    left: 0,
-    behavior: 'smooth'
-  })
+export const scrollTo = (value) => {
+  const element = document.getElementById(value);
+  element.scrollIntoView();
 };

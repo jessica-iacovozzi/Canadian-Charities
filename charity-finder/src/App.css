@@ -37,6 +37,53 @@
   }
 }
 
+@media screen and (min-width:1200px) {
+  #filter-bar {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 100px;
+  }
+}
+
+@media screen and (max-width:1200px) {
+  #city-bar {
+    margin-top: 0!important;
+  }
+  #charities {
+    margin: 10px;
+  }
+}
+@media screen and (max-width:991px) {
+  body {
+    font-size: 14px;
+  }
+  #world {
+    display: none;
+  }
+  .col-lg-6 h1 {
+    margin-top: 60px;
+  }
+  #filter-bar {
+    display: block;
+  }
+  #banner {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  #charities .card-body {
+    padding: 30px!important;
+  }
+}
+
+@media screen and (max-width:440px) {
+  .pagination {
+    margin-top: 10px!important;
+  }
+}
+
 .text-red {
   color: #BD1E2C;
   font-weight: bold;
@@ -102,4 +149,12 @@
   background-color: white;
   color: #BD1E2C;
   transition: 0.2s ease-in;
+}
+
+#filter-bar {
+  scroll-margin: 70px;
+}
+
+#charities {
+  scroll-margin: 70px;
 }
