@@ -50,14 +50,17 @@ html,body{
   }
 }
 
-@media screen and (max-width:1200px) {
+/* @media screen and (max-width:1200px) {
   #city-bar {
     margin-top: 0!important;
   }
   #charities {
     margin: 10px;
   }
-}
+  #banner {
+    min-height: 85vh;
+  }
+} */
 @media screen and (max-width:991px) {
   body {
     font-size: 14px;
@@ -80,6 +83,15 @@ html,body{
   }
   #charities .card-body {
     padding: 30px!important;
+  }
+  /* #city-bar {
+    margin-top: 0!important;
+  } */
+  #charities {
+    margin: 10px;
+  }
+  #banner {
+    min-height: 85vh;
   }
 }
 
@@ -125,6 +137,10 @@ html,body{
 .centered {
   display: flex;
   align-items: center;
+}
+
+.slogan {
+  font-size: 1.5rem;
 }
 
 .svg {

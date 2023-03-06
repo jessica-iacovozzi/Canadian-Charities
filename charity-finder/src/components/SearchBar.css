@@ -31,7 +31,7 @@ input:focus {
   border-radius: 10px;
   color: #212529;
   position: absolute;
-  top: 75%;
+  top: 80%;
 }
 
 .dataResults .dataItem {
@@ -71,7 +71,9 @@ input:focus {
     overflow-y: auto;
     border-radius: 10px;
     color: #212529;
-    position: absolute;
-    top: 20%;
+    position: relative;
+  }
+  .search {
+    justify-content: flex-end;
   }
 }

@@ -2,6 +2,7 @@ import './App.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
+import Navbar from './components/Navbar';
 import Banner from './components/Banner';
 import Footer from './components/Footer';
 import { MDBTooltip } from 'mdb-react-ui-kit';
@@ -9,6 +10,7 @@ import { BsInfoCircle } from 'react-icons/bs';
 import { RxPinTop } from 'react-icons/rx';
 import SearchBar from './components/SearchBar';
 import { useAutoAnimate } from '@formkit/auto-animate/react'
+import { Fade, Zoom } from "react-awesome-reveal";
 
 export const API_URL = 'https://canadian-charities.fly.dev/api/v1/charities'
 
@@ -120,56 +122,59 @@ export function Home() {
 
   return (
     <div>
+      <Navbar />
       <Banner />
       <div id='filter-bar' className='red-bg py-3 position-relative'>
-      <SearchBar placeholder="Type a charity name" data={attributes} setCharities={setCharities} setPageCount={setPageCount} />
-        <div id='city-bar' className='row justify-content-center my-4'>
-          <div className='col-2'>
-            <h4 className='text-center order-title muli'>Filter by city</h4>
-            <select id='city' style={{width: '240px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleCityFilter(e.target.value)}>
-              <option value=''>All cities</option>
-              {cities.map((city) => {
-                return (
-                  <option value={city}>{city}</option>
-                )
-              })}
-            </select>
+      <Zoom cascade triggerOnce duration={800} damping={0.3} fraction={0.1}>
+        <SearchBar placeholder="Type a charity name" data={attributes} setCharities={setCharities} setPageCount={setPageCount} />
+          <div id='city-bar' className='row justify-content-center my-4'>
+            <div className='col-2'>
+              <h4 className='text-center order-title muli'>Filter by city</h4>
+              <select id='city' style={{width: '240px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleCityFilter(e.target.value)}>
+                <option value=''>All cities</option>
+                {cities.map((city) => {
+                  return (
+                    <option value={city}>{city}</option>
+                  )
+                })}
+              </select>
+            </div>
           </div>
-        </div>
 
-        <div className='row justify-content-center my-4'>
-          <div className='col-2'>
-            <h4 className='text-center order-title muli'>Filter by sector</h4>
-            <select id='sector' style={{width: '240px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleSectorFilter(e.target.value)}>
-              <option value=''>All sectors</option>
-              {sectors.map((sector) => {
-                return (
-                  <option value={sector}>{sector}</option>
-                )
-              })}
-            </select>
+          <div className='row justify-content-center my-4'>
+            <div className='col-2'>
+              <h4 className='text-center order-title muli'>Filter by sector</h4>
+              <select id='sector' style={{width: '240px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleSectorFilter(e.target.value)}>
+                <option value=''>All sectors</option>
+                {sectors.map((sector) => {
+                  return (
+                    <option value={sector}>{sector}</option>
+                  )
+                })}
+              </select>
+            </div>
           </div>
-        </div>
 
-        <div className='row justify-content-center my-4'>
-          <div className='col-2'>
-            <h4 className='text-center order-title muli'>Sort by</h4>
-            <select id='sorting' style={{width: '240px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleCharitySorting(e.target.value)}>
-              <option value="name">Name</option>
-              <option value="city">City</option>
-              <option value="sector">Sector</option>
-              <option value="rating">Rating</option>
-              <option value="grade">Grade</option>
-              {/* <option value="demonstrated_impact">Impact</option> */}
-              <option value="cents_to_cause_ratio">Cents to cause</option>
-            </select>
+          <div className='row justify-content-center my-4'>
+            <div className='col-2'>
+              <h4 className='text-center order-title muli'>Sort by</h4>
+              <select id='sorting' style={{width: '240px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleCharitySorting(e.target.value)}>
+                <option value="name">Name</option>
+                <option value="city">City</option>
+                <option value="sector">Sector</option>
+                <option value="rating">Rating</option>
+                <option value="grade">Grade</option>
+                {/* <option value="demonstrated_impact">Impact</option> */}
+                <option value="cents_to_cause_ratio">Cents to cause</option>
+              </select>
+            </div>
           </div>
-        </div>
-        <div className='row justify-content-center my-4'>
-          <div className='col-2'>
-          <button onClick={() => {resetCharities()}} type="button" class="btn btn-lg mt-4 mb-2 muli bg-light reset-btn">RESET</button>
+          <div className='row justify-content-center my-4'>
+            <div className='col-2'>
+            <button onClick={() => {resetCharities()}} type="button" class="btn btn-lg mt-4 mb-2 muli bg-light reset-btn">RESET</button>
+            </div>
           </div>
-        </div>
+        </Zoom>
       </div>
       <div className="container">
         <div ref={listRef} id='charities' className='row d-flex justify-content-evenly'>
@@ -177,34 +182,36 @@ export function Home() {
             return (
               <div key={charity.id} className='col-12 col-lg-6 v my-3'>
                 <div className='card shadow w-100 h-100 red-bg'>
-                  <div className='card-body p-5 muli d-flex flex-column'>
-                    <div>
-                      <a href={`//${charity.attributes.website}`} rel="noreferrer" target="_blank" className='text-decoration-none text-info'>
-                        <h5 className='card-title text-center h2 font-weight-bold text-white'>{charity.attributes.name}</h5>
-                      </a>
-                      <h5 className='card-subtile text-center h5 text-white mb-4'>{charity.attributes.slogan}</h5>
+                  <Fade duration={2000} triggerOnce>
+                    <div className='card-body p-5 muli d-flex flex-column'>
+                      <div>
+                        <a href={`//${charity.attributes.website}`} rel="noreferrer" target="_blank" className='text-decoration-none text-info'>
+                          <h5 className='card-title text-center h2 font-weight-bold text-white'>{charity.attributes.name}</h5>
+                        </a>
+                        <h5 className='card-subtile text-center h5 text-white mb-4'>{charity.attributes.slogan}</h5>
+                      </div>
+                      <div>
+                        <p className='card-text'>City: {charity.attributes.city}</p>
+                        <p className='card-text'>Sector: {charity.attributes.sector}</p>
+                        <div className='d-flex align-items-center'>
+                          <MDBTooltip tag='p' placement="bottom" title="Rating is based on financial transparency, need for funding, grade, impact per dollar and cents to cause ratio.">
+                            <BsInfoCircle className='svg' />Rating: {charity.attributes.rating}
+                          </MDBTooltip>
+                        </div>
+                        <div className='d-flex align-items-center'>
+                          <MDBTooltip tag='p' placement="bottom" title="Grade is based on the charity's public reporting of the work it does and the results it achieves.">
+                            <BsInfoCircle className='svg' />Grade: {charity.attributes.grade}
+                          </MDBTooltip>
+                        </div>
+                        <div className='d-flex align-items-center'>
+                          <MDBTooltip tag='p' placement="bottom" title="Impact per dollar is calculated from available program information.">
+                            <BsInfoCircle className='svg' />Impact per dollar: {charity.attributes.demonstrated_impact}
+                          </MDBTooltip>
+                        </div>
+                        <p className='card-text'>{charity.attributes.cents_to_cause_ratio} of every dollar donated is available for programs, after overhead costs of fundraising and admin/management (excluding surplus).</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className='card-text'>City: {charity.attributes.city}</p>
-                      <p className='card-text'>Sector: {charity.attributes.sector}</p>
-                      <div className='d-flex align-items-center'>
-                        <MDBTooltip tag='p' placement="bottom" title="Rating is based on financial transparency, need for funding, grade, impact per dollar and cents to cause ratio.">
-                          <BsInfoCircle className='svg' />Rating: {charity.attributes.rating}
-                        </MDBTooltip>
-                      </div>
-                      <div className='d-flex align-items-center'>
-                        <MDBTooltip tag='p' placement="bottom" title="Grade is based on the charity's public reporting of the work it does and the results it achieves.">
-                          <BsInfoCircle className='svg' />Grade: {charity.attributes.grade}
-                        </MDBTooltip>
-                      </div>
-                      <div className='d-flex align-items-center'>
-                        <MDBTooltip tag='p' placement="bottom" title="Impact per dollar is calculated from available program information.">
-                          <BsInfoCircle className='svg' />Impact per dollar: {charity.attributes.demonstrated_impact}
-                        </MDBTooltip>
-                      </div>
-                      <p className='card-text'>{charity.attributes.cents_to_cause_ratio} of every dollar donated is available for programs, after overhead costs of fundraising and admin/management (excluding surplus).</p>
-                    </div>
-                  </div>
+                  </Fade>
                 </div>
               </div>
             )
@@ -240,5 +247,5 @@ export function Home() {
 
 export const scrollTo = (value) => {
   const element = document.getElementById(value);
-  element.scrollIntoView();
+  element.scrollIntoView({ block: 'start', behavior: "smooth"});
 };
