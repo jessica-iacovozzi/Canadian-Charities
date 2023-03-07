@@ -5,7 +5,7 @@ import { Fade, Roll, Rotate } from "react-awesome-reveal";
 
 function Banner() {
   return(
-    <div className='container'>
+    <div id='banner-img' >
       <div className="container pt-5">
         <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
           <div id='world' className="col-10 col-sm-8 col-lg-6">

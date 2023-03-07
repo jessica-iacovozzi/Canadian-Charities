@@ -1,42 +1,3 @@
-/* .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
-
 html,body{
   overflow-x: hidden;
   background-color: rgb(255, 250, 244);
@@ -51,17 +12,12 @@ html,body{
   }
 }
 
-/* @media screen and (max-width:1200px) {
-  #city-bar {
-    margin-top: 0!important;
+@media screen and (max-width:1024px) {
+  #filter-bar > div {
+    flex-basis: 50%;
   }
-  #charities {
-    margin: 10px;
-  }
-  #banner {
-    min-height: 85vh;
-  }
-} */
+}
+
 @media screen and (max-width:991px) {
   body {
     font-size: 14px;
@@ -71,9 +27,6 @@ html,body{
   }
   .col-lg-6 h1 {
     margin-top: 60px;
-  }
-  #filter-bar {
-    display: block;
   }
   #banner {
     text-align: center;
@@ -85,14 +38,17 @@ html,body{
   #charities .card-body {
     padding: 30px!important;
   }
-  /* #city-bar {
-    margin-top: 0!important;
-  } */
   #charities {
     margin: 10px;
   }
   #banner {
     min-height: 80vh;
+  }
+  #banner-img {
+    background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url('hands-heart-transparent.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
   }
 }
 
@@ -173,6 +129,9 @@ html,body{
 
 #filter-bar {
   scroll-margin: 70px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 #charities {

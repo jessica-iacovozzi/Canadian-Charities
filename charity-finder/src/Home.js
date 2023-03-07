@@ -124,10 +124,10 @@ export function Home() {
     <div>
       <Navbar />
       <Banner />
-      <div id='filter-bar' className='red-bg py-3 position-relative'>
+      <div id='filter-bar' className='red-bg p-3 position-relative'>
       <Zoom cascade triggerOnce duration={800} damping={0.3} fraction={0.3}>
         <SearchBar placeholder="Type a charity name" data={attributes} setCharities={setCharities} setPageCount={setPageCount} />
-          <div id='city-bar' className='row justify-content-center my-4'>
+          <div id='city-bar' className='row justify-content-center my-4 mx-2'>
             <div className='col-2'>
               <h4 className='text-center order-title muli'>Filter by city</h4>
               <select id='city' style={{width: '240px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleCityFilter(e.target.value)}>
@@ -141,7 +141,7 @@ export function Home() {
             </div>
           </div>
 
-          <div className='row justify-content-center my-4'>
+          <div className='row justify-content-center my-4 mx-2'>
             <div className='col-2'>
               <h4 className='text-center order-title muli'>Filter by sector</h4>
               <select id='sector' style={{width: '240px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleSectorFilter(e.target.value)}>
@@ -155,7 +155,7 @@ export function Home() {
             </div>
           </div>
 
-          <div className='row justify-content-center my-4'>
+          <div className='row justify-content-center my-4 mx-2'>
             <div className='col-2'>
               <h4 className='text-center order-title muli'>Sort by</h4>
               <select id='sorting' style={{width: '240px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleCharitySorting(e.target.value)}>
@@ -169,7 +169,7 @@ export function Home() {
               </select>
             </div>
           </div>
-          <div className='row justify-content-center my-4'>
+          <div className='row justify-content-center my-4 mx-2'>
             <div className='col-2'>
             <button onClick={() => {resetCharities()}} type="button" class="btn btn-lg mt-4 mb-2 muli bg-light reset-btn">Reset</button>
             </div>

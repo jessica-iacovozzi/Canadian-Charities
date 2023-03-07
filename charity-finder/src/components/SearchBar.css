@@ -8,6 +8,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 0 12px;
 }
 
 .search input {
@@ -73,6 +74,9 @@ input:focus {
     color: #212529;
     position: relative;
   }
+}
+
+@media screen and (max-width:591px) {
   .search {
     justify-content: flex-end;
   }
