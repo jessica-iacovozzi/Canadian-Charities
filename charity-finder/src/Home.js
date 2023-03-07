@@ -10,7 +10,7 @@ import { BsInfoCircle } from 'react-icons/bs';
 import { RxPinTop } from 'react-icons/rx';
 import SearchBar from './components/SearchBar';
 import { useAutoAnimate } from '@formkit/auto-animate/react'
-import { Fade, Zoom } from "react-awesome-reveal";
+import { Zoom } from "react-awesome-reveal";
 
 export const API_URL = 'https://canadian-charities.fly.dev/api/v1/charities'
 
@@ -125,7 +125,7 @@ export function Home() {
       <Navbar />
       <Banner />
       <div id='filter-bar' className='red-bg py-3 position-relative'>
-      <Zoom cascade triggerOnce duration={800} damping={0.3} fraction={0.1}>
+      <Zoom cascade triggerOnce duration={800} damping={0.3} fraction={0.3}>
         <SearchBar placeholder="Type a charity name" data={attributes} setCharities={setCharities} setPageCount={setPageCount} />
           <div id='city-bar' className='row justify-content-center my-4'>
             <div className='col-2'>
@@ -182,7 +182,7 @@ export function Home() {
             return (
               <div key={charity.id} className='col-12 col-lg-6 v my-3'>
                 <div className='card shadow w-100 h-100 red-bg'>
-                  <Fade duration={2000} triggerOnce>
+                  {/* <Fade duration={2000} triggerOnce> */}
                     <div className='card-body p-5 muli d-flex flex-column'>
                       <div>
                         <a href={`//${charity.attributes.website}`} rel="noreferrer" target="_blank" className='text-decoration-none text-info'>
@@ -211,7 +211,7 @@ export function Home() {
                         <p className='card-text'>{charity.attributes.cents_to_cause_ratio} of every dollar donated is available for programs, after overhead costs of fundraising and admin/management (excluding surplus).</p>
                       </div>
                     </div>
-                  </Fade>
+                  {/* </Fade> */}
                 </div>
               </div>
             )

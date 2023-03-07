@@ -40,6 +40,7 @@
 html,body{
   overflow-x: hidden;
   background-color: rgb(255, 254, 251);
+  scroll-behavior: smooth;
 }
 
 @media screen and (min-width:1200px) {
