@@ -37,7 +37,7 @@ export default function SearchBar({ placeholder, data, setCharities, setPageCoun
   };
 
   return (
-    <div className="mx-2">
+    <div className="mx-2 mb-4">
       <div style={{height: "145px"}} className="search">
         <h4 className="text-center order-title muli mb-0">Search by name</h4>
         <div className="searchInputs mh-100">
