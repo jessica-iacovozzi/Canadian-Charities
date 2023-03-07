@@ -125,7 +125,7 @@ export function Home() {
       <Navbar />
       <Banner />
       <div id='filter-bar' className='red-bg p-3 position-relative'>
-      <Zoom cascade triggerOnce duration={800} damping={0.3} fraction={0.3}>
+      <Zoom cascade triggerOnce duration={800} damping={0.3}>
         <SearchBar placeholder="Type a charity name" data={attributes} setCharities={setCharities} setPageCount={setPageCount} />
           <div id='city-bar' className='row justify-content-center my-4 mx-2'>
             <div className='col-2'>

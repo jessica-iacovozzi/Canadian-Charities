@@ -18,12 +18,23 @@ html,body{
   }
 }
 
+@media screen and (min-width:991px) {
+  #arrow {
+    display: none;
+  }
+}
 @media screen and (max-width:991px) {
   body {
     font-size: 14px;
   }
   #world {
     display: none;
+  }
+  #get-started {
+    display: none;
+  }
+  #arrow {
+    display: block;
   }
   .col-lg-6 h1 {
     margin-top: 60px;

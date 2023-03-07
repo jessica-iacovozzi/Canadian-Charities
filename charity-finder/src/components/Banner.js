@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
 import { scrollTo } from '../Home';
-import { Fade, Roll, Rotate } from "react-awesome-reveal";
+import { Fade, Roll, Rotate, Zoom } from "react-awesome-reveal";
 
 function Banner() {
   return(
@@ -22,9 +22,12 @@ function Banner() {
             </Fade>
             <Fade triggerOnce delay={900} duration={1500}>
               <div className="d-grid gap-2 d-md-flex justify-content-md-start">
-                  <button onClick={() => {scrollTo("filter-bar")}} type="button" class="btn btn-lg px-4 me-md-2 red-bg banner-btn">Get started</button>
+                  <button id='get-started' onClick={() => {scrollTo("filter-bar")}} type="button" class="btn btn-lg px-4 me-md-2 red-bg banner-btn">Get started</button>
               </div>
             </Fade>
+            <Zoom triggerOnce delay={1200}>
+            <img style={{height: '10vh'}} id='arrow' src={require('../red-arrow-transparent.png')} alt="Arrow" />
+            </Zoom>
           </div>
         </div>
       </div>
