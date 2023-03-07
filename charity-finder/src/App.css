@@ -2,6 +2,7 @@ html,body{
   overflow-x: hidden;
   background-color: rgb(255, 250, 244);
   scroll-behavior: smooth;
+  min-height: 100vh;
 }
 
 @media screen and (min-width:1200px) {
@@ -67,6 +68,11 @@ html,body{
   .pagination {
     margin-top: 10px!important;
   }
+  .soup {
+    width: 100%;
+    height: 20vh;
+    object-fit: cover;
+  }
 }
 
 .text-red {
@@ -119,10 +125,8 @@ html,body{
 }
 
 .banner-btn:hover {
-  box-shadow: 4px 4px 4px 3px rgba(0, 0, 0, 0.3);
   background-color: #BD1E2C;
   color: white;
-  transition: 0.2s ease-in;
 }
 
 .reset-btn {
@@ -132,10 +136,8 @@ html,body{
 }
 
 .reset-btn:hover {
-  box-shadow: 4px 4px 4px 3px rgba(0, 0, 0, 0.3);
   background-color: white;
   color: #BD1E2C;
-  transition: 0.2s ease-in;
 }
 
 #filter-bar {
@@ -147,4 +149,22 @@ html,body{
 
 #charities {
   scroll-margin: 70px;
+}
+
+.card:hover {
+  transition: all .3s ease-in-out;
+  transform: scale(1.03);
+  border: black solid 3px;
+}
+
+.btn:hover {
+  transition: all .2s ease-in-out;
+  transform: scale(1.03);
+  box-shadow: 3px 2px 2px 1px rgba(0, 0, 0, 0.3);
+}
+
+.nav:hover {
+  transition: all .3s ease-in-out;
+  transform: scale(1.1);
+  letter-spacing: 8px;
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import '../App.css';
 
 function Navbar() {
-return (
+  return (
     <nav className="navbar navbar-expand red-bg shadow fixed-top">
       <div className="container py-2">
         <a className="navbar-brand text-white gothic" href="/">Charity Finder</a>
@@ -11,14 +11,14 @@ return (
         </button>
         <div className="collapse navbar-collapse" id="navbarResponsive">
           <ul className="navbar-nav ms-auto">
-            <li className="nav-item active">
-              <a className="nav-link text-white gothic" href="/">Home</a>
+            <li className="nav-item active mx-2">
+              <a className="nav-link text-white gothic nav" href="/">Home</a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link text-white gothic" href="/">About</a>
+            <li className="nav-item mx-2">
+              <a className="nav-link text-white gothic nav" href="/about">About</a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link text-white gothic" href="/">Contact</a>
+            <li className="nav-item mx-2">
+              <a className="nav-link text-white gothic nav" href="/">Contact</a>
             </li>
           </ul>
         </div>

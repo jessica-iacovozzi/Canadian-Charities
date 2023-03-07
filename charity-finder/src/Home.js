@@ -125,7 +125,7 @@ export function Home() {
       <Navbar />
       <Banner />
       <div id='filter-bar' className='red-bg p-3 position-relative'>
-      <Zoom cascade triggerOnce duration={800} damping={0.3}>
+      <Zoom cascade triggerOnce duration={800} damping={0.2}>
         <SearchBar placeholder="Type a charity name" data={attributes} setCharities={setCharities} setPageCount={setPageCount} />
           <div id='city-bar' className='row justify-content-center my-4 mx-2'>
             <div className='col-2'>
@@ -171,7 +171,7 @@ export function Home() {
           </div>
           <div className='row justify-content-center my-4 mx-2'>
             <div className='col-2'>
-            <button onClick={() => {resetCharities()}} type="button" class="btn btn-lg mt-4 mb-2 muli bg-light reset-btn">Reset</button>
+            <button onClick={() => {resetCharities()}} type="button" className="btn btn-lg mt-4 mb-2 muli bg-light reset-btn">Reset</button>
             </div>
           </div>
         </Zoom>
@@ -181,7 +181,7 @@ export function Home() {
           {charities.map((charity) => {
             return (
               <div key={charity.id} className='col-12 col-lg-6 v my-3'>
-                <div className='card shadow w-100 h-100 red-bg rounded-3'>
+                <div className='card shadow w-100 h-100 red-bg rounded-5'>
                   {/* <Fade duration={2000} triggerOnce> */}
                     <div className='card-body p-5 muli d-flex flex-column'>
                       <div>
@@ -228,7 +228,7 @@ export function Home() {
           forcePage = {currentPage}
           containerClassName={'pagination justify-content-center mt-3'}
           pageClassName={'page-item'}
-          marginPagesDisplayed={2}
+          marginPagesDisplayed={1}
           pageLinkClassName={'page-link'}
           previousClassName={'page-item'}
           previousLinkClassName={'page-link'}

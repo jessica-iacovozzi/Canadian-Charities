@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./SearchBar.css";
+import "../css/SearchBar.css";
 import { API_URL, scrollTo } from "../Home";
 
 export default function SearchBar({ placeholder, data, setCharities, setPageCount }) {
