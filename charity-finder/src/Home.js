@@ -79,7 +79,7 @@ export function Home() {
     setSortingMethod(sortingMethod);
     const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city, sector);
     setCharities(charitiesFormServer);
-    scrollTo("filter-bar")
+    scrollTo("charities")
   };
 
   const handleCityFilter = async (data) => {
