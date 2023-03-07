@@ -163,25 +163,25 @@ export function Home() {
                 <option value="city">City</option>
                 <option value="sector">Sector</option>
                 <option value="rating">Rating</option>
-                <option value="grade">Grade</option>
+                {/* <option value="grade">Grade</option> */}
                 {/* <option value="demonstrated_impact">Impact</option> */}
-                <option value="cents_to_cause_ratio">Cents to cause</option>
+                {/* <option value="cents_to_cause_ratio">Cents to cause %</option> */}
               </select>
             </div>
           </div>
           <div className='row justify-content-center my-4'>
             <div className='col-2'>
-            <button onClick={() => {resetCharities()}} type="button" class="btn btn-lg mt-4 mb-2 muli bg-light reset-btn">RESET</button>
+            <button onClick={() => {resetCharities()}} type="button" class="btn btn-lg mt-4 mb-2 muli bg-light reset-btn">Reset</button>
             </div>
           </div>
         </Zoom>
       </div>
       <div className="container">
-        <div ref={listRef} id='charities' className='row d-flex justify-content-evenly'>
+        <div ref={listRef} id='charities' className='row d-flex justify-content-evenly mt-4'>
           {charities.map((charity) => {
             return (
               <div key={charity.id} className='col-12 col-lg-6 v my-3'>
-                <div className='card shadow w-100 h-100 red-bg'>
+                <div className='card shadow w-100 h-100 red-bg rounded-3'>
                   {/* <Fade duration={2000} triggerOnce> */}
                     <div className='card-body p-5 muli d-flex flex-column'>
                       <div>

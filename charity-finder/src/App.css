@@ -39,7 +39,7 @@
 
 html,body{
   overflow-x: hidden;
-  background-color: rgb(255, 254, 251);
+  background-color: rgb(255, 250, 244);
   scroll-behavior: smooth;
 }
 
@@ -92,7 +92,7 @@ html,body{
     margin: 10px;
   }
   #banner {
-    min-height: 85vh;
+    min-height: 80vh;
   }
 }
 
@@ -162,8 +162,6 @@ html,body{
   color:#BD1E2C;
   width:120px;
   font-weight: bold;
-  font-style: italic;
-
 }
 
 .reset-btn:hover {
