@@ -37,7 +37,7 @@ function About() {
             <h3>Unfortunately, not all charities have the same degree of impact.</h3>
           </div>
           <div className='carousel-cell'>
-            <h3>All the information was scraped and belongs to Charityintelligence.ca.</h3>
+            <h3>All the information was scraped from and belongs to Charityintelligence.ca.</h3>
           </div>
         </Flickity>
       <Footer />

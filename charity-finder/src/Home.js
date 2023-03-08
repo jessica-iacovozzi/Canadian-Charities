@@ -87,6 +87,8 @@ export function Home() {
     let currentPage = 0;
     let city = data;
     setCity(city);
+    setSector('');
+    let sector = '';
     const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city, sector);
     setCharities(charitiesFormServer);
     scrollTo("filter-bar")
@@ -115,8 +117,28 @@ export function Home() {
     scrollTo("filter-bar")
   };
 
+  const setSectors = () => {
+    if(!city) {
+      return attributes
+    } else {
+      return attributes.filter((charity) => charity.attributes.city.split(',')[0].trim() === city)
+    }
+  };
+  const sectors = [...new Set(setSectors().map((charity) => charity.attributes.sector.split('-')[0].trim()))].sort();
+
+  const setSortingMethods = () => {
+    if(!city && !sector) {
+      return ['Name', 'City', 'Sector', 'Rating']
+    } else if(!city && sector){
+      return ['Name', 'City', 'Rating']
+    } else if(city && !sector){
+      return ['Name', 'Sector', 'Rating']
+    } else if(city && sector){
+      return ['Name', 'Rating']
+    }
+  };
+
   const cities = [...new Set(attributes.map((charity) => charity.attributes.city.split(',')[0].trim()))].sort();
-  const sectors = [...new Set(attributes.map((charity) => charity.attributes.sector.split('-')[0].trim()))].sort();
 
   const [listRef] = useAutoAnimate();
 
@@ -124,14 +146,15 @@ export function Home() {
     <div>
       <Navbar />
       <Banner />
-      <div id='filter-bar' className='red-bg p-3 position-relative'>
+      <div className='red-bg p-3 position-relative'>
+        <div id='filter-bar'>
       <Zoom cascade triggerOnce duration={800} damping={0.2}>
         <SearchBar placeholder="Type a charity name" data={attributes} setCharities={setCharities} setPageCount={setPageCount} />
           <div id='city-bar' className='row justify-content-center my-4 mx-2'>
             <div className='col-2'>
               <h4 className='text-center order-title muli'>Filter by city</h4>
               <select id='city' style={{width: '240px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleCityFilter(e.target.value)}>
-                <option value=''>All cities</option>
+                <option defaultValue=''>All cities</option>
                 {cities.map((city) => {
                   return (
                     <option value={city}>{city}</option>
@@ -145,7 +168,7 @@ export function Home() {
             <div className='col-2'>
               <h4 className='text-center order-title muli'>Filter by sector</h4>
               <select id='sector' style={{width: '240px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleSectorFilter(e.target.value)}>
-                <option value=''>All sectors</option>
+                <option defaultValue=''>All sectors</option>
                 {sectors.map((sector) => {
                   return (
                     <option value={sector}>{sector}</option>
@@ -159,22 +182,21 @@ export function Home() {
             <div className='col-2'>
               <h4 className='text-center order-title muli'>Sort by</h4>
               <select id='sorting' style={{width: '240px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleCharitySorting(e.target.value)}>
-                <option value="name">Name</option>
-                <option value="city">City</option>
-                <option value="sector">Sector</option>
-                <option value="rating">Rating</option>
-                {/* <option value="grade">Grade</option> */}
-                {/* <option value="demonstrated_impact">Impact</option> */}
-                {/* <option value="cents_to_cause_ratio">Cents to cause %</option> */}
+                {setSortingMethods().map((method) => {
+                  return (
+                    <option value={method.toLowerCase()}>{method}</option>
+                  )
+                })}
               </select>
             </div>
           </div>
-          <div className='row justify-content-center my-4 mx-2'>
+        </Zoom>
+        </div>
+          <div className='row justify-content-center mb-4 mx-2'>
             <div className='col-2'>
             <button onClick={() => {resetCharities()}} type="button" className="btn btn-lg mt-4 mb-2 muli bg-light reset-btn">Reset</button>
             </div>
           </div>
-        </Zoom>
       </div>
       <div className="container">
         <div ref={listRef} id='charities' className='row d-flex justify-content-evenly mt-4'>

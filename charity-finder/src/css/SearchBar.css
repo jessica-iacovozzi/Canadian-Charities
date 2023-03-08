@@ -58,7 +58,22 @@ input:focus {
   cursor: pointer;
 }
 
-@media screen and (max-width:1200px) {
+@media screen and (min-width:1200px) {
+  .search-div {
+    margin-bottom: 0!important;
+  }
+  #filter-bar {
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width:1025px) and (max-width:1171px) {
+  #filter-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width:1199px) {
   .searchInputs {
     width: 240px;
   }
@@ -79,5 +94,8 @@ input:focus {
 @media screen and (max-width:591px) {
   .search {
     justify-content: flex-end;
+  }
+  .search-div {
+    margin-bottom: 23px;
   }
 }
