@@ -168,3 +168,7 @@ html,body{
   transform: scale(1.1);
   letter-spacing: 8px;
 }
+
+#filter-section {
+  scroll-margin-top: 100px!important;
+}

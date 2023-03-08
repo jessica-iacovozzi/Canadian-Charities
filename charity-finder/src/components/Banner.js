@@ -6,7 +6,7 @@ import { Fade, Roll, Rotate, Zoom } from "react-awesome-reveal";
 function Banner() {
   return(
     <div id='banner-img' >
-      <div className="container pt-5">
+      <div className="container">
         <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
           <div id='world' className="col-10 col-sm-8 col-lg-6">
             <Roll triggerOnce delay={900} duration={900}>

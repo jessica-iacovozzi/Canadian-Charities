@@ -3,7 +3,7 @@ import '../App.css';
 
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand red-bg shadow fixed-top">
+    <nav className="navbar navbar-expand red-bg shadow">
       <div className="container py-2">
         <a className="navbar-brand text-white gothic" href="/">Charity Finder</a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">

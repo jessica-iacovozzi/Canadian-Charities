@@ -69,7 +69,7 @@ export function Home() {
     const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city, sector);
     setCharities(charitiesFormServer);
     setCurrentPage(currentPage);
-    scrollTo("charities")
+    scrollTo("charities", "start")
   };
 
   const handleCharitySorting = async (data) => {
@@ -79,7 +79,7 @@ export function Home() {
     setSortingMethod(sortingMethod);
     const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city, sector);
     setCharities(charitiesFormServer);
-    scrollTo("charities")
+    scrollTo("charities", "start")
   };
 
   const handleCityFilter = async (data) => {
@@ -91,7 +91,7 @@ export function Home() {
     let sector = '';
     const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city, sector);
     setCharities(charitiesFormServer);
-    scrollTo("filter-bar")
+    scrollTo("filter-section", "start")
   };
 
   const handleSectorFilter = async (data) => {
@@ -101,7 +101,7 @@ export function Home() {
     setSector(sector);
     const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city, sector);
     setCharities(charitiesFormServer);
-    scrollTo("filter-bar")
+    scrollTo("filter-section", "start")
   };
 
   const resetCharities = async () => {
@@ -114,7 +114,7 @@ export function Home() {
     const charitiesFormServer = await fetchCharities(0, 'name', '', '');
     setCharities(charitiesFormServer);
     setPageCount(41);
-    scrollTo("filter-bar")
+    scrollTo("filter-section", "start")
   };
 
   const setSectors = () => {
@@ -146,7 +146,7 @@ export function Home() {
     <div>
       <Navbar />
       <Banner />
-      <div className='red-bg p-3 position-relative'>
+      <div id='filter-section' className='red-bg p-3 position-relative'>
         <div id='filter-bar'>
       <Zoom cascade triggerOnce duration={800} damping={0.2}>
         <SearchBar placeholder="Type a charity name" data={attributes} setCharities={setCharities} setPageCount={setPageCount} />
@@ -261,13 +261,13 @@ export function Home() {
           activeClassName={'active'}
         />
       </div>
-        <RxPinTop onClick={() => {scrollTo("charities")}} style={{fontSize: '30px', color: 'grey', marginLeft: '90%'}}/>
+        <RxPinTop onClick={() => {scrollTo("charities", "start")}} style={{fontSize: '30px', color: 'grey', marginLeft: '90%'}}/>
       <Footer />
     </div>
   );
 }
 
-export const scrollTo = (value) => {
-  const element = document.getElementById(value);
-  element.scrollIntoView({ block: 'start', behavior: "smooth"});
+export const scrollTo = (section, block) => {
+  const element = document.getElementById(section);
+  element.scrollIntoView({ block: block, behavior: "smooth"});
 };
