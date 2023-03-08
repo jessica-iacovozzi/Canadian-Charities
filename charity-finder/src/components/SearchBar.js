@@ -32,7 +32,7 @@ export default function SearchBar({ placeholder, data, setCharities, setPageCoun
     setCharities([charity.data.data[0]]);
     setPageCount(1);
     setFilteredData([]);
-    scrollTo("charities");
+    scrollTo("charities", "start");
     setInputValue('');
   };
 

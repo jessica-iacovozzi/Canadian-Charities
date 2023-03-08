@@ -87,8 +87,6 @@ export function Home() {
     let currentPage = 0;
     let city = data;
     setCity(city);
-    setSector('');
-    let sector = '';
     const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city, sector);
     setCharities(charitiesFormServer);
     scrollTo("filter-section", "start")
@@ -117,14 +115,25 @@ export function Home() {
     scrollTo("filter-section", "start")
   };
 
-  const setSectors = () => {
+  const getSectors = () => {
     if(!city) {
       return attributes
     } else {
       return attributes.filter((charity) => charity.attributes.city.split(',')[0].trim() === city)
     }
   };
-  const sectors = [...new Set(setSectors().map((charity) => charity.attributes.sector.split('-')[0].trim()))].sort();
+
+  let sectors = [...new Set(getSectors().map((charity) => charity.attributes.sector.split('-')[0].trim()))].sort();
+
+  const getCities = () => {
+    if(!sector || sector === '') {
+      return attributes
+    } else {
+      return attributes.filter((charity) => charity.attributes.sector.split('-')[0].trim() === sector)
+    }
+  };
+
+  let cities = [...new Set(getCities().map((charity) => charity.attributes.city.split(',')[0].trim()))].sort();
 
   const setSortingMethods = () => {
     if(!city && !sector) {
@@ -138,10 +147,8 @@ export function Home() {
     }
   };
 
-  const cities = [...new Set(attributes.map((charity) => charity.attributes.city.split(',')[0].trim()))].sort();
-
   const [listRef] = useAutoAnimate();
-
+  console.log(sectors)
   return (
     <div>
       <Navbar />
@@ -154,7 +161,7 @@ export function Home() {
             <div className='col-2'>
               <h4 className='text-center order-title muli'>Filter by city</h4>
               <select id='city' style={{width: '240px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleCityFilter(e.target.value)}>
-                <option defaultValue=''>All cities</option>
+                <option value=''>All cities</option>
                 {cities.map((city) => {
                   return (
                     <option value={city}>{city}</option>
@@ -168,7 +175,7 @@ export function Home() {
             <div className='col-2'>
               <h4 className='text-center order-title muli'>Filter by sector</h4>
               <select id='sector' style={{width: '240px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleSectorFilter(e.target.value)}>
-                <option defaultValue=''>All sectors</option>
+                <option value=''>All sectors</option>
                 {sectors.map((sector) => {
                   return (
                     <option value={sector}>{sector}</option>
@@ -216,7 +223,7 @@ export function Home() {
                         <p className='card-text'>City: {charity.attributes.city}</p>
                         <p className='card-text'>Sector: {charity.attributes.sector}</p>
                         <div className='d-flex align-items-center'>
-                          <MDBTooltip tag='p' placement="bottom" title="Rating is based on financial transparency, need for funding, grade, impact per dollar and cents to cause ratio.">
+                          <MDBTooltip tag='p' placement="bottom" title="Rating is based on the charity's financial transparency, need for funding, grade, impact per dollar and % of $ available for programs after overhead costs.">
                             <BsInfoCircle className='svg' />Rating: {charity.attributes.rating}
                           </MDBTooltip>
                         </div>
@@ -226,11 +233,11 @@ export function Home() {
                           </MDBTooltip>
                         </div>
                         <div className='d-flex align-items-center'>
-                          <MDBTooltip tag='p' placement="bottom" title="Impact per dollar is calculated from available program information.">
+                          <MDBTooltip tag='p' placement="bottom" title="Impact per dollar is calculated from the charity's available program information.">
                             <BsInfoCircle className='svg' />Impact per dollar: {charity.attributes.demonstrated_impact}
                           </MDBTooltip>
                         </div>
-                        <p className='card-text'>{charity.attributes.cents_to_cause_ratio} of every dollar donated is available for programs, after overhead costs of fundraising and admin/management (excluding surplus).</p>
+                        <p className='card-text'>{charity.attributes.cents_to_cause_ratio} of every dollar donated is available for programs, after overhead costs of fundraising and administration.</p>
                       </div>
                     </div>
                   {/* </Fade> */}
