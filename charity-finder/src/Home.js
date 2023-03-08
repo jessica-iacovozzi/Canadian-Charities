@@ -148,7 +148,7 @@ export function Home() {
   };
 
   const [listRef] = useAutoAnimate();
-  console.log(sectors)
+
   return (
     <div>
       <Navbar />
@@ -160,7 +160,7 @@ export function Home() {
           <div id='city-bar' className='row justify-content-center my-4 mx-2'>
             <div className='col-2'>
               <h4 className='text-center order-title muli'>Filter by city</h4>
-              <select id='city' style={{width: '240px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleCityFilter(e.target.value)}>
+              <select defaultValue={city} id='city' style={{width: '240px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleCityFilter(e.target.value)}>
                 <option value=''>All cities</option>
                 {cities.map((city) => {
                   return (
@@ -174,7 +174,7 @@ export function Home() {
           <div className='row justify-content-center my-4 mx-2'>
             <div className='col-2'>
               <h4 className='text-center order-title muli'>Filter by sector</h4>
-              <select id='sector' style={{width: '240px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleSectorFilter(e.target.value)}>
+              <select defaultValue={sector} id='sector' style={{width: '240px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleSectorFilter(e.target.value)}>
                 <option value=''>All sectors</option>
                 {sectors.map((sector) => {
                   return (
