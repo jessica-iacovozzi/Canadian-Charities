@@ -172,3 +172,8 @@ html,body{
 #filter-section {
   scroll-margin-top: 100px!important;
 }
+
+.dropdown {
+  width: 240px;
+  color: #212529;
+}

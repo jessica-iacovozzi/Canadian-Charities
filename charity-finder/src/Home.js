@@ -1,16 +1,17 @@
 import './App.css';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
-import ReactPaginate from 'react-paginate';
 import Navbar from './components/Navbar';
 import Banner from './components/Banner';
 import Footer from './components/Footer';
+import SearchBar from './components/SearchBar';
 import { MDBTooltip } from 'mdb-react-ui-kit';
 import { BsInfoCircle } from 'react-icons/bs';
 import { RxPinTop } from 'react-icons/rx';
-import SearchBar from './components/SearchBar';
+import { useEffect, useState } from 'react';
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 import { Zoom } from "react-awesome-reveal";
+import ReactPaginate from 'react-paginate';
+import Select from 'react-select'
 
 export const API_URL = 'https://canadian-charities.fly.dev/api/v1/charities'
 
@@ -75,7 +76,7 @@ export function Home() {
   const handleCharitySorting = async (data) => {
     setCurrentPage(0);
     let currentPage = 0;
-    let sortingMethod = data;
+    let sortingMethod = data.value;
     setSortingMethod(sortingMethod);
     const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city, sector);
     setCharities(charitiesFormServer);
@@ -85,21 +86,21 @@ export function Home() {
   const handleCityFilter = async (data) => {
     setCurrentPage(0);
     let currentPage = 0;
-    let city = data;
+    let city = data.value;
     setCity(city);
     const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city, sector);
     setCharities(charitiesFormServer);
-    scrollTo("filter-section", "start")
+    scrollTo("charities", "start")
   };
 
   const handleSectorFilter = async (data) => {
     setCurrentPage(0);
     let currentPage = 0;
-    let sector = data;
+    let sector = data.value;
     setSector(sector);
     const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city, sector);
     setCharities(charitiesFormServer);
-    scrollTo("filter-section", "start")
+    scrollTo("charities", "start")
   };
 
   const resetCharities = async () => {
@@ -135,6 +136,20 @@ export function Home() {
 
   let cities = [...new Set(getCities().map((charity) => charity.attributes.city.split(',')[0].trim()))].sort();
 
+  const city_options = []
+  cities.map((city) => {
+    return (
+      city_options.push({ value: city, label: city })
+    )
+  })
+
+  const sector_options = []
+  sectors.map((sector) => {
+    return (
+      sector_options.push({ value: sector, label: sector })
+    )
+  })
+
   const setSortingMethods = () => {
     if(!city && !sector) {
       return ['Name', 'City', 'Sector', 'Rating']
@@ -147,6 +162,13 @@ export function Home() {
     }
   };
 
+  const sorting_options = []
+  setSortingMethods().map((method) => {
+    return (
+      sorting_options.push({ value: method.toLowerCase(), label: method })
+    )
+  })
+
   const [listRef] = useAutoAnimate();
 
   return (
@@ -156,45 +178,46 @@ export function Home() {
       <div id='filter-section' className='red-bg p-3 position-relative'>
         <div id='filter-bar'>
       <Zoom cascade triggerOnce duration={800} damping={0.2}>
-        <SearchBar placeholder="Type a charity name" data={attributes} setCharities={setCharities} setPageCount={setPageCount} />
+        <SearchBar placeholder="Type a charity name..." data={attributes} setCharities={setCharities} setPageCount={setPageCount} />
           <div id='city-bar' className='row justify-content-center my-4 mx-2'>
             <div className='col-2'>
               <h4 className='text-center order-title muli'>Filter by city</h4>
-              <select defaultValue={city} id='city' style={{width: '240px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleCityFilter(e.target.value)}>
-                <option value=''>All cities</option>
-                {cities.map((city) => {
-                  return (
-                    <option value={city}>{city}</option>
-                  )
-                })}
-              </select>
+              <Select options={city_options}
+                      isSearchable={true}
+                      className='dropdown mt-4 mb-2 muli'
+                      onChange={handleCityFilter}
+                      menuPortalTarget={document.body}
+                      styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
+                      inputId='city'
+              />
             </div>
           </div>
 
           <div className='row justify-content-center my-4 mx-2'>
             <div className='col-2'>
               <h4 className='text-center order-title muli'>Filter by sector</h4>
-              <select defaultValue={sector} id='sector' style={{width: '240px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleSectorFilter(e.target.value)}>
-                <option value=''>All sectors</option>
-                {sectors.map((sector) => {
-                  return (
-                    <option value={sector}>{sector}</option>
-                  )
-                })}
-              </select>
+              <Select options={sector_options}
+                      isSearchable={true}
+                      className='dropdown mt-4 mb-2 muli'
+                      onChange={handleSectorFilter}
+                      menuPortalTarget={document.body}
+                      styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
+                      inputId='sector'
+              />
             </div>
           </div>
 
           <div className='row justify-content-center my-4 mx-2'>
             <div className='col-2'>
               <h4 className='text-center order-title muli'>Sort by</h4>
-              <select id='sorting' style={{width: '240px'}} className='form-select mt-4 mb-2 muli' onChange={(e) => handleCharitySorting(e.target.value)}>
-                {setSortingMethods().map((method) => {
-                  return (
-                    <option value={method.toLowerCase()}>{method}</option>
-                  )
-                })}
-              </select>
+              <Select options={sorting_options}
+                      isSearchable={true}
+                      className='dropdown mt-4 mb-2 muli'
+                      onChange={handleCharitySorting}
+                      menuPortalTarget={document.body}
+                      styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
+                      inputId='sorting'
+              />
             </div>
           </div>
         </Zoom>

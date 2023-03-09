@@ -12,9 +12,10 @@
 }
 
 .search input {
-  padding: 18px;
-  height: 30px;
-  color: #212529;
+  padding: 13px;
+  height: 40px;
+  color: #d0d0d0;
+  font-size: 18px;
 }
 
 input:focus {
@@ -23,13 +24,13 @@ input:focus {
 
 .dataResults {
   margin-top: 5px;
-  width: 215px;
+  width: 230px;
   max-height: 135px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   overflow: hidden;
   overflow-y: auto;
-  border-radius: 10px;
+  border-radius: 5px;
   color: #212529;
   position: absolute;
   top: 80%;
@@ -51,7 +52,7 @@ input:focus {
 .dataResults p:hover {
   background-color: lightgray;
   margin: 0;
-  cursor: pointer;
+  cursor: auto;
 }
 
 #clearBtn {
@@ -85,7 +86,7 @@ input:focus {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     overflow: hidden;
     overflow-y: auto;
-    border-radius: 10px;
+    border-radius: 5px;
     color: #212529;
     position: relative;
   }
