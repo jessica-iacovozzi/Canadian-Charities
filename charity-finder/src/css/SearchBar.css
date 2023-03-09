@@ -47,13 +47,14 @@ input:focus {
 
 .dataResults p {
   margin: 0;
-  padding: 10px;
+  padding: 9px 11px;
+  font-size: 16px;
 }
 
 .dataResults p:hover {
-  background-color: lightgray;
+  background-color: #ddebff;
   margin: 0;
-  cursor: auto;
+  cursor: default;
 }
 
 #clearBtn {

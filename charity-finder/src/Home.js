@@ -109,14 +109,11 @@ export function Home() {
     document.getElementById('sector').selectedIndex = 0;
     setSector();
     setCity();
-    setSortingMethod('Name');
+    setSortingMethod();
     const charitiesFormServer = await fetchCharities(0, 'name', '', '');
     setCharities(charitiesFormServer);
     setPageCount(41);
     scrollTo("filter-section", "start")
-    Array.from(document.querySelectorAll("Select")).forEach(
-      input => (input.value = "")
-    );
   };
 
   const getSectors = () => {
@@ -139,14 +136,14 @@ export function Home() {
 
   let cities = [...new Set(getCities().map((charity) => charity.attributes.city.split(',')[0].trim()))].sort();
 
-  const city_options = [{ value: '', label: 'All cities' }]
+  const city_options = []
   cities.map((city) => {
     return (
       city_options.push({ value: city, label: city })
     )
   })
 
-  const sector_options = [{ value: '', label: 'All sectors' }]
+  const sector_options = []
   sectors.map((sector) => {
     return (
       sector_options.push({ value: sector, label: sector })
@@ -168,7 +165,7 @@ export function Home() {
   const sorting_options = []
   setSortingMethods().map((method) => {
     return (
-      sorting_options.push({ value: method.toLowerCase(), label: method })
+      sorting_options.push({ value: method, label: method })
     )
   })
 
@@ -192,8 +189,8 @@ export function Home() {
                       menuPortalTarget={document.body}
                       styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
                       inputId='city'
-                      value={{value:city,label:city} || city_options[0]}
                       placeholder="Select a city"
+                      value={{value:city, label:city} || null}
               />
             </div>
           </div>
@@ -208,7 +205,7 @@ export function Home() {
                       menuPortalTarget={document.body}
                       styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
                       inputId='sector'
-                      value={{value:sector,label:sector}}
+                      value={{value:sector, label:sector}}
                       placeholder="Select a sector"
               />
             </div>
@@ -224,7 +221,7 @@ export function Home() {
                       menuPortalTarget={document.body}
                       styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
                       inputId='sorting'
-                      value={{value:sortingMethod,label:sortingMethod}}
+                      value={{value:sortingMethod, label:sortingMethod}}
                       placeholder="Select a sorting ..."
               />
             </div>
