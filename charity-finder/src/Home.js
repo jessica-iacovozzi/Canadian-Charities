@@ -107,13 +107,16 @@ export function Home() {
     document.getElementById('sorting').selectedIndex = 0;
     document.getElementById('city').selectedIndex = 0;
     document.getElementById('sector').selectedIndex = 0;
-    setSector('');
-    setCity('');
-    setSortingMethod('name');
+    setSector();
+    setCity();
+    setSortingMethod('Name');
     const charitiesFormServer = await fetchCharities(0, 'name', '', '');
     setCharities(charitiesFormServer);
     setPageCount(41);
     scrollTo("filter-section", "start")
+    Array.from(document.querySelectorAll("Select")).forEach(
+      input => (input.value = "")
+    );
   };
 
   const getSectors = () => {
@@ -136,14 +139,14 @@ export function Home() {
 
   let cities = [...new Set(getCities().map((charity) => charity.attributes.city.split(',')[0].trim()))].sort();
 
-  const city_options = []
+  const city_options = [{ value: '', label: 'All cities' }]
   cities.map((city) => {
     return (
       city_options.push({ value: city, label: city })
     )
   })
 
-  const sector_options = []
+  const sector_options = [{ value: '', label: 'All sectors' }]
   sectors.map((sector) => {
     return (
       sector_options.push({ value: sector, label: sector })
@@ -189,6 +192,8 @@ export function Home() {
                       menuPortalTarget={document.body}
                       styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
                       inputId='city'
+                      value={{value:city,label:city} || city_options[0]}
+                      placeholder="Select a city"
               />
             </div>
           </div>
@@ -203,6 +208,8 @@ export function Home() {
                       menuPortalTarget={document.body}
                       styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
                       inputId='sector'
+                      value={{value:sector,label:sector}}
+                      placeholder="Select a sector"
               />
             </div>
           </div>
@@ -217,6 +224,8 @@ export function Home() {
                       menuPortalTarget={document.body}
                       styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
                       inputId='sorting'
+                      value={{value:sortingMethod,label:sortingMethod}}
+                      placeholder="Select a sorting ..."
               />
             </div>
           </div>

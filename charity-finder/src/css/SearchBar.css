@@ -16,6 +16,7 @@
   height: 40px;
   color: #d0d0d0;
   font-size: 18px;
+  text-align: center;
 }
 
 input:focus {
