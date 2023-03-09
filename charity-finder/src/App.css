@@ -169,6 +169,10 @@ html,body{
   letter-spacing: 8px;
 }
 
+.navbar a {
+  font-size: 18px;
+}
+
 #filter-section {
   scroll-margin-top: 100px!important;
 }
