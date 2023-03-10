@@ -49,10 +49,6 @@ img:hover {
   animation-direction: alternate;
 }
 
-.about-slice {
-  padding: 50px;
-}
-
 @media screen and (min-width:1200px) {
   #about-vid {
     width: 100%;
@@ -63,6 +59,7 @@ img:hover {
     margin-top: 10%;
     position: absolute;
     top: 0;
+    left: 0;
     z-index: 1;
   }
   .me-img {
@@ -71,13 +68,20 @@ img:hover {
   .hi-img {
     height: 30vh;
   }
+  .about-slice {
+    padding: 0;
+  }
 }
 
 @media screen and (max-width:1199px) {
   #about-vid {
     display: none;
   }
+  .about-slice {
+    padding: 50px;
+  }
 }
+
 @media screen and (min-width: 991px) {
   .soup {
     width: 100%;

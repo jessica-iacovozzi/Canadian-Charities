@@ -20,7 +20,7 @@ function About() {
     <div>
     <Navbar />
     <div className='about-slice'>
-      <video id='about-vid' src={require('../hand-vid.mp4')} autoPlay loop muted />
+      <video id='about-vid' src={require('../hand-vid.mp4')} autoPlay muted />
       <div className="about-banner">
         <JackInTheBox triggerOnce >
         {/* <h1>Hello there, I'm Jess!</h1> */}
