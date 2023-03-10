@@ -3,7 +3,7 @@ import axios from 'axios';
 import Navbar from './components/Navbar';
 import Banner from './components/Banner';
 import Footer from './components/Footer';
-import SearchBar from './components/SearchBar';
+// import SearchBar from './components/SearchBar';
 import { MDBTooltip } from 'mdb-react-ui-kit';
 import { BsInfoCircle } from 'react-icons/bs';
 import { RxPinTop } from 'react-icons/rx';
@@ -23,6 +23,7 @@ export function Home() {
   const [attributes, setAttributes] = useState([]);
   const [city, setCity] = useState();
   const [sector, setSector] = useState();
+  const [charityName, setCharityName] = useState();
 
   useEffect(() => {
     const getAttributes = async () => {
@@ -54,11 +55,11 @@ export function Home() {
     getCharities();
   }, []);
 
-  const fetchCharities = async (currentPage, sort='name', city='', sector='') => {
+  const fetchCharities = async (currentPage, sort='name', city='', sector='', charityName='') => {
     const res = await fetch(
-      `${API_URL}?page=${currentPage + 1}&sort=${sort}&city=${city}&sector=${sector}`
+      `${API_URL}?page=${currentPage + 1}&sort=${sort}&city=${city}&sector=${sector}&name=${charityName}`
     );
-    console.log(`${API_URL}?page=${currentPage + 1}&sort=${sort}&city=${city}&sector=${sector}`)
+    console.log(`${API_URL}?page=${currentPage + 1}&sort=${sort}&city=${city}&sector=${sector}&name=${charityName}`)
     const data = await res.json();
     const pages = data.meta.total_pages;
     setPageCount(pages);
@@ -67,7 +68,7 @@ export function Home() {
 
   const handlePageClick = async (data) => {
     let currentPage = data.selected;
-    const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city, sector);
+    const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city, sector, charityName);
     setCharities(charitiesFormServer);
     setCurrentPage(currentPage);
     scrollTo("charities", "start")
@@ -78,7 +79,7 @@ export function Home() {
     let currentPage = 0;
     let sortingMethod = data.value;
     setSortingMethod(sortingMethod);
-    const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city, sector);
+    const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city, sector, charityName);
     setCharities(charitiesFormServer);
     scrollTo("charities", "start")
   };
@@ -88,7 +89,7 @@ export function Home() {
     let currentPage = 0;
     let city = data.value;
     setCity(city);
-    const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city, sector);
+    const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city, sector, charityName);
     setCharities(charitiesFormServer);
     scrollTo("charities", "start")
   };
@@ -98,7 +99,17 @@ export function Home() {
     let currentPage = 0;
     let sector = data.value;
     setSector(sector);
-    const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city, sector);
+    const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city, sector, charityName);
+    setCharities(charitiesFormServer);
+    scrollTo("charities", "start")
+  };
+
+  const handleCharityFilter = async (data) => {
+    setCurrentPage(0);
+    let currentPage = 0;
+    let charityName = data.value;
+    setCharityName(charityName);
+    const charitiesFormServer = await fetchCharities(currentPage, sortingMethod, city, sector, charityName);
     setCharities(charitiesFormServer);
     scrollTo("charities", "start")
   };
@@ -107,10 +118,12 @@ export function Home() {
     document.getElementById('sorting').selectedIndex = 0;
     document.getElementById('city').selectedIndex = 0;
     document.getElementById('sector').selectedIndex = 0;
+    document.getElementById('charity').selectedIndex = 0;
     setSector();
     setCity();
     setSortingMethod();
-    const charitiesFormServer = await fetchCharities(0, 'name', '', '');
+    setCharityName();
+    const charitiesFormServer = await fetchCharities(0, 'name', '', '', '');
     setCharities(charitiesFormServer);
     setPageCount(41);
     scrollTo("filter-section", "start")
@@ -136,6 +149,12 @@ export function Home() {
 
   let cities = [...new Set(getCities().map((charity) => charity.attributes.city.split(',')[0].trim()))].sort();
 
+  const getCharityNames = () => {
+    return attributes
+  };
+
+  let charityNames = [...new Set(getCharityNames().map((charity) => charity.attributes.name))];
+
   const city_options = []
   cities.map((city) => {
     return (
@@ -147,6 +166,13 @@ export function Home() {
   sectors.map((sector) => {
     return (
       sector_options.push({ value: sector, label: sector })
+    )
+  })
+
+  const charity_options = []
+  charityNames.map((charity) => {
+    return (
+      charity_options.push({ value: charity, label: charity })
     )
   })
 
@@ -178,7 +204,22 @@ export function Home() {
       <div id='filter-section' className='red-bg p-3 position-relative'>
         <div id='filter-bar'>
       <Zoom cascade triggerOnce duration={800} damping={0.2}>
-        <SearchBar placeholder="Type a charity name..." data={attributes} setCharities={setCharities} setPageCount={setPageCount} />
+        {/* <SearchBar placeholder="Type a charity name..." data={attributes} setCharities={setCharities} setPageCount={setPageCount} /> */}
+          <div id='city-bar' className='row justify-content-center my-4 mx-2'>
+            <div className='col-2'>
+              <h4 className='text-center order-title muli'>Search by name</h4>
+              <Select options={charity_options}
+                      isSearchable={true}
+                      className='dropdown mt-4 mb-2 muli'
+                      onChange={handleCharityFilter}
+                      menuPortalTarget={document.body}
+                      styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
+                      inputId='charity'
+                      placeholder="Look up a charity"
+                      value={{value:charityName, label:charityName}}
+              />
+            </div>
+          </div>
           <div id='city-bar' className='row justify-content-center my-4 mx-2'>
             <div className='col-2'>
               <h4 className='text-center order-title muli'>Filter by city</h4>
