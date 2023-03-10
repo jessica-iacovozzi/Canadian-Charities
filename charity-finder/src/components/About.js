@@ -32,13 +32,13 @@ function About() {
     <div className='bottom'>
       <Flickity className={'carousel'} options={flickityOptions} >
         <div className='carousel-cell'>
-          <h3>All the information was scraped from and belongs to Charityintelligence.ca.</h3>
+          <h4>All the information was scraped from and belongs to Charityintelligence.ca.</h4>
         </div>
         <div className='carousel-cell'>
-          <h3>I created this website to help Canadians make better decisions when it comes to donating money to charities.</h3>
+          <h4>I created this website to help Canadians make better decisions when it comes to donating money to charities.</h4>
         </div>
         <div className='carousel-cell'>
-          <h3>Unfortunately, not all charities have the same degree of impact.</h3>
+          <h4>Unfortunately, not all charities have the same degree of impact.</h4>
         </div>
       </Flickity>
       <Footer />
