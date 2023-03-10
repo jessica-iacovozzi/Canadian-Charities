@@ -130,7 +130,9 @@ export function Home() {
   };
 
   const getSectors = () => {
-    if(!city) {
+    if (charityName) {
+      return []
+    } else if (!city) {
       return attributes
     } else {
       return attributes.filter((charity) => charity.attributes.city.split(',')[0].trim() === city)
@@ -140,7 +142,9 @@ export function Home() {
   let sectors = [...new Set(getSectors().map((charity) => charity.attributes.sector.split('-')[0].trim()))].sort();
 
   const getCities = () => {
-    if(!sector || sector === '') {
+    if (charityName) {
+      return []
+    } else if(!sector) {
       return attributes
     } else {
       return attributes.filter((charity) => charity.attributes.sector.split('-')[0].trim() === sector)
@@ -150,7 +154,15 @@ export function Home() {
   let cities = [...new Set(getCities().map((charity) => charity.attributes.city.split(',')[0].trim()))].sort();
 
   const getCharityNames = () => {
-    return attributes
+    if(city && sector) {
+      return attributes.filter((charity) => charity.attributes.sector.split('-')[0].trim() === sector).filter((charity) => charity.attributes.city.split(',')[0].trim() === city)
+    } else if(!city && sector) {
+      return attributes.filter((charity) => charity.attributes.sector.split('-')[0].trim() === sector)
+    } else if(city && !sector) {
+      return attributes.filter((charity) => charity.attributes.city.split(',')[0].trim() === city)
+    } else {
+      return attributes
+    }
   };
 
   let charityNames = [...new Set(getCharityNames().map((charity) => charity.attributes.name))];
@@ -177,7 +189,9 @@ export function Home() {
   })
 
   const setSortingMethods = () => {
-    if(!city && !sector) {
+    if (charityName) {
+      return []
+    } else if(!city && !sector) {
       return ['Name', 'City', 'Sector', 'Rating']
     } else if(!city && sector){
       return ['Name', 'City', 'Rating']
