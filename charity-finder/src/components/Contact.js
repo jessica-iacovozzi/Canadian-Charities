@@ -27,27 +27,27 @@ function Contact() {
         <h1>Let's get in touch!</h1>
         </Slide>
       </div>
-      <div className='row row-cols-3 links mx-auto'>
+      <div className='row links mx-auto'>
           <div className="col d-flex flex-wrap flex-column align-items-center align-content-center pt-4">
-            <h4>My LinkedIn</h4>
+            <h4>LinkedIn</h4>
         <a href='https://www.linkedin.com/in/jessica-iacovozzi/'>
             <BsLinkedin className='icon' />
         </a>
           </div>
           <div className="col d-flex flex-wrap flex-column align-items-center align-content-center pt-4">
-            <h4>My GitHub</h4>
+            <h4>GitHub</h4>
         <a href='https://github.com/jessica-iacovozzi/'>
             <BsGithub className='icon' />
         </a>
           </div>
           <div className="col d-flex flex-wrap flex-column align-items-center align-content-center pt-4">
-            <h4>My Projects</h4>
+            <h4>Projects</h4>
         <a href='https://troopl.com/jessicaiacovozzi/'>
             <MdOutlineWeb className='icon' />
         </a>
           </div>
           <div className="col d-flex flex-wrap flex-column align-items-center align-content-center pt-4">
-            <h4>My Resume</h4>
+            <h4>Resume</h4>
         <a href='/'>
             <BsDownload className='icon' />
         </a>

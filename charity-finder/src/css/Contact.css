@@ -25,7 +25,7 @@ body, html {
   box-shadow: 1px 1px 2px 3px rgba(0, 0, 0, 0.2);
 }
 
-.links h3 {
+.links h4 {
   text-align: center;
 }
 
@@ -87,6 +87,10 @@ video {
   width: 100%;
 }
 
+.row {
+  display: flex;
+}
+
 @media screen and (min-width:1200px) {
   .contact-banner h1 {
     padding-top: 125px;
@@ -99,11 +103,14 @@ video {
     top: 15%;
     transform: translate(-50%, 20%);
   }
+  .col {
+    flex: 33.33%;
+  }
 }
 
 @media screen and (max-width: 1199px) {
   .contact-banner h1 {
-    padding-top: 25%;
+    padding-top: 35%;
     font-size: 4rem;
     font-family: 'Big Shoulders Display', cursive;
     font-weight: 800;
@@ -114,28 +121,56 @@ video {
     transform: translate(-50%, 20%);
     padding: 20px 40px;
   }
+  .col {
+    flex: 33.33%;
+  }
+  .icon {
+    font-size: 6vh;
+    margin: 15px;
+    color: white;
+  }
 }
 @media screen and (max-width: 991px) {
   .contact-banner h1 {
-    padding-top: 125px;
+    padding-top: 135px;
     font-size: 70px;
     font-family: 'Big Shoulders Display', cursive;
     font-weight: 800;
     transition: 0.5s;
   }
   .links {
-    top: 10%;
-    transform: translate(-50%, 20%);
+    top: 15%;
+    transform: translate(-50%, 15%);
     padding: 20px 40px;
+  }
+  .col {
+    flex: 50%;
   }
 }
 
 @media screen and (max-width: 440px) {
   .contact-banner h1 {
-    padding-top: 90px;
+    padding-top: 130px;
     font-size: 40px;
     font-family: 'Big Shoulders Display', cursive;
     font-weight: 800;
     transition: 0.5s;
+  }
+  .links {
+    top: 14%;
+    transform: translate(-50%, 20%);
+    padding: 20px 35px;
+  }
+  .col {
+    flex: 50%;
+  }
+  .icon {
+    font-size: 5vh;
+    margin: 15px;
+    color: white;
+  }
+  .links h4 {
+    text-align: center;
+    font-size: 15px;
   }
 }
