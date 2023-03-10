@@ -20,7 +20,8 @@ function About() {
     <div>
     <Navbar />
     <div className='about-slice'>
-      <div className="container about-banner">
+      <video id='about-vid' src={require('../hand-vid.mp4')} autoPlay loop muted />
+      <div className="about-banner">
         <JackInTheBox triggerOnce >
         {/* <h1>Hello there, I'm Jess!</h1> */}
           <img className='hi-img' src={require('../hi.png')} alt="Hi, I'm Jess" />
