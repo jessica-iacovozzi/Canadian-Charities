@@ -24,7 +24,7 @@ function Contact() {
             </ul>
           </div>
         </nav>
-        <Slide>
+        <Slide triggerOnce>
         <h1>Let's get in touch!</h1>
         </Slide>
       </div>
