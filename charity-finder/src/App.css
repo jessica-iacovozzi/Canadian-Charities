@@ -1,6 +1,6 @@
 html,body{
   overflow-x: hidden;
-  background-color: rgb(255, 250, 244);
+  background-color: #fffaf4;
   scroll-behavior: smooth;
   min-height: 100vh;
 }

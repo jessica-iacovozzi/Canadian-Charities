@@ -10,7 +10,7 @@ import { Slide } from "react-awesome-reveal";
 function Contact() {
   return(
     <div className='main'>
-      <video src={require('../grey-wave.mp4')} autoPlay loop muted />
+      <video src={require('../grey-lines-bg.mp4')} autoPlay loop muted />
       <div className='contact-banner'>
         <nav className='navbar navbar-expand contact-nav'>
           <div className="container py-2">

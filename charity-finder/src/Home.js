@@ -9,7 +9,6 @@ import { BsInfoCircle } from 'react-icons/bs';
 import { RxPinTop } from 'react-icons/rx';
 import { useEffect, useState } from 'react';
 import { useAutoAnimate } from '@formkit/auto-animate/react'
-import { Zoom } from "react-awesome-reveal";
 import ReactPaginate from 'react-paginate';
 import Select from 'react-select'
 
@@ -217,7 +216,6 @@ export function Home() {
       <Banner />
       <div id='filter-section' className='red-bg p-3 position-relative'>
         <div id='filter-bar'>
-      <Zoom cascade triggerOnce duration={800} damping={0.2}>
         {/* <SearchBar placeholder="Type a charity name..." data={attributes} setCharities={setCharities} setPageCount={setPageCount} /> */}
           <div id='city-bar' className='row justify-content-center my-4 mx-2'>
             <div className='col-2'>
@@ -281,7 +279,6 @@ export function Home() {
               />
             </div>
           </div>
-        </Zoom>
         </div>
           <div className='row justify-content-center mb-4 mx-2'>
             <div className='col-2'>
