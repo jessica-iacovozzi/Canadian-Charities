@@ -1,0 +1,119 @@
+@media screen and (max-width:991px) {
+  #banner {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    min-height: 80vh;
+    backdrop-filter: blur(2px);
+  }
+  #banner-img {
+    background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url('../media/hands-heart-transparent.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  #world {
+    display: none;
+  }
+}
+
+.slogan {
+  font-size: 1.5rem;
+  backdrop-filter: blur(5px);
+  text-align: left;
+  margin-top: 10px;
+}
+
+.slo-arr {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.svg {
+  margin-right: 5px;
+  font-size: 16px;
+  position: relative;
+  bottom: 2px;
+}
+
+.banner-btn {
+  background-color: #550092;
+  color: white;
+}
+
+#banner {
+  margin-top: 30px;
+}
+
+.m_scroll_arrows {
+  display: block;
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  border-right: 2px solid #550092;
+  border-bottom: 2px solid #550092;
+  margin: 0 0 3px 4px;
+  width: 30px;
+  height: 30px;
+}
+
+.unu, .doi, .trei {
+  -webkit-animation: mouse-scroll 1s infinite;
+  -moz-animation: mouse-scroll 1s infinite;
+  animation: mouse-scroll 1s infinite;
+}
+
+.unu {
+  margin-top: 1px;
+  -webkit-animation-delay: .1s;
+  -moz-animation-delay: .1s;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+  animation-delay: alternate;
+}
+
+.doi {
+  -webkit-animation-delay: .2s;
+  -moz-animation-delay: .2s;
+  -webkit-animation-direction: alternate;
+  animation-delay: .2s;
+  animation-direction: alternate;
+  margin-top: -6px;
+}
+
+.trei {
+  -webkit-animation-delay: .3s;
+  -moz-animation-delay: .3s;
+  -webkit-animation-direction: alternate;
+  animation-delay: .3s;
+  animation-direction: alternate;
+  margin-top: -6px;
+}
+
+@-webkit-keyframes mouse-scroll {
+  0%   { opacity: 0;}
+  50%  { opacity: .5;}
+  100% { opacity: 1;}
+}
+
+@-moz-keyframes mouse-scroll {
+  0%   { opacity: 0; }
+  50%  { opacity: .5; }
+  100% { opacity: 1; }
+}
+
+@-o-keyframes mouse-scroll {
+  0%   { opacity: 0; }
+  50%  { opacity: .5; }
+  100% { opacity: 1; }
+}
+
+@keyframes mouse-scroll {
+  0%   { opacity: 0; }
+  50%  { opacity: .5; }
+  100% { opacity: 1; }
+}

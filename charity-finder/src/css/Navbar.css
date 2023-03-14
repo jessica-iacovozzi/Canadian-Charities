@@ -1,0 +1,11 @@
+.nav:hover {
+  transition: all .3s ease-in-out;
+  transform: scale(1.1);
+  letter-spacing: 7px;
+  color: #550092;
+}
+
+.navbar a {
+  font-size: 20px;
+  color: #550092;
+}

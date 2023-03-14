@@ -1,4 +1,4 @@
-import '../css/App.css';
+import '../css/Home.css';
 import axios from 'axios';
 import Navbar from './Navbar';
 import Banner from './Banner';
@@ -211,13 +211,13 @@ export function Home() {
   const [listRef] = useAutoAnimate();
 
   return (
-    <div>
+    <div className='home-bg'>
       <Navbar />
       <Banner />
-      <div id='filter-section' className='red-bg p-3 position-relative'>
+      <div id='filter-section' className='p-3 position-relative'>
         <div id='filter-bar'>
         {/* <SearchBar placeholder="Type a charity name..." data={attributes} setCharities={setCharities} setPageCount={setPageCount} /> */}
-          <div id='city-bar' className='row justify-content-center my-4 mx-2'>
+          <div className='row justify-content-center mt-4 mx-2 nop'>
             <div className='col-2'>
               <h4 className='text-center order-title muli'>Search by name</h4>
               <Select options={charity_options}
@@ -232,7 +232,7 @@ export function Home() {
               />
             </div>
           </div>
-          <div id='city-bar' className='row justify-content-center my-4 mx-2'>
+          <div className='row justify-content-center mt-4 mx-2 nop'>
             <div className='col-2'>
               <h4 className='text-center order-title muli'>Filter by city</h4>
               <Select options={city_options}
@@ -248,7 +248,7 @@ export function Home() {
             </div>
           </div>
 
-          <div className='row justify-content-center my-4 mx-2'>
+          <div className='row justify-content-center mt-4 mx-2 nop'>
             <div className='col-2'>
               <h4 className='text-center order-title muli'>Filter by sector</h4>
               <Select options={sector_options}
@@ -264,7 +264,7 @@ export function Home() {
             </div>
           </div>
 
-          <div className='row justify-content-center my-4 mx-2'>
+          <div className='row justify-content-center mt-4 mx-2 nop'>
             <div className='col-2'>
               <h4 className='text-center order-title muli'>Sort by</h4>
               <Select options={sorting_options}
@@ -282,7 +282,7 @@ export function Home() {
         </div>
           <div className='row justify-content-center mb-4 mx-2'>
             <div className='col-2'>
-            <button onClick={() => {resetCharities()}} type="button" className="btn btn-lg mt-4 mb-2 muli bg-light reset-btn">Reset</button>
+            <button onClick={() => {resetCharities()}} type="button" className="btn btn-lg mt-4 mb-2 reset-btn">Reset</button>
             </div>
           </div>
       </div>
@@ -291,14 +291,13 @@ export function Home() {
           {charities.map((charity) => {
             return (
               <div key={charity.id} className='col-12 col-lg-6 v my-3'>
-                <div className='card shadow w-100 h-100 red-bg rounded-5'>
-                  {/* <Fade duration={2000} triggerOnce> */}
+                <div className='card shadow w-100 h-100 rounded-5'>
                     <div className='card-body p-5 muli d-flex flex-column'>
                       <div>
-                        <a href={`//${charity.attributes.website}`} rel="noreferrer" target="_blank" className='text-decoration-none text-info'>
-                          <h5 className='card-title text-center h2 font-weight-bold text-white'>{charity.attributes.name}</h5>
+                        <a href={`//${charity.attributes.website}`} rel="noreferrer" target="_blank" className='text-decoration-none'>
+                          <h5 className='card-title text-center h2 font-weight-bold'>{charity.attributes.name}</h5>
                         </a>
-                        <h5 className='card-subtile text-center h5 text-white mb-4'>{charity.attributes.slogan}</h5>
+                        <h5 className='card-subtile text-center h5 mb-4'>{charity.attributes.slogan}</h5>
                       </div>
                       <div>
                         <p className='card-text'>City: {charity.attributes.city}</p>
@@ -321,7 +320,6 @@ export function Home() {
                         <p className='card-text'>{charity.attributes.cents_to_cause_ratio} of every dollar donated is available for programs, after overhead costs of fundraising and administration.</p>
                       </div>
                     </div>
-                  {/* </Fade> */}
                 </div>
               </div>
             )

@@ -12,7 +12,7 @@
 }
 
 .carousel {
-  background: #fffaf4;
+  background: transparent;
   margin-bottom: 80px;
   position: absolute;
 }
@@ -29,7 +29,7 @@
   align-content: center;
   flex-wrap: wrap;
   color: white;
-  background: #BD1E2C;
+  background-color: rgba(85, 0, 146, 0.8);
   border-radius: 30px;
   counter-increment: gallery-cell;
 }
@@ -43,18 +43,6 @@
 }
 
 @media screen and (min-width:1200px) {
-  #about-vid {
-    width: 100%;
-    height: 75vh;
-    object-fit: cover;
-  }
-  .about-banner {
-    margin-top: 10%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-  }
   .me-img {
     height: 30vh;
   }
@@ -65,14 +53,11 @@
     padding: 0;
   }
   .carousel {
-    padding-bottom: 25px;
+    padding: 80px 0;
   }
 }
 
 @media screen and (max-width:1199px) {
-  #about-vid {
-    display: none;
-  }
   .about-slice {
     padding: 50px;
   }
@@ -82,18 +67,11 @@
 }
 
 @media screen and (min-width: 991px) {
-  .soup {
-    width: 100%;
-    height: 30vh;
-    object-fit: cover;
-  }
   .me-img {
     height: 20vh;
     margin-top: 20px;
     border-width: 10px;
     border-radius: 15px 5%;
-    border-style: solid;
-    border-image: url('../media/red-bg.png') 100 fill;
   }
   .hi-img {
     height: 20vh;
@@ -104,18 +82,11 @@
 }
 
 @media screen and (max-width: 991px) {
-  .soup {
-    width: 100%;
-    height: 60vh;
-    object-fit: cover;
-  }
   .me-img {
     height: 25vh;
     margin-top: 20px;
     border-width: 10px;
     border-radius: 15px 5%;
-    border-style: solid;
-    border-image: url('../media/red-bg.png') 100 fill;
   }
   .hi-img {
     height: 20vh;
@@ -123,34 +94,4 @@
   .box {
     margin-top: 50px;
   }
-  #about-vid {
-    display: none;
-  }
-}
-
-@media screen and (max-width:1199px) {
-  .about-slice {
-    background: url('../media/cool-banner-3.png');
-    animation: gradient 10s ease infinite;
-    background-repeat: no-repeat;
-    background-position: bottom;
-  }
-}
-
-@media screen and (max-width:440px) {
-  .soup {
-    height: 25vh;
-  }
-}
-
-@keyframes gradient {
-	0% {
-		background-position: -200% 80%;
-	}
-	50% {
-		background-position: 250% 80%;
-	}
-  100% {
-		background-position: -200% 80%;
-	}
 }
