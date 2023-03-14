@@ -1,22 +1,16 @@
-@media screen and (max-width:991px) {
-  #banner {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    min-height: 80vh;
-    backdrop-filter: blur(2px);
-  }
-  #banner-img {
-    background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url('../media/hands-heart-transparent.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
+@media screen and (max-width:1199px) {
   #world {
     display: none;
   }
+}
+
+#banner {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  min-height: 80vh;
 }
 
 .slogan {
