@@ -1,7 +1,7 @@
 .about-banner {
   min-height: 30vh;
   display: flex;
-  font-family: Muli, sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: bold;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -93,7 +93,7 @@
     border-width: 10px;
     border-radius: 15px 5%;
     border-style: solid;
-    border-image: url('../red-bg.png') 100 fill;
+    border-image: url('../media/red-bg.png') 100 fill;
   }
   .hi-img {
     height: 20vh;
@@ -115,7 +115,7 @@
     border-width: 10px;
     border-radius: 15px 5%;
     border-style: solid;
-    border-image: url('../red-bg.png') 100 fill;
+    border-image: url('../media/red-bg.png') 100 fill;
   }
   .hi-img {
     height: 20vh;
@@ -130,7 +130,7 @@
 
 @media screen and (max-width:1199px) {
   .about-slice {
-    background: url('../cool-banner-3.png');
+    background: url('../media/cool-banner-3.png');
     animation: gradient 10s ease infinite;
     background-repeat: no-repeat;
     background-position: bottom;

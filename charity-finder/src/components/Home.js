@@ -1,8 +1,8 @@
-import './App.css';
+import '../css/App.css';
 import axios from 'axios';
-import Navbar from './components/Navbar';
-import Banner from './components/Banner';
-import Footer from './components/Footer';
+import Navbar from './Navbar';
+import Banner from './Banner';
+import Footer from './Footer';
 // import SearchBar from './components/SearchBar';
 import { MDBTooltip } from 'mdb-react-ui-kit';
 import { BsInfoCircle } from 'react-icons/bs';

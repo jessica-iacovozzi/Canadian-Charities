@@ -1,6 +1,6 @@
 import React from 'react';
-import '../App.css';
-import { scrollTo } from '../Home';
+import '../css/App.css';
+import { scrollTo } from './Home';
 import { Fade, Roll, Rotate, Zoom } from "react-awesome-reveal";
 
 function Banner() {
@@ -10,7 +10,7 @@ function Banner() {
         <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
           <div id='world' className="col-10 col-sm-8 col-lg-6">
             <Roll triggerOnce delay={900} duration={900}>
-              <img src={require('../Donate-Charity-PNG-Image.png')} className="d-block mx-lg-auto img-fluid" alt="Charity" width="700" height="400" loading="lazy"/>
+              <img src={require('../media/Donate-Charity-PNG-Image.png')} className="d-block mx-lg-auto img-fluid" alt="Charity" width="700" height="400" loading="lazy"/>
             </Roll>
           </div>
           <div id='banner' className="col-12 col-lg-6">
@@ -26,7 +26,7 @@ function Banner() {
               </div>
             </Fade>
             <Zoom triggerOnce delay={1200}>
-            <img style={{height: '10vh'}} id='arrow' src={require('../red-arrow-transparent.png')} alt="Arrow" />
+            <img style={{height: '10vh'}} id='arrow' src={require('../media/red-arrow-transparent.png')} alt="Arrow" />
             </Zoom>
           </div>
         </div>

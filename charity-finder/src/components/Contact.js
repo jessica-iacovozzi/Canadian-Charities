@@ -1,6 +1,6 @@
 import React from 'react';
 import Footer from "./Footer";
-import '../App.css';
+import '../css/App.css';
 import "../css/Contact.css";
 import { BsLinkedin, BsGithub, BsDownload } from "react-icons/bs";
 import { MdOutlineWeb, MdOutlineMail } from "react-icons/md";
@@ -10,7 +10,7 @@ import { Slide } from "react-awesome-reveal";
 function Contact() {
   return(
     <div className='main'>
-      <video src={require('../grey-lines-bg.mp4')} autoPlay loop muted />
+      <video src={require('../media/grey-lines-bg.mp4')} autoPlay loop muted />
       <div className='contact-banner'>
         <nav className='navbar navbar-expand contact-nav'>
           <div className="container py-2">

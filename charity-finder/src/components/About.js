@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css';
+import '../css/App.css';
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import "../css/About.css";
@@ -20,12 +20,12 @@ function About() {
     <div>
     <Navbar />
     <div className='about-slice'>
-      <video id='about-vid' src={require('../hand-vid.mp4')} autoPlay muted />
+      <video id='about-vid' src={require('../media/hand-vid.mp4')} autoPlay muted />
       <div className="about-banner">
         <JackInTheBox triggerOnce >
         {/* <h1>Hello there, I'm Jess!</h1> */}
-          <img className='hi-img' src={require('../hi.png')} alt="Hi, I'm Jess" />
-          <img className='me-img' src={require('../mini-me.png')} alt='Me' />
+          <img className='hi-img' src={require('../media/hi.png')} alt="Hi, I'm Jess" />
+          <img className='me-img' src={require('../media/mini-me.png')} alt='Me' />
         </JackInTheBox>
       </div>
     </div>
