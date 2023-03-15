@@ -2,10 +2,10 @@
   font-size: 10vh;
   margin: 20px;
   color: #550092;
+  transition: all .3s ease-in-out;
 }
 
 .icon:hover {
-  transition: all .3s ease-in-out;
   transform: scale(1.2);
 }
 
@@ -22,36 +22,6 @@
 
 .links h4 {
   text-align: center;
-}
-
-.contact-nav {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: transparent;
-}
-
-.contact-nav ul li {
-  list-style: none;
-  display: inline-block;
-  padding: 0.5rem 0;
-  margin: 0 10px;
-}
-
-.contact-nav ul li a {
-  text-decoration: none;
-  color: #550092;
-  font-size: 20px;
-}
-
-.contact-nav ul li a:hover {
-  transition: all .3s ease-in-out;
-  transform: scale(1.1);
-  letter-spacing: 8px;
 }
 
 .contact-banner {
@@ -72,7 +42,7 @@
 
 @media screen and (min-width:1200px) {
   .contact-banner h1 {
-    padding-top: 125px;
+    padding-top: 25px;
     font-size: 4.5rem;
     font-family: 'Big Shoulders Display', cursive;
     font-weight: 800;
@@ -89,7 +59,7 @@
 
 @media screen and (max-width: 1199px) {
   .contact-banner h1 {
-    padding-top: 35%;
+    padding-top: 45px;
     font-size: 4rem;
     font-family: 'Big Shoulders Display', cursive;
     font-weight: 800;
@@ -109,7 +79,7 @@
 }
 @media screen and (max-width: 991px) {
   .contact-banner h1 {
-    padding-top: 135px;
+    padding-top: 45px;
     font-size: 70px;
     font-family: 'Big Shoulders Display', cursive;
     font-weight: 800;
@@ -122,7 +92,7 @@
 
 @media screen and (max-width: 440px) {
   .contact-banner h1 {
-    padding-top: 130px;
+    padding-top: 90px;
     font-size: 40px;
     font-family: 'Big Shoulders Display', cursive;
     font-weight: 800;
