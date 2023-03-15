@@ -20,7 +20,7 @@
 .carousel-cell {
   width: 66%;
   height: 250px;
-  margin-right: 20px;
+  margin: 20px;
   padding: 30px;
   text-align: center;
   display: flex;
@@ -28,10 +28,11 @@
   justify-content: center;
   align-content: center;
   flex-wrap: wrap;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: transparent;
   backdrop-filter: blur(10px);
-  color: white;
+  color: rgba(85, 0, 146);
   border-radius: 20px;
+  box-shadow: 2px 2px 4px 3px rgba(85, 0, 146, 0.2);
   counter-increment: gallery-cell;
 }
 
