@@ -4,6 +4,7 @@ import BurgerNav from './BurgerNav';
 import Navbar from './Navbar';
 import Banner from './Banner';
 import Footer from './Footer';
+import ResultsCount from './ResultsCount';
 // import SearchBar from './components/SearchBar';
 import { MDBTooltip } from 'mdb-react-ui-kit';
 import { BsInfoCircle } from 'react-icons/bs';
@@ -11,7 +12,7 @@ import { RxPinTop } from 'react-icons/rx';
 import { useEffect, useState } from 'react';
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 import ReactPaginate from 'react-paginate';
-import Select from 'react-select'
+import Select from 'react-select';
 
 export const API_URL = 'https://canadian-charities.fly.dev/api/v1/charities'
 
@@ -115,10 +116,6 @@ export function Home() {
   };
 
   const resetCharities = async () => {
-    document.getElementById('sorting').selectedIndex = 0;
-    document.getElementById('city').selectedIndex = 0;
-    document.getElementById('sector').selectedIndex = 0;
-    document.getElementById('charity').selectedIndex = 0;
     setSector();
     setCity();
     setSortingMethod();
@@ -224,13 +221,13 @@ export function Home() {
               <div className='col-2'>
                 <h4 className='text-center order-title muli'>Search by name</h4>
                 <Select options={charity_options}
-                        isSearchable={true}
+                        isSearchable
                         className='dropdown mt-4 mb-2 muli'
                         onChange={handleCharityFilter}
                         menuPortalTarget={document.body}
                         styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
                         inputId='charity'
-                        placeholder="Look up a charity"
+                        placeholder="Enter a charity name"
                         value={{value:charityName, label:charityName}}
                 />
               </div>
@@ -239,14 +236,14 @@ export function Home() {
               <div className='col-2'>
                 <h4 className='text-center order-title muli'>Filter by city</h4>
                 <Select options={city_options}
-                        isSearchable={true}
+                        isSearchable
                         className='dropdown mt-4 mb-2 muli'
                         onChange={handleCityFilter}
                         menuPortalTarget={document.body}
                         styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
                         inputId='city'
                         placeholder="Select a city"
-                        value={{value:city, label:city} || null}
+                        value={{value:city, label:city}}
                 />
               </div>
             </div>
@@ -255,14 +252,14 @@ export function Home() {
               <div className='col-2'>
                 <h4 className='text-center order-title muli'>Filter by sector</h4>
                 <Select options={sector_options}
-                        isSearchable={true}
+                        isSearchable
                         className='dropdown mt-4 mb-2 muli'
                         onChange={handleSectorFilter}
                         menuPortalTarget={document.body}
                         styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
                         inputId='sector'
-                        value={{value:sector, label:sector}}
                         placeholder="Select a sector"
+                        value={{value:sector, label:sector}}
                 />
               </div>
             </div>
@@ -271,14 +268,14 @@ export function Home() {
               <div className='col-2'>
                 <h4 className='text-center order-title muli'>Sort by</h4>
                 <Select options={sorting_options}
-                        isSearchable={true}
+                        isSearchable
                         className='dropdown mt-4 mb-2 muli'
                         onChange={handleCharitySorting}
                         menuPortalTarget={document.body}
                         styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
                         inputId='sorting'
+                        placeholder="Select a sorting method"
                         value={{value:sortingMethod, label:sortingMethod}}
-                        placeholder="Select a sorting ..."
                 />
               </div>
             </div>
@@ -291,6 +288,7 @@ export function Home() {
         </div>
         <div className="container">
           <div ref={listRef} id='charities' className='row d-flex justify-content-evenly mt-4'>
+            <ResultsCount city={city} sector={sector} charities={charities} charityName={charityName} attributes={attributes} />
             {charities.map((charity) => {
               return (
                 <div key={charity.id} className='col-12 col-lg-6 v my-3'>

@@ -24,9 +24,9 @@ function Banner() {
               </Fade>
               <Fade triggerOnce delay={1000} duration={1500}>
                 <div onClick={() => {scrollTo("filter-bar")}} className='arrows'>
-                  <span class="m_scroll_arrows unu"></span>
-                  <span class="m_scroll_arrows doi"></span>
-                  <span class="m_scroll_arrows trei"></span>
+                  <span className="m_scroll_arrows unu"></span>
+                  <span className="m_scroll_arrows doi"></span>
+                  <span className="m_scroll_arrows trei"></span>
                 </div>
               </Fade>
             </div>

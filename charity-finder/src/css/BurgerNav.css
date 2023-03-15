@@ -9,18 +9,18 @@
 
 .bm-burger-button {
   position: fixed;
-  width: 36px;
+  width: 35px;
   height: 30px;
-  right: 36px;
-  top: 36px;
+  right: 30px;
+  top: 30px;
 }
 
 .bm-burger-bars {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.6);
 }
 
 .bm-burger-bars-hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .bm-cross-button {

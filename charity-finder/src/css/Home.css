@@ -103,6 +103,10 @@ html,body{
   transition: all .4s ease;
 }
 
+.card p {
+  font-size: 18px;
+}
+
 .card a {
   color: white;
 }
