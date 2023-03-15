@@ -305,12 +305,12 @@ export function Home() {
                           <p className='card-text'>Sector: {charity.attributes.sector}</p>
                           <div className='d-flex align-items-center'>
                             <MDBTooltip tag='p' placement="bottom" title="Rating is based on the charity's financial transparency, need for funding, grade, impact per dollar and % of $ available for programs after overhead costs.">
-                              <BsInfoCircle className='svg' />Rating: {charity.attributes.rating}
+                              <BsInfoCircle className='svg' />Overall rating: {charity.attributes.rating}
                             </MDBTooltip>
                           </div>
                           <div className='d-flex align-items-center'>
                             <MDBTooltip tag='p' placement="bottom" title="Grade is based on the charity's public reporting of the work it does and the results it achieves.">
-                              <BsInfoCircle className='svg' />Grade: {charity.attributes.grade}
+                              <BsInfoCircle className='svg' />Reporting grade: {charity.attributes.grade}
                             </MDBTooltip>
                           </div>
                           <div className='d-flex align-items-center'>
@@ -318,7 +318,7 @@ export function Home() {
                               <BsInfoCircle className='svg' />Impact per dollar: {charity.attributes.demonstrated_impact}
                             </MDBTooltip>
                           </div>
-                          <p className='card-text'>{charity.attributes.cents_to_cause_ratio} of every dollar donated is available for programs, after overhead costs of fundraising and administration.</p>
+                          <p className='card-text'>{charity.attributes.cents_to_cause_ratio} of every dollar donated is left available for programs, after overhead costs of fundraising and administration.</p>
                         </div>
                       </div>
                   </div>

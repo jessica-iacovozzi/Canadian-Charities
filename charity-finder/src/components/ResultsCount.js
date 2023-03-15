@@ -46,7 +46,7 @@ function ResultsCount(props) {
                         } else {
                             return (
                             <h6 className='results'>
-                              {attributes.length} {results}
+                              Total of {attributes.length} {results}
                             </h6>
                             )
                         }
