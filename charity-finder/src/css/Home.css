@@ -141,10 +141,7 @@ html,body{
 }
 
 .dropdown {
-  width: 240px;
+  width: 250px;
   color: #212529;
-}
-
-.dropdown-select__control.dropdown-select__control--is-focused {
-  font-size: 16px !important;
+  font-size: 18px;
 }
