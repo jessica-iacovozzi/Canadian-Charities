@@ -209,7 +209,8 @@ export function Home() {
   const [listRef] = useAutoAnimate();
 
   return (
-    <div id="outer-container" className='home-bg' >
+    <div id="outer-container" className='home-bg'>
+      <img src={require("../media/charity-finder-logo.png")} alt="logo" className='logo'/>
       <BurgerNav pageWrapId={'page-wrap'} outerContainerId={'outer-container'}/>
       <div id="page-wrap">
         <Navbar />

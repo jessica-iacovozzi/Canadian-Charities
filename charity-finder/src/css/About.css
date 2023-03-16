@@ -36,12 +36,8 @@
   counter-increment: gallery-cell;
 }
 
-.carousel-cell:before {
-  display: block;
-  text-align: center;
-  line-height: 200px;
-  font-size: 80px;
-  color: white;
+.carousel-cell h4 {
+  font-size: 18px;
 }
 
 @media screen and (min-width:1200px) {
