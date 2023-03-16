@@ -5,7 +5,7 @@ import Footer from "./Footer";
 import '../css/Home.css';
 import "../css/About.css";
 import "../css/Flickity.css";
-import { JackInTheBox } from "react-awesome-reveal";
+import { Slide } from "react-awesome-reveal"
 import Flickity from 'react-flickity-component'
 
 const flickityOptions = {
@@ -24,10 +24,17 @@ function About() {
         <Navbar />
         <div className='about-slice'>
           <div className="about-banner">
-            <JackInTheBox triggerOnce >
-              <img className='hi-img' src={require('../media/hi.png')} alt="Hi, I'm Jess" />
-              <img className='me-img' src={require('../media/mini-me.png')} alt='Me' />
-            </JackInTheBox>
+            <div className='banner-text'>
+              <h4 id='hello-1'>Hello, my name is</h4>
+              <div id='hello-2' class="content">
+                <h2>Jessica</h2>
+                <h2>Jessica</h2>
+              </div>
+              <h3 id='hello-3'>And I'm a web developer</h3>
+            </div>
+            <Slide triggerOnce delay={1000}>
+              <img id='me' className='me-img' src={require('../media/me-frame-tape.png')} alt='Me' />
+            </Slide>
           </div>
         </div>
         <div>
