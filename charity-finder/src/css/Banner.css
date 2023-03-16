@@ -43,6 +43,33 @@
   margin-top: 30px;
 }
 
+#home-title, .slogan, .arrows {
+  animation-duration: 1s;
+  animation-name: slideleft;
+  animation-timing-function: cubic-bezier(.26,.53,.74,1.48);
+  animation-fill-mode: backwards;
+}
+
+#home-title {
+  animation-delay: 0.5s;
+}
+
+.slogan {
+  animation-delay: 1.25s;
+}
+
+.arrows {
+  animation-delay: 2s;
+}
+
+#home-logo {
+  animation-duration: 1s;
+  animation-delay: 0.75s;
+  animation-name: slideright;
+  animation-timing-function: cubic-bezier(.26,.53,.74,1.48);
+  animation-fill-mode: backwards;
+}
+
 .m_scroll_arrows {
   display: block;
   -ms-transform: rotate(45deg);
@@ -55,59 +82,51 @@
   height: 30px;
 }
 
-.unu, .doi, .trei {
-  -webkit-animation: mouse-scroll 1s infinite;
-  -moz-animation: mouse-scroll 1s infinite;
-  animation: mouse-scroll 1s infinite;
-}
-
-.unu {
+.one {
   margin-top: 1px;
-  -webkit-animation-delay: .1s;
-  -moz-animation-delay: .1s;
-  -webkit-animation-direction: alternate;
+  animation: mouse-scroll 1s infinite;
+  animation-delay: .1s;
   animation-direction: alternate;
-  animation-delay: alternate;
 }
 
-.doi {
-  -webkit-animation-delay: .2s;
-  -moz-animation-delay: .2s;
-  -webkit-animation-direction: alternate;
+.two {
+  margin-top: -6px;
+  animation: mouse-scroll 1s infinite;
   animation-delay: .2s;
   animation-direction: alternate;
-  margin-top: -6px;
 }
 
-.trei {
-  -webkit-animation-delay: .3s;
-  -moz-animation-delay: .3s;
-  -webkit-animation-direction: alternate;
+.three {
+  margin-top: -6px;
+  animation: mouse-scroll 1s infinite;
   animation-delay: .3s;
   animation-direction: alternate;
-  margin-top: -6px;
-}
-
-@-webkit-keyframes mouse-scroll {
-  0%   { opacity: 0;}
-  50%  { opacity: .5;}
-  100% { opacity: 1;}
-}
-
-@-moz-keyframes mouse-scroll {
-  0%   { opacity: 0; }
-  50%  { opacity: .5; }
-  100% { opacity: 1; }
-}
-
-@-o-keyframes mouse-scroll {
-  0%   { opacity: 0; }
-  50%  { opacity: .5; }
-  100% { opacity: 1; }
 }
 
 @keyframes mouse-scroll {
   0%   { opacity: 0; }
   50%  { opacity: .5; }
   100% { opacity: 1; }
+}
+
+@keyframes slideleft {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes slideright {
+  0% {
+    opacity: 0;
+    transform: translate(150%, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
 }
