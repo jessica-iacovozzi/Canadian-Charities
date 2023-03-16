@@ -7,6 +7,7 @@ html,body{
   background-image: url("../media/purple-bg.png");
   background-size: cover;
   color: #550092;
+  transition: all 1s;
 }
 
 @media screen and (min-width:1200px) {
@@ -142,4 +143,8 @@ html,body{
 .dropdown {
   width: 240px;
   color: #212529;
+}
+
+.dropdown-select__control.dropdown-select__control--is-focused {
+  font-size: 16px !important;
 }
