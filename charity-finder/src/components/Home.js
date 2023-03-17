@@ -8,7 +8,6 @@ import ResultsCount from './ResultsCount';
 import HomeInfo from './HomeInfo';
 // import SearchBar from './components/SearchBar';
 import { MDBTooltip } from 'mdb-react-ui-kit';
-import { BsInfoCircle } from 'react-icons/bs';
 import { RxPinTop } from 'react-icons/rx';
 import { useEffect, useState } from 'react';
 import { useAutoAnimate } from '@formkit/auto-animate/react'
@@ -228,10 +227,10 @@ export function Home() {
             {/* <SearchBar placeholder="Type a charity name..." data={attributes} setCharities={setCharities} setPageCount={setPageCount} /> */}
               <div className='row justify-content-center mt-4 mx-2 nop'>
                 <div className='col-2'>
-                  <h4 className='text-center order-title muli'>Search by name</h4>
+                  <h4 className='text-center order-title'>Search by name</h4>
                   <Select options={charity_options}
                           isSearchable
-                          className='dropdown mt-4 mb-2 muli'
+                          className='dropdown mt-4 mb-2'
                           onChange={handleCharityFilter}
                           menuPortalTarget={document.body}
                           styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
@@ -244,10 +243,10 @@ export function Home() {
 
               <div className='row justify-content-center mt-4 mx-2 nop'>
                 <div className='col-2'>
-                  <h4 className='text-center order-title muli'>Filter by city</h4>
+                  <h4 className='text-center order-title'>Filter by city</h4>
                   <Select options={city_options}
                           isSearchable
-                          className='dropdown mt-4 mb-2 muli'
+                          className='dropdown mt-4 mb-2'
                           onChange={handleCityFilter}
                           menuPortalTarget={document.body}
                           styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
@@ -260,10 +259,10 @@ export function Home() {
 
               <div className='row justify-content-center mt-4 mx-2 nop'>
                 <div className='col-2'>
-                  <h4 className='text-center order-title muli'>Filter by sector</h4>
+                  <h4 className='text-center order-title'>Filter by sector</h4>
                   <Select options={sector_options}
                           isSearchable
-                          className='dropdown mt-4 mb-2 muli'
+                          className='dropdown mt-4 mb-2'
                           onChange={handleSectorFilter}
                           menuPortalTarget={document.body}
                           styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
@@ -276,10 +275,10 @@ export function Home() {
 
               <div className='row justify-content-center mt-4 mx-2 nop'>
                 <div className='col-2'>
-                  <h4 className='text-center order-title muli'>Sort by</h4>
+                  <h4 className='text-center order-title'>Sort by</h4>
                   <Select options={sorting_options}
                           isSearchable
-                          className='dropdown mt-4 mb-2 muli'
+                          className='dropdown mt-4 mb-2'
                           onChange={handleCharitySorting}
                           menuPortalTarget={document.body}
                           styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
@@ -302,8 +301,8 @@ export function Home() {
               {charities.map((charity) => {
                 return (
                   <div key={charity.id} className='col-12 col-lg-6 v my-3'>
-                    <div className='card shadow w-100 h-100 rounded-5'>
-                        <div className='card-body p-5 muli d-flex flex-column'>
+                    <div className='card shadow w-100 h-100 rounded-4'>
+                        <div className='card-body p-5 d-flex flex-column'>
                           <div>
                             <a href={`//${charity.attributes.website}`} rel="noreferrer" target="_blank" className='text-decoration-none'>
                               <h5 className='card-title text-center h2 font-weight-bold'>{charity.attributes.name}</h5>
@@ -315,20 +314,20 @@ export function Home() {
                             <p className='card-text'>Sector: {charity.attributes.sector}</p>
                             <div className='d-flex align-items-center'>
                               <MDBTooltip tag='p' placement="bottom" title="Rating is based on the charity's financial transparency, need for funding, grade, impact per dollar and % of $ available for programs after overhead costs.">
-                                <BsInfoCircle className='svg' style={{marginRight: '5px'}}/>Overall rating: {charity.attributes.rating}
+                                Overall rating: {charity.attributes.rating}
                               </MDBTooltip>
                             </div>
                             <div className='d-flex align-items-center'>
                               <MDBTooltip tag='p' placement="bottom" title="Grade is based on the charity's public reporting of the work it does and the results it achieves.">
-                                <BsInfoCircle className='svg' style={{marginRight: '5px'}}/>Reporting grade: {charity.attributes.grade}
+                                Results reporting grade: {charity.attributes.grade}
                               </MDBTooltip>
                             </div>
                             <div className='d-flex align-items-center'>
                               <MDBTooltip tag='p' placement="bottom" title="Impact per dollar is calculated from the charity's available program information.">
-                                <BsInfoCircle className='svg' style={{marginRight: '5px'}}/>Impact per dollar: {charity.attributes.demonstrated_impact}
+                                Social impact rating: {charity.attributes.demonstrated_impact}
                               </MDBTooltip>
                             </div>
-                            <p className='card-text'>{charity.attributes.cents_to_cause_ratio} of every dollar donated is left available for programs, after overhead costs of fundraising and administration.</p>
+                            <p className='card-text'>Cents to the cause: {charity.attributes.cents_to_cause_ratio}</p>
                           </div>
                         </div>
                     </div>
