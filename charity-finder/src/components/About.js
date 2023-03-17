@@ -12,15 +12,14 @@ const flickityOptions = {
   initialIndex: 1,
   draggable: '>1',
   freeScroll: true,
-  wrapAround: true,
-  autoPlay: 6000
+  wrapAround: true
 }
 
 function About() {
   return(
     <div id="outer-container">
       <BurgerNav pageWrapId={'page-wrap'} outerContainerId={'outer-container'}/>
-      <div id="page-wrap">
+      <div id="page-wrap" className='content'>
         <Navbar />
         <div className='about-slice'>
           <div className="about-banner">

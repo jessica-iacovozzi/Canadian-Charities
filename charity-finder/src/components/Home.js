@@ -232,6 +232,7 @@ export function Home() {
                 />
               </div>
             </div>
+
             <div className='row justify-content-center mt-4 mx-2 nop'>
               <div className='col-2'>
                 <h4 className='text-center order-title muli'>Filter by city</h4>
@@ -286,6 +287,7 @@ export function Home() {
               </div>
             </div>
         </div>
+
         <div className="container">
           <div ref={listRef} id='charities' className='row d-flex justify-content-evenly mt-4'>
             <ResultsCount city={city} sector={sector} charities={charities} charityName={charityName} attributes={attributes} />

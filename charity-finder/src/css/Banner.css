@@ -46,7 +46,6 @@
 #home-title, .slogan, .arrows {
   animation-duration: 1s;
   animation-name: slideleft;
-  animation-timing-function: cubic-bezier(.26,.53,.74,1.48);
   animation-fill-mode: backwards;
 }
 
@@ -54,19 +53,14 @@
   animation-delay: 0.5s;
 }
 
-.slogan {
-  animation-delay: 1.25s;
-}
-
-.arrows {
-  animation-delay: 2s;
+.slogan, .arrows {
+  animation-delay: 1s;
 }
 
 #home-logo {
   animation-duration: 1s;
-  animation-delay: 0.75s;
+  animation-delay: 0.5s;
   animation-name: slideright;
-  animation-timing-function: cubic-bezier(.26,.53,.74,1.48);
   animation-fill-mode: backwards;
 }
 
