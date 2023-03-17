@@ -5,7 +5,9 @@ import "../css/BurgerNav.css"
 function BurgerNav() {
   return (
     <div id="burger-nav">
-      <img src={require("../media/charity-finder-logo.png")} alt="logo" className='logo'/>
+      <a href='/'>
+        <img src={require("../media/charity-finder-logo.png")} alt="logo" className='logo'/>
+      </a>
       <Menu right>
         <a className="menu-item" href="/">
           Home

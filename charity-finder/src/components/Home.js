@@ -5,6 +5,7 @@ import Navbar from './Navbar';
 import Banner from './Banner';
 import Footer from './Footer';
 import ResultsCount from './ResultsCount';
+import HomeInfo from './HomeInfo';
 // import SearchBar from './components/SearchBar';
 import { MDBTooltip } from 'mdb-react-ui-kit';
 import { BsInfoCircle } from 'react-icons/bs';
@@ -212,146 +213,154 @@ export function Home() {
     <div id="outer-container" className='home-bg'>
       <BurgerNav pageWrapId={'page-wrap'} outerContainerId={'outer-container'}/>
       <div id="page-wrap">
-        <Navbar />
-        <Banner />
-        <div id='filter-section' className='p-3 position-relative'>
-          <div id='filter-bar'>
-          {/* <SearchBar placeholder="Type a charity name..." data={attributes} setCharities={setCharities} setPageCount={setPageCount} /> */}
-            <div className='row justify-content-center mt-4 mx-2 nop'>
-              <div className='col-2'>
-                <h4 className='text-center order-title muli'>Search by name</h4>
-                <Select options={charity_options}
-                        isSearchable
-                        className='dropdown mt-4 mb-2 muli'
-                        onChange={handleCharityFilter}
-                        menuPortalTarget={document.body}
-                        styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
-                        inputId='charity'
-                        placeholder="Enter a charity name"
-                        value={{value:charityName, label:charityName}}
-                />
+        <div className='nav-ban'>
+          <Navbar />
+          <Banner />
+        </div>
+        <HomeInfo />
+        <div className='after-info'>
+          <div id='filter-section' className='position-relative custom-shape-divider-top-1679023573'>
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+              <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill-2"></path>
+            </svg>
+            </div>
+            <div id='filter-bar'>
+            {/* <SearchBar placeholder="Type a charity name..." data={attributes} setCharities={setCharities} setPageCount={setPageCount} /> */}
+              <div className='row justify-content-center mt-4 mx-2 nop'>
+                <div className='col-2'>
+                  <h4 className='text-center order-title muli'>Search by name</h4>
+                  <Select options={charity_options}
+                          isSearchable
+                          className='dropdown mt-4 mb-2 muli'
+                          onChange={handleCharityFilter}
+                          menuPortalTarget={document.body}
+                          styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
+                          inputId='charity'
+                          placeholder="Enter a charity name"
+                          value={{value:charityName, label:charityName}}
+                  />
+                </div>
+              </div>
+
+              <div className='row justify-content-center mt-4 mx-2 nop'>
+                <div className='col-2'>
+                  <h4 className='text-center order-title muli'>Filter by city</h4>
+                  <Select options={city_options}
+                          isSearchable
+                          className='dropdown mt-4 mb-2 muli'
+                          onChange={handleCityFilter}
+                          menuPortalTarget={document.body}
+                          styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
+                          inputId='city'
+                          placeholder="Select a city"
+                          value={{value:city, label:city}}
+                  />
+                </div>
+              </div>
+
+              <div className='row justify-content-center mt-4 mx-2 nop'>
+                <div className='col-2'>
+                  <h4 className='text-center order-title muli'>Filter by sector</h4>
+                  <Select options={sector_options}
+                          isSearchable
+                          className='dropdown mt-4 mb-2 muli'
+                          onChange={handleSectorFilter}
+                          menuPortalTarget={document.body}
+                          styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
+                          inputId='sector'
+                          placeholder="Select a sector"
+                          value={{value:sector, label:sector}}
+                  />
+                </div>
+              </div>
+
+              <div className='row justify-content-center mt-4 mx-2 nop'>
+                <div className='col-2'>
+                  <h4 className='text-center order-title muli'>Sort by</h4>
+                  <Select options={sorting_options}
+                          isSearchable
+                          className='dropdown mt-4 mb-2 muli'
+                          onChange={handleCharitySorting}
+                          menuPortalTarget={document.body}
+                          styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
+                          inputId='sorting'
+                          placeholder="Select a sorting method"
+                          value={{value:sortingMethod, label:sortingMethod}}
+                  />
+                </div>
               </div>
             </div>
 
-            <div className='row justify-content-center mt-4 mx-2 nop'>
-              <div className='col-2'>
-                <h4 className='text-center order-title muli'>Filter by city</h4>
-                <Select options={city_options}
-                        isSearchable
-                        className='dropdown mt-4 mb-2 muli'
-                        onChange={handleCityFilter}
-                        menuPortalTarget={document.body}
-                        styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
-                        inputId='city'
-                        placeholder="Select a city"
-                        value={{value:city, label:city}}
-                />
-              </div>
-            </div>
-
-            <div className='row justify-content-center mt-4 mx-2 nop'>
-              <div className='col-2'>
-                <h4 className='text-center order-title muli'>Filter by sector</h4>
-                <Select options={sector_options}
-                        isSearchable
-                        className='dropdown mt-4 mb-2 muli'
-                        onChange={handleSectorFilter}
-                        menuPortalTarget={document.body}
-                        styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
-                        inputId='sector'
-                        placeholder="Select a sector"
-                        value={{value:sector, label:sector}}
-                />
-              </div>
-            </div>
-
-            <div className='row justify-content-center mt-4 mx-2 nop'>
-              <div className='col-2'>
-                <h4 className='text-center order-title muli'>Sort by</h4>
-                <Select options={sorting_options}
-                        isSearchable
-                        className='dropdown mt-4 mb-2 muli'
-                        onChange={handleCharitySorting}
-                        menuPortalTarget={document.body}
-                        styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
-                        inputId='sorting'
-                        placeholder="Select a sorting method"
-                        value={{value:sortingMethod, label:sortingMethod}}
-                />
-              </div>
-            </div>
-          </div>
             <div className='row justify-content-center mb-4 mx-2'>
               <div className='col-2'>
               <button onClick={() => {resetCharities()}} type="button" className="btn btn-lg mt-4 mb-2 reset-btn">Reset</button>
               </div>
             </div>
-        </div>
-
-        <div className="container">
-          <div ref={listRef} id='charities' className='row d-flex justify-content-evenly mt-4'>
-            <ResultsCount city={city} sector={sector} charities={charities} charityName={charityName} attributes={attributes} />
-            {charities.map((charity) => {
-              return (
-                <div key={charity.id} className='col-12 col-lg-6 v my-3'>
-                  <div className='card shadow w-100 h-100 rounded-5'>
-                      <div className='card-body p-5 muli d-flex flex-column'>
-                        <div>
-                          <a href={`//${charity.attributes.website}`} rel="noreferrer" target="_blank" className='text-decoration-none'>
-                            <h5 className='card-title text-center h2 font-weight-bold'>{charity.attributes.name}</h5>
-                          </a>
-                          <h5 className='card-subtile text-center h5 mb-4'>{charity.attributes.slogan}</h5>
+          <div className="container">
+            <div ref={listRef} id='charities' className='row d-flex justify-content-evenly mt-4'>
+              <ResultsCount city={city} sector={sector} charities={charities} charityName={charityName} attributes={attributes} />
+              {charities.map((charity) => {
+                return (
+                  <div key={charity.id} className='col-12 col-lg-6 v my-3'>
+                    <div className='card shadow w-100 h-100 rounded-5'>
+                        <div className='card-body p-5 muli d-flex flex-column'>
+                          <div>
+                            <a href={`//${charity.attributes.website}`} rel="noreferrer" target="_blank" className='text-decoration-none'>
+                              <h5 className='card-title text-center h2 font-weight-bold'>{charity.attributes.name}</h5>
+                            </a>
+                            <h5 className='card-subtile text-center h5 mb-4'>{charity.attributes.slogan}</h5>
+                          </div>
+                          <div>
+                            <p className='card-text'>City: {charity.attributes.city}</p>
+                            <p className='card-text'>Sector: {charity.attributes.sector}</p>
+                            <div className='d-flex align-items-center'>
+                              <MDBTooltip tag='p' placement="bottom" title="Rating is based on the charity's financial transparency, need for funding, grade, impact per dollar and % of $ available for programs after overhead costs.">
+                                <BsInfoCircle className='svg' style={{marginRight: '5px'}}/>Overall rating: {charity.attributes.rating}
+                              </MDBTooltip>
+                            </div>
+                            <div className='d-flex align-items-center'>
+                              <MDBTooltip tag='p' placement="bottom" title="Grade is based on the charity's public reporting of the work it does and the results it achieves.">
+                                <BsInfoCircle className='svg' style={{marginRight: '5px'}}/>Reporting grade: {charity.attributes.grade}
+                              </MDBTooltip>
+                            </div>
+                            <div className='d-flex align-items-center'>
+                              <MDBTooltip tag='p' placement="bottom" title="Impact per dollar is calculated from the charity's available program information.">
+                                <BsInfoCircle className='svg' style={{marginRight: '5px'}}/>Impact per dollar: {charity.attributes.demonstrated_impact}
+                              </MDBTooltip>
+                            </div>
+                            <p className='card-text'>{charity.attributes.cents_to_cause_ratio} of every dollar donated is left available for programs, after overhead costs of fundraising and administration.</p>
+                          </div>
                         </div>
-                        <div>
-                          <p className='card-text'>City: {charity.attributes.city}</p>
-                          <p className='card-text'>Sector: {charity.attributes.sector}</p>
-                          <div className='d-flex align-items-center'>
-                            <MDBTooltip tag='p' placement="bottom" title="Rating is based on the charity's financial transparency, need for funding, grade, impact per dollar and % of $ available for programs after overhead costs.">
-                              <BsInfoCircle className='svg' />Overall rating: {charity.attributes.rating}
-                            </MDBTooltip>
-                          </div>
-                          <div className='d-flex align-items-center'>
-                            <MDBTooltip tag='p' placement="bottom" title="Grade is based on the charity's public reporting of the work it does and the results it achieves.">
-                              <BsInfoCircle className='svg' />Reporting grade: {charity.attributes.grade}
-                            </MDBTooltip>
-                          </div>
-                          <div className='d-flex align-items-center'>
-                            <MDBTooltip tag='p' placement="bottom" title="Impact per dollar is calculated from the charity's available program information.">
-                              <BsInfoCircle className='svg' />Impact per dollar: {charity.attributes.demonstrated_impact}
-                            </MDBTooltip>
-                          </div>
-                          <p className='card-text'>{charity.attributes.cents_to_cause_ratio} of every dollar donated is left available for programs, after overhead costs of fundraising and administration.</p>
-                        </div>
-                      </div>
+                    </div>
                   </div>
-                </div>
-              )
-            })}
+                )
+              })}
+            </div>
           </div>
-        </div>
 
-        <div className='pagination'>
-          <ReactPaginate
-            previousLabel={'Previous'}
-            nextLabel={'Next'}
-            pageCount={pageCount}
-            onPageChange={handlePageClick}
-            forcePage = {currentPage}
-            containerClassName={'pagination justify-content-center mt-3'}
-            pageClassName={'page-item'}
-            marginPagesDisplayed={1}
-            pageLinkClassName={'page-link'}
-            previousClassName={'page-item'}
-            previousLinkClassName={'page-link'}
-            nextClassName={'page-item'}
-            nextLinkClassName={'page-link'}
-            breakClassName={'page-item'}
-            breakLinkClassName={'page-link'}
-            activeClassName={'active'}
-          />
+          <div className='pagination'>
+            <ReactPaginate
+              previousLabel={'Previous'}
+              nextLabel={'Next'}
+              pageCount={pageCount}
+              onPageChange={handlePageClick}
+              forcePage = {currentPage}
+              containerClassName={'pagination justify-content-center mt-3'}
+              pageClassName={'page-item'}
+              marginPagesDisplayed={1}
+              pageLinkClassName={'page-link'}
+              previousClassName={'page-item'}
+              previousLinkClassName={'page-link'}
+              nextClassName={'page-item'}
+              nextLinkClassName={'page-link'}
+              breakClassName={'page-item'}
+              breakLinkClassName={'page-link'}
+              activeClassName={'active'}
+            />
+          </div>
+            <RxPinTop onClick={() => {scrollTo("charities", "start")}} style={{fontSize: '30px', color: 'grey', marginLeft: '90%'}}/>
+          <Footer />
         </div>
-          <RxPinTop onClick={() => {scrollTo("charities", "start")}} style={{fontSize: '30px', color: 'grey', marginLeft: '90%'}}/>
-        <Footer />
       </div>
     </div>
   );

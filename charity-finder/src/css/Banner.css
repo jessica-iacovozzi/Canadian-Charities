@@ -2,14 +2,16 @@
   #world {
     display: none;
   }
+  #banner {
+    text-align: center;
+    align-items: center;
+  }
 }
 
 #banner {
-  text-align: center;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: center;
   min-height: 85vh;
 }
 
@@ -25,18 +27,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.svg {
-  margin-right: 5px;
-  font-size: 16px;
-  position: relative;
-  bottom: 2px;
-}
-
-.banner-btn {
-  background-color: #550092;
-  color: white;
 }
 
 #banner {

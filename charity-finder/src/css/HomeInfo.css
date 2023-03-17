@@ -1,0 +1,49 @@
+#home-info {
+  min-height: 100vh;
+  position: relative;
+}
+
+.home-info-text {
+  margin-top: 90px;
+}
+
+.home-info-text a {
+  text-decoration: none;
+  color: black;
+}
+
+.home-info-text p {
+  font-size: 40px;
+  font-family: Muli;
+  font-weight: bold;
+}
+
+.info-1, .info-2, .info-3 {
+  height: 115px;
+  line-height: 1;
+  margin-bottom: 100px;
+}
+
+.info-2 {
+  text-align: right;
+}
+
+.custom-shape-divider-top-1679023573 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1679023573 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 150px;
+}
+
+.shape-fill-1 {
+  fill: #E3B9ECE6;
+}

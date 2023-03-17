@@ -4,10 +4,17 @@ html,body{
   scroll-behavior: smooth;
   min-height: 100vh;
   font-family: 'Lato', sans-serif;
-  background-image: url("../media/purple-bg-3.png");
-  background-size: cover;
+  background-color: #F9F1FF;
   color: #550092;
   transition: all 1s;
+}
+
+.nav-ban {
+  background: linear-gradient(to top,rgba(227, 185, 236, 0.9) 0,rgba(246, 221, 255, 0.9) 40%,#F9F1FF 100%);
+}
+
+.after-info {
+  background: linear-gradient(to bottom,rgba(227, 185, 236, 0.9) 0,rgba(246, 221, 255, 0.9) 40%,#F9F1FF 100%);
 }
 
 @media screen and (min-width:1200px) {
@@ -126,6 +133,10 @@ html,body{
 
 .card p {
   font-size: 18px;
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 .card a {
@@ -138,10 +149,31 @@ html,body{
 
 #filter-section {
   scroll-margin-top: 100px!important;
+  margin-top: 80px;
 }
 
 .dropdown {
   width: 250px;
   color: #212529;
   font-size: 18px;
+}
+
+.custom-shape-divider-top-1679023573 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1679023573 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 150px;
+}
+
+.shape-fill-2 {
+  fill: #F9F1FF;
 }
