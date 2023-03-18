@@ -7,7 +7,6 @@ import Footer from './Footer';
 import ResultsCount from './ResultsCount';
 import HomeInfo from './HomeInfo';
 // import SearchBar from './components/SearchBar';
-import { MDBTooltip } from 'mdb-react-ui-kit';
 import { RxPinTop } from 'react-icons/rx';
 import { useEffect, useState } from 'react';
 import { useAutoAnimate } from '@formkit/auto-animate/react'
@@ -222,7 +221,8 @@ export function Home() {
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
               <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill-2"></path>
             </svg>
-            </div>
+          </div>
+          <h3>Search through 817 Canadian charities</h3>
             <div id='filter-bar'>
             {/* <SearchBar placeholder="Type a charity name..." data={attributes} setCharities={setCharities} setPageCount={setPageCount} /> */}
               <div className='row justify-content-center mt-4 mx-2 nop'>
@@ -305,27 +305,21 @@ export function Home() {
                         <div className='card-body p-5 d-flex flex-column'>
                           <div>
                             <a href={`//${charity.attributes.website}`} rel="noreferrer" target="_blank" className='text-decoration-none'>
-                              <h5 className='card-title text-center h2 font-weight-bold'>{charity.attributes.name}</h5>
+                              <h5 className='card-title text-center h1'>{charity.attributes.name}</h5>
                             </a>
-                            <h5 className='card-subtile text-center h5 mb-4'>{charity.attributes.slogan}</h5>
+                            <h5 className='card-subtile text-center h4 mb-4'>{charity.attributes.slogan}</h5>
                           </div>
                           <div>
-                            <p className='card-text'>City: {charity.attributes.city}</p>
-                            <p className='card-text'>Sector: {charity.attributes.sector}</p>
+                            <p className='card-text'>{charity.attributes.city}</p>
+                            <p className='card-text'>{charity.attributes.sector} sector</p>
                             <div className='d-flex align-items-center'>
-                              <MDBTooltip tag='p' placement="bottom" title="Rating is based on the charity's financial transparency, need for funding, grade, impact per dollar and % of $ available for programs after overhead costs.">
-                                Overall rating: {charity.attributes.rating}
-                              </MDBTooltip>
+                              <p>Overall rating: {charity.attributes.rating}</p>
                             </div>
                             <div className='d-flex align-items-center'>
-                              <MDBTooltip tag='p' placement="bottom" title="Grade is based on the charity's public reporting of the work it does and the results it achieves.">
-                                Results reporting grade: {charity.attributes.grade}
-                              </MDBTooltip>
+                              <p>Results reporting grade: {charity.attributes.grade}</p>
                             </div>
                             <div className='d-flex align-items-center'>
-                              <MDBTooltip tag='p' placement="bottom" title="Impact per dollar is calculated from the charity's available program information.">
-                                Social impact rating: {charity.attributes.demonstrated_impact}
-                              </MDBTooltip>
+                              <p>Social impact rating: {charity.attributes.demonstrated_impact}</p>
                             </div>
                             <p className='card-text'>Cents to the cause: {charity.attributes.cents_to_cause_ratio}</p>
                           </div>

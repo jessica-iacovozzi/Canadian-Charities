@@ -1,5 +1,4 @@
 #home-info {
-  min-height: 80vh;
   padding-bottom: inherit;
   position: relative;
 }
@@ -15,7 +14,7 @@
   font-size: 24px;
   color: rgba(0, 0, 0, 0.7);
   padding: 62px;
-  margin-bottom: 70px;
+  margin-bottom: 40px;
   text-align: center;
 }
 
@@ -24,8 +23,6 @@
   color: rgba(0, 0, 0, 0.85);
   text-align: center;
   position: absolute;
-  left: auto;
-  right: auto;
   width: 100%;
 }
 
@@ -63,17 +60,13 @@
   fill: #E3B9ECE6;
 }
 
-.piechart {
-  height: 65vh;
-  margin: 0 135px;
-}
-
 .piechart a {
   color: #550092;
 }
 
-.piechart h2 {
-  padding-right: 175px;
+.piechart h5 {
+  text-align: center;
+  margin-top: 20px;
 }
 
 a {
@@ -82,7 +75,80 @@ a {
 }
 
 .flex-50 {
-  flex-basis: 50%;
   width: 50%;
-  height: fit-content;
+}
+
+@media screen and (min-width:1200px) {
+  .piechart {
+    min-height: 65vh;
+    margin: 160px 135px 0 135px;
+  }
+  .piechart h5 {
+    margin-right: 175px;
+    font-size: 24px;
+  }
+  #home-info h3 {
+    margin-top: 50px;
+  }
+}
+
+@media screen and (max-width:1199px) {
+  .piechart {
+    margin: 140px 65px 0 65px;
+  }
+  .piechart h5 {
+    margin-right: 40px;
+    font-size: 20px;
+  }
+  #home-info h3 {
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width:991px) {
+  .piechart h5 {
+    font-size: 16px;
+  }
+  #home-info h3 {
+    margin-top: 10px;
+    font-size: 45px;
+  }
+  #home-info h4 {
+    font-size: 25px;
+  }
+  .home-info-text p {
+    font-size: 16px;
+    padding: 45px 62px;
+    margin-bottom: 20px;
+  }
+  .after-info h3 {
+    margin: 45px 0 50px 0;
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width:440px) {
+  .custom-shape-divider-top-1679023573 svg {
+    height: 50px;
+  }
+  #home-info h3 {
+    margin-top: 20px;
+    font-size: 24px;
+  }
+  .home-info-text p {
+    padding: 40px 25px;
+  }
+  .piechart {
+    flex-direction: column;
+    margin: 100px 0 0;
+  }
+  .piechart h5 {
+    margin: 0 0 30px 0;
+  }
+  .piechart img {
+    margin-top: 40px;
+  }
+  .flex-50 {
+    width: 90%;
+  }
 }

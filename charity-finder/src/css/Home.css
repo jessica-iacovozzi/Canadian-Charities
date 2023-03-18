@@ -23,6 +23,12 @@ html,body{
     display: flex;
     justify-content: space-evenly;
   }
+  .card-body {
+    transition: all .5s ease;
+  }
+  .card:hover > .card-body {
+    transform: scale(1.075);
+  }
 }
 
 @media screen and (max-width:1199px) {
@@ -65,6 +71,9 @@ html,body{
     margin-top: 20px;
     z-index: 1;
     position: absolute;
+  }
+  .card p {
+    font-size: 18px!important;
   }
 }
 
@@ -127,16 +136,8 @@ html,body{
   background-size: 100%;
 }
 
-.card-body {
-  transition: all .5s ease;
-}
-
-.card:hover > .card-body {
-  transform: scale(1.075);
-}
-
 .card p {
-  font-size: 18px;
+  font-size: 20px;
   display: flex;
   align-items: center;
   margin-top: 0;
@@ -180,4 +181,10 @@ html,body{
 
 .shape-fill-2 {
   fill: #F9F1FF;
+}
+
+.after-info h3 {
+  text-align: center;
+  margin: 50px 0 80px 0;
+  font-size: 40px;
 }
