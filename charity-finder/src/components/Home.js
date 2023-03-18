@@ -310,18 +310,12 @@ export function Home() {
                             <h5 className='card-subtile text-center h4 mb-4'>{charity.attributes.slogan}</h5>
                           </div>
                           <div>
-                            <p className='card-text'>{charity.attributes.city}</p>
-                            <p className='card-text'>{charity.attributes.sector} sector</p>
-                            <div className='d-flex align-items-center'>
-                              <p>Overall rating: {charity.attributes.rating}</p>
-                            </div>
-                            <div className='d-flex align-items-center'>
-                              <p>Results reporting grade: {charity.attributes.grade}</p>
-                            </div>
-                            <div className='d-flex align-items-center'>
-                              <p>Social impact rating: {charity.attributes.demonstrated_impact}</p>
-                            </div>
-                            <p className='card-text'>Cents to the cause: {charity.attributes.cents_to_cause_ratio}</p>
+                            <p>{charity.attributes.city}</p>
+                            <p>{charity.attributes.sector} Sector</p>
+                            <p>Overall rating: {charity.attributes.rating}</p>
+                            <p>Results reporting grade: {charity.attributes.grade}</p>
+                            <p>Social impact rating: {charity.attributes.demonstrated_impact}</p>
+                            <p>Cents to the cause: {charity.attributes.cents_to_cause_ratio}</p>
                           </div>
                         </div>
                     </div>
