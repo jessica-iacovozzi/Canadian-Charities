@@ -3,7 +3,6 @@
 .about-banner {
   min-height: 60vh;
   display: flex;
-  font-family: 'Lato', sans-serif;
   font-weight: bold;
   justify-content:space-around;
   flex-wrap: wrap;
@@ -15,7 +14,6 @@
 .banner-text {
   display: flex;
   flex-direction: column;
-  font-family: "Poppins", sans-serif;
 }
 
 .carousel {
@@ -43,13 +41,9 @@
   counter-increment: gallery-cell;
 }
 
-.carousel-cell h4 {
-  font-size: 18px;
-}
-
 .content {
   position: relative;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
 .content h2:nth-child(1) {
@@ -271,6 +265,9 @@
   }
   .carousel {
     padding: 40px 0;
+  }
+  .carousel-cell h4 {
+    font-size: 18px;
   }
   .content h2 {
     color: #fff;
