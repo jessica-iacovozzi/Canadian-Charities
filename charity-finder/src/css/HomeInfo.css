@@ -139,6 +139,12 @@ a {
   .home-info h3 {
     font-size: 35px;
   }
+  .custom-shape-divider-top-1679023573 {
+    margin-top: -0.8px;
+  }
+  #filter-section {
+    margin-top: -2px;
+  }
 }
 
 @media screen and (max-width:991px) {
@@ -164,6 +170,9 @@ a {
   }
   .bubbles {
     margin-top: 30px;
+  }
+  .custom-shape-divider-top-1679023573 {
+    margin-top: -0.2px;
   }
 }
 
@@ -201,5 +210,17 @@ a {
   .after-info h3 {
     font-size: 31px;
     margin-bottom: 30px;
+  }
+}
+
+@media screen and (width: 390px) {
+  #filter-section {
+    margin-top: 2px;
+  }
+}
+
+@media screen and (width: 820px) {
+  #filter-section {
+    margin-top: -3px;
   }
 }
