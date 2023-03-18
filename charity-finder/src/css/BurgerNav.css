@@ -16,7 +16,16 @@
 }
 
 .bm-burger-bars {
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.7);
+  height: 7%!important;
+}
+
+.bm-burger-bars:first-child {
+  top: 5%!important;
+}
+
+.bm-burger-bars:last-child {
+  top: 75%!important;
 }
 
 .bm-burger-bars-hover {
