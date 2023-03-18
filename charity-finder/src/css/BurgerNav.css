@@ -38,7 +38,7 @@
 .bm-menu-wrap {
   position: fixed;
   height: 100%;
-  width: 100%;
+  width: 100%!important;
 }
 
 .bm-menu {
