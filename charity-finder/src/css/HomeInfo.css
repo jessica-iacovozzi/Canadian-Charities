@@ -19,10 +19,11 @@
 }
 
 .home-info h3 {
-  font-size: 55px;
   color: rgba(0, 0, 0, 0.85);
   text-align: center;
   width: 100%;
+  position: absolute;
+  font-size: 45px;
 }
 
 .home-info h4 {
@@ -60,11 +61,6 @@
 
 .b-piechart a {
   color: #550092;
-}
-
-.b-piechart h3 {
-  position: absolute;
-  font-size: 45px;
 }
 
 .b-piechart h5 {
@@ -109,7 +105,7 @@ a {
     margin: auto;
   }
   .home-info img {
-    margin-top: 100px;
+    margin-top: 200px;
   }
   .home-info h3 {
     margin-top: 50px;
@@ -135,6 +131,7 @@ a {
   .piechart img {
     width: 75%;
     margin: auto;
+    margin-top: 250px;
   }
   .home-info h3 {
     font-size: 35px;
@@ -144,6 +141,9 @@ a {
   }
   #filter-section {
     margin-top: -2px;
+  }
+  .bubbles {
+    margin-top: 125px;
   }
 }
 
@@ -169,10 +169,13 @@ a {
     width: auto;
   }
   .bubbles {
-    margin-top: 30px;
+    margin-top: 100px;
   }
   .custom-shape-divider-top-1679023573 {
     margin-top: -0.2px;
+  }
+  .piechart img {
+    margin-top: 225px;
   }
 }
 
@@ -183,7 +186,6 @@ a {
   .home-info h3 {
     margin-top: 35px;
     font-size: 20px;
-    margin-bottom: 60px;
   }
   .home-info h4 {
     font-size: 20px;
@@ -202,10 +204,12 @@ a {
   }
   .piechart img {
     width: 90%;
+    margin-top: 125px;
   }
   .bubbles {
     flex-direction: column;
     align-items: center;
+    margin-top: 25px;
   }
   .after-info h3 {
     font-size: 31px;
