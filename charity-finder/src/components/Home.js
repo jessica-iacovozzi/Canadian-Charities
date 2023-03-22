@@ -12,6 +12,8 @@ import { useEffect, useState } from 'react';
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 import ReactPaginate from 'react-paginate';
 import Select from 'react-select';
+import "animate.css/animate.min.css";
+import { AnimationOnScroll } from 'react-animation-on-scroll';
 
 export const API_URL = 'https://canadian-charities.fly.dev/api/v1/charities'
 
@@ -222,103 +224,125 @@ export function Home() {
               <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill-2"></path>
             </svg>
           </div>
-          <h3>Search through 817 Canadian charities</h3>
+          <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true">
+            <h3>Search through 817 Canadian charities</h3>
+          </AnimationOnScroll>
             <div id='filter-bar'>
             {/* <SearchBar placeholder="Type a charity name..." data={attributes} setCharities={setCharities} setPageCount={setPageCount} /> */}
               <div className='row justify-content-center mt-4 mx-2 nop'>
                 <div className='col-2'>
-                  <h4 className='text-center order-title'>Search by name</h4>
-                  <Select options={charity_options}
-                          isSearchable
-                          className='dropdown mt-4 mb-2'
-                          onChange={handleCharityFilter}
-                          menuPortalTarget={document.body}
-                          styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
-                          inputId='charity'
-                          placeholder="Enter a charity name"
-                          value={{value:charityName, label:charityName}}
-                  />
+                  <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true">
+                    <h4 className='text-center order-title'>Search by name</h4>
+                  </AnimationOnScroll>
+                  <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true">
+                    <Select options={charity_options}
+                            isSearchable
+                            className='dropdown mt-4 mb-2'
+                            onChange={handleCharityFilter}
+                            menuPortalTarget={document.body}
+                            styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
+                            inputId='charity'
+                            placeholder="Enter a charity name"
+                            value={{value:charityName, label:charityName}}
+                    />
+                  </AnimationOnScroll>
                 </div>
               </div>
 
               <div className='row justify-content-center mt-4 mx-2 nop'>
                 <div className='col-2'>
-                  <h4 className='text-center order-title'>Filter by city</h4>
-                  <Select options={city_options}
-                          isSearchable
-                          className='dropdown mt-4 mb-2'
-                          onChange={handleCityFilter}
-                          menuPortalTarget={document.body}
-                          styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
-                          inputId='city'
-                          placeholder="Select a city"
-                          value={{value:city, label:city}}
-                  />
+                  <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true">
+                    <h4 className='text-center order-title'>Filter by city</h4>
+                  </AnimationOnScroll>
+                  <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true">
+                    <Select options={city_options}
+                            isSearchable
+                            className='dropdown mt-4 mb-2'
+                            onChange={handleCityFilter}
+                            menuPortalTarget={document.body}
+                            styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
+                            inputId='city'
+                            placeholder="Select a city"
+                            value={{value:city, label:city}}
+                    />
+                  </AnimationOnScroll>
                 </div>
               </div>
 
               <div className='row justify-content-center mt-4 mx-2 nop'>
                 <div className='col-2'>
-                  <h4 className='text-center order-title'>Filter by sector</h4>
-                  <Select options={sector_options}
-                          isSearchable
-                          className='dropdown mt-4 mb-2'
-                          onChange={handleSectorFilter}
-                          menuPortalTarget={document.body}
-                          styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
-                          inputId='sector'
-                          placeholder="Select a sector"
-                          value={{value:sector, label:sector}}
-                  />
+                  <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true">
+                    <h4 className='text-center order-title'>Filter by sector</h4>
+                  </AnimationOnScroll>
+                  <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true">
+                    <Select options={sector_options}
+                            isSearchable
+                            className='dropdown mt-4 mb-2'
+                            onChange={handleSectorFilter}
+                            menuPortalTarget={document.body}
+                            styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
+                            inputId='sector'
+                            placeholder="Select a sector"
+                            value={{value:sector, label:sector}}
+                    />
+                  </AnimationOnScroll>
                 </div>
               </div>
 
               <div className='row justify-content-center mt-4 mx-2 nop'>
                 <div className='col-2'>
-                  <h4 className='text-center order-title'>Sort by</h4>
-                  <Select options={sorting_options}
-                          isSearchable
-                          className='dropdown mt-4 mb-2'
-                          onChange={handleCharitySorting}
-                          menuPortalTarget={document.body}
-                          styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
-                          inputId='sorting'
-                          placeholder="Select a sorting method"
-                          value={{value:sortingMethod, label:sortingMethod}}
-                  />
+                  <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true">
+                    <h4 className='text-center order-title'>Sort by</h4>
+                  </AnimationOnScroll>
+                  <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true">
+                    <Select options={sorting_options}
+                            isSearchable
+                            className='dropdown mt-4 mb-2'
+                            onChange={handleCharitySorting}
+                            menuPortalTarget={document.body}
+                            styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
+                            inputId='sorting'
+                            placeholder="Select a sorting method"
+                            value={{value:sortingMethod, label:sortingMethod}}
+                    />
+                  </AnimationOnScroll>
                 </div>
               </div>
             </div>
 
             <div className='row justify-content-center mb-4 mx-2'>
               <div className='col-2'>
-              <button onClick={() => {resetCharities()}} type="button" className="btn btn-lg mt-4 mb-2 reset-btn">Reset</button>
+                <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true">
+                  <button onClick={() => {resetCharities()}} type="button" className="btn btn-lg mt-4 mb-2 reset-btn">Reset</button>
+                </AnimationOnScroll>
               </div>
             </div>
           <div className="container">
-            <div ref={listRef} id='charities' className='row d-flex justify-content-evenly mt-4'>
-              <ResultsCount city={city} sector={sector} charities={charities} charityName={charityName} attributes={attributes} />
+            <div ref={listRef} id='charities' className='row mt-4'>
+              <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true">
+                <ResultsCount city={city} sector={sector} charities={charities} charityName={charityName} attributes={attributes} />
+              </AnimationOnScroll>
               {charities.map((charity) => {
                 return (
-                  <div key={charity.id} className='col-12 col-lg-6 v my-3'>
-                    <div className='card shadow w-100 h-100 rounded-4'>
-                        <div className='card-body p-5 d-flex flex-column'>
-                          <div>
-                            <a href={`//${charity.attributes.website}`} rel="noreferrer" target="_blank" className='text-decoration-none'>
-                              <h5 className='card-title text-center h1'>{charity.attributes.name}</h5>
-                            </a>
-                            <h5 className='card-subtile text-center h4 mb-4'>{charity.attributes.slogan}</h5>
-                          </div>
-                          <div>
-                            <p>{charity.attributes.city}</p>
-                            <p>{charity.attributes.sector} Sector</p>
-                            <p>Overall rating: {charity.attributes.rating}</p>
-                            <p>Results reporting grade: {charity.attributes.grade}</p>
-                            <p>Social impact rating: {charity.attributes.demonstrated_impact}</p>
-                            <p>Cents to the cause: {charity.attributes.cents_to_cause_ratio}</p>
-                          </div>
+                  <div key={charity.id} className='col-12 col-lg-6 my-3'>
+                    <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true" style={{height: '100%'}}>
+                      <div className='card shadow rounded-4 card-body p-5 h-100'>
+                        <div>
+                          <a href={`//${charity.attributes.website}`} rel="noreferrer" target="_blank" className='text-decoration-none'>
+                            <h5 className='card-title text-center h1'>{charity.attributes.name}</h5>
+                          </a>
+                          <h5 className='card-subtile text-center h4 mb-4'>{charity.attributes.slogan}</h5>
                         </div>
-                    </div>
+                        <div>
+                          <p>{charity.attributes.city}</p>
+                          <p>{charity.attributes.sector} Sector</p>
+                          <p>Overall rating: {charity.attributes.rating}</p>
+                          <p>Results reporting grade: {charity.attributes.grade}</p>
+                          <p>Social impact rating: {charity.attributes.demonstrated_impact}</p>
+                          <p>Cents to the cause: {charity.attributes.cents_to_cause_ratio}</p>
+                        </div>
+                      </div>
+                    </AnimationOnScroll>
                   </div>
                 )
               })}
