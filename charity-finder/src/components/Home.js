@@ -187,7 +187,7 @@ export function Home() {
   })
 
   const setSortingMethods = () => {
-    if (charityName) {
+    if (charityName || charityNames.length === 1) {
       return []
     } else if(!city && !sector) {
       return ['Name', 'City', 'Sector', 'Rating']
@@ -318,7 +318,7 @@ export function Home() {
               </div>
             </div>
           <div className="container">
-            <div ref={listRef} id='charities' className='row mt-4'>
+            <div ref={listRef} id='charities' className='row justify-content-center mt-4'>
               <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true">
                 <ResultsCount city={city} sector={sector} charities={charities} charityName={charityName} attributes={attributes} />
               </AnimationOnScroll>
