@@ -39,10 +39,10 @@ function About() {
         <div>
           <Flickity className={'carousel'} options={flickityOptions} >
             <div className='carousel-cell'>
-              <h4>This ReactJS app communicates with an API that I created, which stores the charities' information scraped from charityintelligence.ca.</h4>
+              <h4>This is a React app that communicates with my public API, which lets you access the charities' information taken from charityintelligence.ca.</h4>
             </div>
             <div className='carousel-cell'>
-              <h4>Unfortunately, not all charities have the same degree of impact. That's why I decided to create this website.</h4>
+              <h4>Charity Intelligence Canada did all the research and ratings of the charities. I simply made the search/filtering proccess easier.</h4>
             </div>
             <div className='carousel-cell'>
               <h4>With the help of Charity Intelligence Canada, I was able to facilitate the process of finding trustworthy Canadian charities.</h4>
