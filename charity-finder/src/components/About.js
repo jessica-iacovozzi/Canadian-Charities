@@ -16,7 +16,7 @@ const flickityOptions = {
 
 function About() {
   return(
-    <div id="outer-container">
+    <div id="outer-container" className='about-bg'>
       <BurgerNav pageWrapId={'page-wrap'} outerContainerId={'outer-container'}/>
       <div id="page-wrap" className='content'>
         <Navbar />

@@ -1,4 +1,4 @@
-#outer-container {
+.contact-bg {
   background: linear-gradient(to top,rgba(227, 185, 236, 0.9) 0,rgba(246, 221, 255, 0.9) 40%,#F9F1FF 100%);
   min-height: 100vh;
 }

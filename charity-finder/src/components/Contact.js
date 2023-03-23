@@ -10,7 +10,7 @@ import { BiCoffeeTogo } from "react-icons/bi";
 
 function Contact() {
   return(
-    <div id="outer-container">
+    <div id="outer-container" className='contact-bg'>
       <BurgerNav pageWrapId={'page-wrap'} outerContainerId={'outer-container'}/>
       <div id="page-wrap">
         <Navbar />
