@@ -21,6 +21,7 @@
 .me-img {
   border-radius: 10%;
   box-shadow: #F9F1FF 10px -10px 0px -3px, #550092 10px -10px;
+  transition: all 1s;
 }
 
 .carousel {
@@ -76,7 +77,7 @@
 
 #hello-2 {
   animation-duration: 3s;
-  animation-delay: 1.25s;
+  animation-delay: 1.5s;
   animation-name: showup;
   animation-timing-function: cubic-bezier(.26,.53,.74,1.48);
   animation-fill-mode: backwards;
@@ -84,15 +85,15 @@
 
 #hello-3 {
   animation-duration: 3s;
-  animation-delay: 2.25s;
+  animation-delay: 2.75s;
   animation-name: showup;
   animation-timing-function: cubic-bezier(.26,.53,.74,1.48);
   animation-fill-mode: backwards;
 }
 
 #me {
-  animation-duration: 1.25s;
-  animation-delay: 1.25s;
+  animation-duration: 1s;
+  animation-delay: 3.5s;
   animation-name: slide;
   animation-timing-function: cubic-bezier(.26,.53,.74,1.48);
   animation-fill-mode: backwards;
@@ -156,11 +157,15 @@
     position: absolute;
     transform: translate(-550px, -160%);
   }
+  .me-img:hover {
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    transform: translate(350px, -10px);
+  }
   .me-img {
     height: 50vh;
     margin-top: 130px;
     position: absolute;
-    transform: translate(300px, 0);
+    transform: translate(300px, 20px);
   }
 
   @keyframes slide {
