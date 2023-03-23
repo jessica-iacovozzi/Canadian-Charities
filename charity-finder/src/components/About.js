@@ -5,7 +5,6 @@ import Footer from "./Footer";
 import '../css/Home.css';
 import "../css/About.css";
 import "../css/Flickity.css";
-import { Slide } from "react-awesome-reveal"
 import Flickity from 'react-flickity-component'
 
 const flickityOptions = {
@@ -21,34 +20,30 @@ function About() {
       <BurgerNav pageWrapId={'page-wrap'} outerContainerId={'outer-container'}/>
       <div id="page-wrap" className='content'>
         <Navbar />
-        <div className='about-slice'>
-          <div className="about-banner">
-            <div className='banner-text'>
-              <h4 id='hello-1'>Hello, my name is</h4>
-              <div id='hello-2' class="content">
-                <h2>Jessica</h2>
-                <h2>Jessica</h2>
-              </div>
-              <h3 id='hello-3'>And I'm a web developer</h3>
+        <div className="about-banner">
+          <div className='banner-text'>
+            <h4 className="line-1 anim-typewriter" id='hello-1'>Hello, my name is</h4>
+            <div id='hello-2' class="content">
+              <h2>Jessica</h2>
+              <h2>Jessica</h2>
             </div>
-            <Slide triggerOnce delay={1000}>
-              <img id='me' className='me-img' src={require('../media/me-frame-tape.png')} alt='Me' />
-            </Slide>
+            <h3 className="line-1 anim-typewriter" id='hello-3'>And I'm a web developer</h3>
           </div>
+          <img id='me' className='me-img' src={require('../media/me.png')} alt='Me' />
         </div>
         <div>
           <Flickity className={'carousel'} options={flickityOptions} >
             <div className='carousel-cell'>
-              <h4>This is a React app that communicates with my public API, which lets you access the charities' information taken from charityintelligence.ca.</h4>
+              <h4>This React app communicates with my API, which gives access to the charities' information taken from charityintelligence.ca.</h4>
             </div>
             <div className='carousel-cell'>
-              <h4>Charity Intelligence Canada did all the research and ratings of the charities. I simply made the search/filtering proccess easier.</h4>
+              <h4>Charity Intelligence Canada did all the research and ratings of the charities.</h4>
             </div>
             <div className='carousel-cell'>
-              <h4>With the help of Charity Intelligence Canada, I was able to facilitate the process of finding trustworthy Canadian charities.</h4>
+              <h4>With their help, I was able to facilitate the process of finding trustworthy Canadian charities.</h4>
             </div>
           </Flickity>
-        <Footer/>
+          <Footer/>
         </div>
       </div>
     </div>

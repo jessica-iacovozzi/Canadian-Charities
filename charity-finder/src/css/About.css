@@ -1,8 +1,7 @@
 .about-banner {
   min-height: 60vh;
   display: flex;
-  font-weight: bold;
-  justify-content:space-around;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   align-content: center;
   align-items: center;
@@ -12,6 +11,11 @@
 .banner-text {
   display: flex;
   flex-direction: column;
+}
+
+.me-img {
+  border-radius: 10%;
+  box-shadow: #F9F1FF 10px -10px 0px -3px, #550092 10px -10px;
 }
 
 .carousel {
@@ -75,15 +79,15 @@
 
 #hello-3 {
   animation-duration: 3s;
-  animation-delay: 2.5s;
+  animation-delay: 2.25s;
   animation-name: showup;
   animation-timing-function: cubic-bezier(.26,.53,.74,1.48);
   animation-fill-mode: backwards;
 }
 
 #me {
-  animation-duration: 1s;
-  animation-delay: 3.5s;
+  animation-duration: 1.25s;
+  animation-delay: 1.25s;
   animation-name: slide;
   animation-timing-function: cubic-bezier(.26,.53,.74,1.48);
   animation-fill-mode: backwards;
@@ -125,7 +129,7 @@
     }
 
 @media screen and (min-width:1200px) {
-  .about-slice {
+  .about-banner {
     padding: 0;
   }
   .carousel {
@@ -135,38 +139,39 @@
     color: #fff;
     font-size: 7em;
     position: absolute;
-    transform: translate(-59%, -6%);
+    transform: translate(-550px, -6%);
   }
   .banner-text h3 {
     font-size: 40px;
     position: absolute;
-    transform: translate(-50%, 280%);
+    transform: translate(-550px, 280%);
   }
   .banner-text h4 {
     font-size: 30px;
     position: absolute;
-    transform: translate(-93%, -160%);
+    transform: translate(-550px, -160%);
   }
   .me-img {
+    height: 50vh;
+    margin-top: 130px;
     position: absolute;
-    transform: translate(-50%, -43%);
-    height: 60vh;
-    margin-top: 20px;
+    transform: translate(300px, 0);
   }
+
   @keyframes slide {
     0% {
       opacity: 0;
-      transform: translate(50%, -43%);
+      transform: translate(300px, 100%);
     }
     100% {
       opacity: 1;
-      transform: translate(-50%, -43%);
+      transform: translate(300px, 0);
     }
   }
 }
 
 @media screen and (max-width:1199px) {
-  .about-slice {
+  .about-banner {
     padding: 50px;
   }
   .carousel {
@@ -176,32 +181,32 @@
     color: #fff;
     font-size: 7em;
     position: absolute;
-    transform: translate(-53%, -43%);
+    transform: translate(-450px, -43%);
   }
   .banner-text h3 {
     font-size: 40px;
     position: absolute;
-    transform: translate(-45%, 190%);
+    transform: translate(-450px, 190%);
   }
   .banner-text h4 {
     font-size: 30px;
     position: absolute;
-    transform: translate(-85%, -300%);
+    transform: translate(-450px, -300%);
   }
   .me-img {
-    width: 375px;
-    margin-top: 20px;
+    width: 300px;
+    margin-top: 60px;
     position: absolute;
-    transform: translate(-50%, -54%);
+    transform: translate(250px, 0);
   }
   @keyframes slide {
     0% {
       opacity: 0;
-      transform: translate(50%, -54%);
+      transform: translate(250px, 100%);
     }
     100% {
       opacity: 1;
-      transform: translate(-50%, -54%);
+      transform: translate(250px, 0);
     }
   }
 }
@@ -226,32 +231,32 @@
     color: #fff;
     font-size: 6em;
     position: absolute;
-    transform: translate(-53%, -43%);
+    transform: translate(-325px, -43%);
   }
   .banner-text h3 {
     font-size: 28px;
     position: absolute;
-    transform: translate(-49%, 190%);
+    transform: translate(-325px, 190%);
   }
   .banner-text h4 {
     font-size: 20px;
     position: absolute;
-    transform: translate(-95%, -300%);
+    transform: translate(-325px, -300%);
   }
   .me-img {
-    width: 275px;
-    margin-top: 20px;
+    width: 225px;
+    margin-top: 25px;
     position: absolute;
-    transform: translate(-34%, -54%);
+    transform: translate(200px, 0);
   }
   @keyframes slide {
     0% {
       opacity: 0;
-      transform: translate(34%, -54%);
+      transform: translate(200px, 100%);
     }
     100% {
       opacity: 1;
-      transform: translate(-34%, -54%);
+      transform: translate(200px, 0);
     }
   }
 }
@@ -288,19 +293,6 @@
     transform: translate(-50%, -250%);
   }
   .me-img {
-    width: 275px;
-    margin-top: 20px;
-    position: absolute;
-    transform: translate(-50%, -65%);
-  }
-  @keyframes slide {
-    0% {
-      opacity: 0;
-      transform: translate(50%, -65%);
-    }
-    100% {
-      opacity: 1;
-      transform: translate(-50%, -65%);
-    }
+    display: none;
   }
 }

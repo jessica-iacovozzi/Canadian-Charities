@@ -1,3 +1,8 @@
+#outer-container {
+  background: linear-gradient(to top,rgba(227, 185, 236, 0.9) 0,rgba(246, 221, 255, 0.9) 40%,#F9F1FF 100%);
+  min-height: 100vh;
+}
+
 .contact-banner {
   display: flex;
   justify-content: center;
@@ -126,47 +131,6 @@
   text-align: center;
 }
 
-.links, #link-1, #link-2, #link-3, #link-4, #link-5, #link-6 {
-  animation-duration: 1s;
-  animation-name: slidein;
-  animation-fill-mode: backwards;
-}
-
-.links, #link-1 {
-  animation-delay: 2s;
-}
-
-#link-2 {
-  animation-delay: 2.25s;
-}
-
-#link-3 {
-  animation-delay: 2.5s;
-}
-
-#link-4 {
-  animation-delay: 2.75s;
-}
-
-#link-5 {
-  animation-delay: 3s;
-}
-
-#link-6 {
-  animation-delay: 3.25s;
-}
-
-@keyframes slidein {
-  0% {
-    opacity: 0;
-    transform: translate(0, 100%);
-  }
-  100% {
-    opacity: 1;
-    transform: translate(0, 0);
-  }
-}
-
 @media screen and (min-width:1200px) {
   .contact-banner {
     font-size: 70px;
@@ -197,6 +161,28 @@
     color: #550092;
   }
 }
+
+@media screen and (min-width:992px) {
+  #link-1 {
+    animation-name: top-left;
+  }
+  #link-2 {
+    animation-name: top;
+  }
+  #link-3 {
+    animation-name: top-right;
+  }
+  #link-4 {
+    animation-name: bottom-left;
+  }
+  #link-5 {
+    animation-name: bottom;
+  }
+  #link-6 {
+    animation-name: bottom-right;
+  }
+}
+
 @media screen and (max-width: 991px) {
   .contact-banner {
     font-size: 50px;
@@ -204,6 +190,24 @@
   }
   .col {
     flex: 50%;
+  }
+  #link-1 {
+    animation-name: top-left;
+  }
+  #link-2 {
+    animation-name: top-right;
+  }
+  #link-3 {
+    animation-name: left;
+  }
+  #link-4 {
+    animation-name: right;
+  }
+  #link-5 {
+    animation-name: bottom-left;
+  }
+  #link-6 {
+    animation-name: bottom-right;
   }
 }
 
@@ -226,5 +230,112 @@
   .links h4 {
     text-align: center;
     font-size: 15px;
+  }
+}
+
+.links, #link-1, #link-2, #link-3, #link-4, #link-5, #link-6 {
+  animation-duration: 1.25s;
+  animation-delay: 1.75s;
+  animation-fill-mode: backwards;
+}
+
+.links {
+  animation-name: fade;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes top-left {
+  0% {
+    opacity: 0;
+    transform: translate(-100%, -100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes top {
+  0% {
+    opacity: 0;
+    transform: translate(0, -100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes top-right {
+  0% {
+    opacity: 0;
+    transform: translate(100%, -100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes bottom-left {
+  0% {
+    opacity: 0;
+    transform: translate(-100%, 100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes bottom {
+  0% {
+    opacity: 0;
+    transform: translate(0, 100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes bottom-right {
+  0% {
+    opacity: 0;
+    transform: translate(100%, 100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes left {
+  0% {
+    opacity: 0;
+    transform: translate(-100%, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes right {
+  0% {
+    opacity: 0;
+    transform: translate(100%, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
   }
 }

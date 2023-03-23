@@ -42,6 +42,7 @@ export function Home() {
       }
 
       setAttributes(results);
+      console.log(results[0])
     };
     getAttributes();
 
@@ -313,7 +314,7 @@ export function Home() {
             <div className='row justify-content-center mb-4 mx-2'>
               <div className='col-2'>
                 <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true">
-                  <button onClick={() => {resetCharities()}} type="button" className="btn btn-lg mt-4 mb-2 reset-btn">Reset</button>
+                  <button onClick={() => {resetCharities()}} type="button" className="btn btn-lg mt-4 mb-2 reset-btn">Clear filters</button>
                 </AnimationOnScroll>
               </div>
             </div>
@@ -334,6 +335,7 @@ export function Home() {
                           <h5 className='card-subtile text-center h4 mb-4'>{charity.attributes.slogan}</h5>
                         </div>
                         <div>
+                          <p>Registration number: {charity.attributes.registration_number}</p>
                           <p>{charity.attributes.city}</p>
                           <p>{charity.attributes.sector} Sector</p>
                           <p>Overall rating: {charity.attributes.rating}</p>

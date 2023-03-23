@@ -38,18 +38,16 @@
   cursor: grabbing;
 }
 
-/* ---- flickity-button ---- */
-
 .flickity-button {
   position: absolute;
-  background: hsla(0, 0%, 100%, 0.75);
+  background: transparent;
   border: none;
   color: #333;
 }
 
 .flickity-button:hover {
-  background: white;
   cursor: pointer;
+  color: #333;
 }
 
 .flickity-button:focus {
@@ -64,7 +62,6 @@
 .flickity-button:disabled {
   opacity: 0.3;
   cursor: auto;
-  /* prevent disabled button from capturing pointer up event. #716 */
   pointer-events: none;
 }
 
@@ -77,7 +74,6 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  /* vertically center */
   transform: translateY(-50%);
 }
 
