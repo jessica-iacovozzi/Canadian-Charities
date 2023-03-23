@@ -53,3 +53,5 @@ end
 gem "dockerfile-rails", "~> 1.1"
 
 gem "redis", "~> 5.0"
+
+gem "rack-attack"

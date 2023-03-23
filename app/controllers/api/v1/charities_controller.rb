@@ -28,10 +28,15 @@ module Api
 
         sort_functions = {
           '-name' => -> { scope.order(name: :desc) },
+          '-Name' => -> { scope.order(name: :desc) },
           '-city' => -> { scope.order(city: :desc) },
+          '-City' => -> { scope.order(city: :desc) },
           '-sector' => -> { scope.order(sector: :desc) },
+          '-Sector' => -> { scope.order(sector: :desc) },
           '-rating' => -> { scope.order(rating: :asc).where.not(rating: 'NR') },
+          '-Rating' => -> { scope.order(rating: :asc).where.not(rating: 'NR') },
           'rating' => -> { scope.order(rating: :desc).where.not(rating: 'NR') },
+          'Rating' => -> { scope.order(rating: :desc).where.not(rating: 'NR') },
           '-website' => -> { scope.order(website: :desc) },
           '-slogan' => -> { scope.order(slogan: :desc) },
           'grade' => lambda {

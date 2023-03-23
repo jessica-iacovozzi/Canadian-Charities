@@ -82,5 +82,5 @@ test:
 production:
   <<: *default
   database: Canadian_Charities_API_production
-  username: Canadian_Charities_API
+  username: postgres
   password: <%= ENV["CANADIAN_CHARITIES_API_DATABASE_PASSWORD"] %>
