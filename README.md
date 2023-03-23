@@ -224,7 +224,7 @@ GET https://canadian-charities.fly.dev/api/v1/charities?city=montreal&sort=ratin
 
 # 3. Pagination
 
-There is a limit of `20` objects per page.
+There is a limit of `20` objects per `page`.
 To get results from the next page, you must specify the page number.
 
 Example request:
