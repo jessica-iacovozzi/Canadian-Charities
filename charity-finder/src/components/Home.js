@@ -335,7 +335,6 @@ export function Home() {
                           <h5 className='card-subtile text-center h4 mb-4'>{charity.attributes.slogan}</h5>
                         </div>
                         <div>
-                          <p>Registration number: {charity.attributes.registration_number}</p>
                           <p>{charity.attributes.city}</p>
                           <p>{charity.attributes.sector} Sector</p>
                           <p>Overall rating: {charity.attributes.rating}</p>
