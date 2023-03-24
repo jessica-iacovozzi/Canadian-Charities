@@ -109,7 +109,6 @@
   display: flex;
   justify-content: center;
   position: relative;
-  margin: auto;
   height: 1em;
   font-weight: 800;
   transition: all 0.5s;
@@ -144,8 +143,6 @@
 }
 
 .icon {
-  font-size: 8vh;
-  margin: 20px;
   color: #550092;
   transition: all .3s ease-in-out;
 }
