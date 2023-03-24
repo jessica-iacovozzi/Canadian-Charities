@@ -77,7 +77,7 @@
 
 #hello-2 {
   animation-duration: 3s;
-  animation-delay: 1.5s;
+  animation-delay: 1.25s;
   animation-name: showup;
   animation-timing-function: cubic-bezier(.26,.53,.74,1.48);
   animation-fill-mode: backwards;
@@ -85,7 +85,7 @@
 
 #hello-3 {
   animation-duration: 3s;
-  animation-delay: 2.75s;
+  animation-delay: 2.5s;
   animation-name: showup;
   animation-timing-function: cubic-bezier(.26,.53,.74,1.48);
   animation-fill-mode: backwards;
@@ -93,7 +93,7 @@
 
 #me {
   animation-duration: 1s;
-  animation-delay: 3.5s;
+  animation-delay: 3.25s;
   animation-name: slide;
   animation-timing-function: cubic-bezier(.26,.53,.74,1.48);
   animation-fill-mode: backwards;

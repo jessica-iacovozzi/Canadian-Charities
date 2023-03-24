@@ -1,140 +1,7 @@
-.contact-bg {
-  background: linear-gradient(to top,rgba(227, 185, 236, 0.9) 0,rgba(246, 221, 255, 0.9) 40%,#F9F1FF 100%);
-  min-height: 100vh;
-}
-
-.contact-banner {
-  display: flex;
-  justify-content: center;
-  position: relative;
-  margin: auto;
-  height: 1em;
-  font-weight: 800;
-  transition: all 0.5s;
-  color: transparent;
-  letter-spacing: -0.02em;
-  line-height: 1.03em;
-  text-transform: uppercase;
-}
-
-.contact-banner > div {
-  position: absolute;
-  color: #550092;
-  pointer-events: none;
-}
-
-.contact-banner > div:nth-child(1) {
-  -webkit-mask-image: linear-gradient(black 25%, transparent 25%);
-  mask-image: linear-gradient(black 25%, transparent 25%);
-  animation: deconstructed1 2s;
-}
-
-.contact-banner > div:nth-child(2) {
-  -webkit-mask-image: linear-gradient(transparent 25%, black 25%, black 50%, transparent 50%);
-  mask-image: linear-gradient(transparent 25%, black 25%, black 50%, transparent 50%);
-  animation: deconstructed2 2s;
-}
-
-.contact-banner > div:nth-child(3) {
-   -webkit-mask-image: linear-gradient(transparent 50%, black 50%, black 75%, transparent 75%);
-  mask-image: linear-gradient(transparent 50%, black 50%, black 75%, transparent 75%);
-  animation: deconstructed3 2s;
-}
-
-.contact-banner > div:nth-child(4) {
-   -webkit-mask-image: linear-gradient(transparent 75%, black 75%);
-  mask-image: linear-gradient(transparent 75%, black 75%);
-  animation: deconstructed4 2s;
-}
-
-@keyframes deconstructed1 {
-  0% {
-    transform: translateX(100%);
-  }
-  40% {
-    transform: translateX(-25%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-}
-
-@keyframes deconstructed2 {
-  0% {
-    transform: translateX(100%);
-  }
-  50% {
-    transform: translateX(-25%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-}
-
-@keyframes deconstructed3 {
-  0% {
-    transform: translateX(100%);
-  }
-  60% {
-    transform: translateX(-25%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-}
-
-@keyframes deconstructed4 {
-  0% {
-    transform: translateX(100%);
-  }
-  70% {
-    transform: translateX(-25%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-}
-
-.contact-banner h1:hover {
-  -webkit-text-stroke: 2px black;
-  color: transparent;
-}
-
-.row {
-  display: flex;
-  padding-bottom: 3rem;
-}
-
-.icon {
-  font-size: 10vh;
-  margin: 20px;
-  color: #550092;
-  transition: all .3s ease-in-out;
-}
-
-.icon:hover {
-  transform: scale(1.2);
-}
-
-.links {
-  background-color: transparent;
-  backdrop-filter: blur(10px);
-  color: #550092;
-  border-radius: 20px;
-  padding: 60px 20px;
-  margin: 70px 0;
-  width: 70%;
-  box-shadow: 2px 2px 4px 3px rgba(85, 0, 146, 0.2);
-}
-
-.links h4 {
-  text-align: center;
-}
-
 @media screen and (min-width:1200px) {
   .contact-banner {
-    font-size: 70px;
-    margin-top: 50px;
+    font-size: 60px;
+    margin-top: 30px;
   }
   .links {
     width: 60%;
@@ -233,9 +100,93 @@
   }
 }
 
+.contact-bg {
+  background: linear-gradient(to top,rgba(227, 185, 236, 0.9) 0,rgba(246, 221, 255, 0.9) 40%,#F9F1FF 100%);
+  min-height: 100vh;
+}
+
+.contact-banner {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin: auto;
+  height: 1em;
+  font-weight: 800;
+  transition: all 0.5s;
+  color: transparent;
+  letter-spacing: -0.02em;
+  line-height: 1.03em;
+  text-transform: uppercase;
+}
+
+.contact-banner > h1 {
+  position: absolute;
+  color: #550092;
+  pointer-events: none;
+}
+
+.line-1 {
+  position: relative;
+  top: 50%;
+  width: 24em;
+  margin: 0 auto;
+  border-right: 2px solid rgba(255,255,255,.75);
+  text-align: center;
+  white-space: nowrap;
+  font-size: 80%;
+  overflow: hidden;
+  transform: translateY(-50%);
+}
+
+.row {
+  display: flex;
+  padding-bottom: 3rem;
+}
+
+.icon {
+  font-size: 8vh;
+  margin: 20px;
+  color: #550092;
+  transition: all .3s ease-in-out;
+}
+
+.icon:hover {
+  transform: scale(1.2);
+}
+
+.anim-typewriter{
+  animation: typewriter 1.25s steps(17) 1s 1 normal both,
+             blinkTextCursor 1s steps(17) infinite normal;
+}
+
+@keyframes typewriter{
+  from{width: 0;}
+  to{width: 10em;}
+}
+
+@keyframes blinkTextCursor{
+  from{border-right-color: #550092;}
+  to{border-right-color: transparent;}
+}
+
+.links {
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+  color: #550092;
+  border-radius: 20px;
+  padding: 60px 20px;
+  margin: 70px 0;
+  width: 70%;
+  box-shadow: 2px 2px 4px 3px rgba(85, 0, 146, 0.2);
+}
+
+.links h4 {
+  text-align: center;
+}
+
 .links, #link-1, #link-2, #link-3, #link-4, #link-5, #link-6 {
   animation-duration: 1.25s;
-  animation-delay: 1.75s;
+  animation-delay: 3s;
   animation-fill-mode: backwards;
 }
 

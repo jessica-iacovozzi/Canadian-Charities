@@ -22,12 +22,12 @@ function About() {
         <Navbar />
         <div className="about-banner">
           <div className='banner-text'>
-            <h4 className="line-1 anim-typewriter" id='hello-1'>Hello, my name is</h4>
+            <h4 id='hello-1'>Hello, my name is</h4>
             <div id='hello-2' class="content">
               <h2>Jessica</h2>
               <h2>Jessica</h2>
             </div>
-            <h3 className="line-1 anim-typewriter" id='hello-3'>And I'm a web developer</h3>
+            <h3 id='hello-3'>And I'm a web developer</h3>
           </div>
           <img id='me' className='me-img' src={require('../media/me.png')} alt='Me' />
         </div>

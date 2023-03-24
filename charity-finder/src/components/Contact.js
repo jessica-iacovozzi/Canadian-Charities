@@ -15,11 +15,7 @@ function Contact() {
       <div id="page-wrap">
         <Navbar />
         <div className='contact-banner'>
-          Let's get in touch
-          <div>Let's get in touch</div>
-          <div>Let's get in touch</div>
-          <div>Let's get in touch</div>
-          <div>Let's get in touch</div>
+          <h1 className="line-1 anim-typewriter">Let's get in touch</h1>
         </div>
         <div className='row links mx-auto'>
           <div id='link-1' className="col d-flex flex-wrap flex-column align-items-center align-content-center pt-4">
