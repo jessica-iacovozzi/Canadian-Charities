@@ -189,3 +189,13 @@ html,body{
   margin: 50px 0 80px 0;
   font-size: 40px;
 }
+
+.donate-btn {
+  padding: 10px;
+  background-color: rgba(85, 0, 146, 0.8);
+  color: white!important;
+  font-size: 22px;
+  text-align: center;
+  border-radius: 12px;
+  width: -webkit-fill-available;
+}

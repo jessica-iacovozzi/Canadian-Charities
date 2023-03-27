@@ -327,7 +327,7 @@ export function Home() {
                 return (
                   <div key={charity.id} className='col-12 col-lg-6 my-3'>
                     <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce="true" style={{height: '100%'}}>
-                      <div className='card shadow rounded-4 card-body p-5 h-100'>
+                      <div className='card shadow rounded-4 card-body p-5 h-100 d-flex flex-column justify-content-between'>
                         <div>
                           <a href={`//${charity.attributes.website}`} rel="noreferrer" target="_blank" className='text-decoration-none'>
                             <h5 className='card-title text-center h1'>{charity.attributes.name}</h5>
@@ -342,6 +342,9 @@ export function Home() {
                           <p>Social impact rating: {charity.attributes.demonstrated_impact}</p>
                           <p>Cents to the cause: {charity.attributes.cents_to_cause_ratio}</p>
                         </div>
+                        <a href={`//${charity.attributes.website}`} rel="noreferrer" target="_blank" className='text-decoration-none donate-btn mt-3'>
+                          Donate
+                        </a>
                       </div>
                     </AnimationOnScroll>
                   </div>

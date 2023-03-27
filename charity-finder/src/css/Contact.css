@@ -9,6 +9,10 @@
   .col {
     flex: 33.33%;
   }
+  .icon {
+    font-size: 10vh;
+    margin: 15px;
+  }
 }
 
 @media screen and (max-width: 1199px) {
@@ -23,7 +27,7 @@
     flex: 33.33%;
   }
   .icon {
-    font-size: 6vh;
+    font-size: 9vh;
     margin: 15px;
     color: #550092;
   }
@@ -90,9 +94,8 @@
     flex: 50%;
   }
   .icon {
-    font-size: 5vh;
+    font-size: 7vh;
     margin: 15px;
-    color: #550092;
   }
   .links h4 {
     text-align: center;
